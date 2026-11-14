@@ -1,0 +1,799 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Brussels — A Walk Through the Heart of the City</title>
+<meta name="description" content="A curated Brussels walking tour from Brussels-Central through Putterie, Grand-Place, Bourse and De Brouckère, by metro to Montgomery and the Cinquantenaire, through the Royal Quarter, Mont des Arts and the Galeries Royales Saint-Hubert, ending with Manneken-Pis and a seafood stop.">
+<style>
+  /* Modern CSS: container queries + :has() + scroll-driven animation where supported. */
+  :root{
+    --ink:#17202a;
+    --muted:#68717c;
+    --paper:#fbfaf7;
+    --card:#ffffff;
+    --accent:#a3262b;
+    --accent-2:#d7a84b;
+    --line:#e6e1d7;
+    --shadow:0 18px 50px rgba(22,28,35,.08);
+    --radius:22px;
+  }
+
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0;
+    color:var(--ink);
+    background:
+      radial-gradient(circle at 15% 0%, rgba(215,168,75,.12), transparent 28rem),
+      radial-gradient(circle at 90% 15%, rgba(163,38,43,.08), transparent 26rem),
+      var(--paper);
+    font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    line-height:1.65;
+  }
+
+  a{color:inherit}
+  .wrap{width:min(1080px, calc(100% - 32px)); margin-inline:auto}
+
+  header{
+    min-height:68vh;
+    display:grid;
+    place-items:center;
+    position:relative;
+    overflow:hidden;
+    padding:72px 0 90px;
+  }
+
+  header::before{
+    content:"BRUXELLES";
+    position:absolute;
+    inset:auto -3vw 1vh auto;
+    font-size:clamp(7rem,22vw,18rem);
+    font-weight:900;
+    letter-spacing:-.08em;
+    line-height:.75;
+    color:rgba(23,32,42,.035);
+    pointer-events:none;
+  }
+
+  .eyebrow{
+    display:inline-flex;
+    gap:8px;
+    align-items:center;
+    padding:7px 12px;
+    border:1px solid var(--line);
+    border-radius:999px;
+    background:rgba(255,255,255,.72);
+    font-size:.76rem;
+    font-weight:800;
+    letter-spacing:.12em;
+    text-transform:uppercase;
+  }
+
+  h1{
+    max-width:900px;
+    margin:22px 0 18px;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size:clamp(3rem,8vw,6.8rem);
+    line-height:.94;
+    letter-spacing:-.055em;
+  }
+
+  .hero-copy{
+    max-width:720px;
+    color:#4d5761;
+    font-size:clamp(1.05rem,2vw,1.28rem);
+  }
+
+  .quick{
+    margin-top:28px;
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+  }
+  .pill{
+    border:1px solid var(--line);
+    border-radius:999px;
+    padding:9px 14px;
+    background:#fff;
+    font-size:.9rem;
+    box-shadow:0 8px 25px rgba(0,0,0,.04);
+  }
+
+  main{padding-bottom:80px}
+  .intro{
+    display:grid;
+    grid-template-columns:1.1fr .9fr;
+    gap:24px;
+    margin-bottom:38px;
+  }
+
+  .intro-card,.tip-card{
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    padding:26px;
+    box-shadow:var(--shadow);
+  }
+  .intro-card h2,.tip-card h2{
+    margin:0 0 10px;
+    font-family:Georgia,"Times New Roman",serif;
+    font-size:1.65rem;
+  }
+  .tip-card{
+    background:linear-gradient(145deg,#fff,#f4efe5);
+  }
+
+  .route{
+    position:relative;
+    container-type:inline-size;
+  }
+  .route::before{
+    content:"";
+    position:absolute;
+    left:25px;
+    top:24px;
+    bottom:24px;
+    width:2px;
+    background:linear-gradient(var(--accent-2), var(--accent), var(--accent-2));
+    opacity:.35;
+  }
+
+  .stop{
+    position:relative;
+    display:grid;
+    grid-template-columns:52px 1fr;
+    gap:18px;
+    margin:0 0 18px;
+  }
+
+  .num{
+    width:52px;
+    height:52px;
+    display:grid;
+    place-items:center;
+    border-radius:50%;
+    background:var(--ink);
+    color:#fff;
+    font-weight:900;
+    border:5px solid var(--paper);
+    z-index:2;
+    box-shadow:0 0 0 1px var(--line);
+  }
+
+  .stop-card{
+    background:rgba(255,255,255,.9);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    padding:26px 28px;
+    box-shadow:0 10px 35px rgba(22,28,35,.055);
+    transition:transform .25s ease, box-shadow .25s ease;
+  }
+  .stop-card:hover{
+    transform:translateY(-3px);
+    box-shadow:0 20px 48px rgba(22,28,35,.10);
+  }
+
+  .kicker{
+    color:var(--accent);
+    font-size:.76rem;
+    font-weight:900;
+    letter-spacing:.12em;
+    text-transform:uppercase;
+  }
+  h3{
+    margin:5px 0 10px;
+    font-family:Georgia,"Times New Roman",serif;
+    font-size:clamp(1.55rem,4vw,2.25rem);
+    line-height:1.05;
+  }
+  p{margin:8px 0;color:#4f5963}
+  .stop-card ol,.stop-card ul{margin:10px 0;padding-left:22px;color:#4f5963}
+  .stop-card li{margin:4px 0}
+  .route-link{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    margin-top:15px;
+    padding:10px 14px;
+    border-radius:12px;
+    background:#f4f1ea;
+    color:var(--ink);
+    text-decoration:none;
+    font-weight:800;
+    border:1px solid #e7e0d3;
+  }
+  .route-link:hover{background:#ece7dc}
+  .note{
+    margin-top:15px;
+    padding:13px 15px;
+    border-left:3px solid var(--accent-2);
+    background:#faf7f0;
+    border-radius:0 12px 12px 0;
+    color:#555f68;
+    font-size:.94rem;
+  }
+
+  .transport{
+    margin:18px 0 28px 70px;
+    padding:16px 18px;
+    border:1px dashed #cfc7b8;
+    border-radius:15px;
+    background:#fffdf8;
+    font-size:.95rem;
+  }
+  .transport strong{color:var(--accent)}
+
+  footer{
+    margin-top:45px;
+    padding:30px 0 60px;
+    border-top:1px solid var(--line);
+    color:var(--muted);
+    font-size:.9rem;
+  }
+  footer a{color:var(--accent)}
+  .sources{display:flex;flex-wrap:wrap;gap:12px 18px}
+
+  @container (max-width: 720px){
+    .stop-card{padding:22px}
+  }
+
+  @media (max-width:760px){
+    .intro{grid-template-columns:1fr}
+    header{min-height:62vh}
+    .route::before{left:20px}
+    .stop{grid-template-columns:42px 1fr;gap:13px}
+    .num{width:42px;height:42px}
+    .transport{margin-left:55px}
+  }
+
+  @media (prefers-reduced-motion:no-preference){
+    @supports (animation-timeline: view()){
+      .stop-card{
+        animation:rise linear both;
+        animation-timeline:view();
+        animation-range:entry 0% cover 28%;
+      }
+      @keyframes rise{
+        from{opacity:.55;transform:translateY(24px)}
+        to{opacity:1;transform:translateY(0)}
+      }
+    }
+  }
+
+  @supports selector(.route:has(.stop-card)){
+    .route:has(.stop-card:hover) .stop-card:not(:hover){opacity:.72}
+  }
+</style>
+</head>
+
+<body>
+<header>
+  <div class="wrap">
+    <div class="eyebrow">Brussels · Walking + Metro · History + Architecture + Food</div>
+    <h1>A walk through the heart of Brussels.</h1>
+    <p class="hero-copy">
+      A deliberately paced route that starts at Brussels-Central, follows the traces of the vanished Putterie quarter,
+      opens onto the Grand-Place and Bourse, then jumps by metro to Montgomery and the Cinquantenaire, through the
+      European Quarter, Avenue Louise, the Royal Palace and Mont des Arts, before returning to the historic centre
+      for Manneken-Pis and a seafood finish. Along the way, keep an eye out for Brussels' own architectural signature: the city that
+      gave the world <strong>Art Nouveau</strong>, through Victor Horta, before Horta himself helped usher in
+      <strong>Art Deco</strong> a generation later.
+    </p>
+    <div class="quick">
+      <span class="pill">Start: Brussels-Central</span>
+      <span class="pill">Walk → Metro → Walk</span>
+      <span class="pill">Watch for: Horta · Art Nouveau · Art Deco</span>
+      <span class="pill">Finish: seafood & drinks</span>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+  <section class="intro">
+    <div class="intro-card">
+      <h2>How to use the tour</h2>
+      <p>
+        Each stage has a direct Google Maps link. Open it when you are ready to move to the next stop.
+        The route is intentionally more than a checklist: the short historical notes are there to make the buildings
+        and streets mean something as you walk through them.
+      </p>
+    </div>
+    <div class="tip-card">
+      <h2>The rhythm</h2>
+      <p><strong>Historic centre → Grand-Place → Bourse → De Brouckère → Metro → European Quarter → Place du
+        Luxembourg → Avenue Louise → Royal Palace → Mont des Arts → Galeries St-Hubert → back to Grand-Place →
+        Manneken-Pis → food.</strong></p>
+      <p>Take your time around the Grand-Place, the Cinquantenaire and Mont des Arts rather than treating them as
+        quick photo stops.</p>
+      <p><strong>Architecture thread:</strong> Victor Horta bookends this walk — his Art Deco Brussels-Central
+        Station at the start, his Art Nouveau townhouses off Avenue Louise midway, and his own Art Deco Bozar
+        near the end.</p>
+    </div>
+  </section>
+
+  <section class="route">
+
+    <article class="stop">
+      <div class="num">1</div>
+      <div class="stop-card">
+        <div class="kicker">Start · Horta</div>
+        <h3>Arrive at Brussels-Central</h3>
+        <p>
+          Begin at <strong>Brussels-Central Station</strong>, right in the middle of the historic city.
+          From here, the Grand-Place, the Royal Quarter and the old centre are all within easy walking distance.
+        </p>
+        <ol>
+          <li>Before you walk off, look up at the station hall itself — it's a Victor Horta design, and it sets up
+            an architectural thread you'll keep meeting on this walk.</li>
+          <li>Horta drew up the station in 1910–12, late in his career, in the stripped-down, geometric
+            <strong>Art Deco</strong> manner he moved to after Art Nouveau — the style he himself had pioneered a
+            generation earlier — fell out of fashion and out of budget after the First World War.</li>
+          <li>Construction dragged on for four decades — halted twice by two world wars and a financial crisis —
+            and Horta died in 1947, five years before it opened. Architect Maxime Brunfaut finished the job in 1952.</li>
+          <li>That's why the building reads as a hybrid: Horta's Art Deco massing and geometry, finished in the raw
+            concrete, unornamented, function-first language of early-1950s post-war modernism — the mood that would
+            soon harden into <strong>Brutalism</strong>. Few buildings in Brussels show two architectural eras
+            stitched together so plainly.</li>
+        </ol>
+        <a class="route-link" href="https://www.google.com/maps/search/?api=1&query=Brussels-Central+Station" target="_blank" rel="noopener">↗ Open Brussels-Central in Google Maps</a>
+      </div>
+    </article>
+
+    <article class="stop">
+      <div class="num">2</div>
+      <div class="stop-card">
+        <div class="kicker">Walk · The vanished city</div>
+        <h3>Walk down through the Putterie</h3>
+        <p>
+          As you leave Central, walk through the <strong>Putterie</strong> area. This is one of the most interesting
+          “invisible” pieces of Brussels: the Putterie was once a historic quarter of the city, but much of it was
+          demolished during the construction of the North–South railway connection and Brussels-Central.
+        </p>
+        <p>
+          The name itself is medieval: it shows up as <strong>"Puttenhol"</strong> in records from 1280 and 1310,
+          Latinised as "Poteria," and settled into Dutch as "Putterij" and French as "Putterie" — most likely
+          referring to the water wells ("put") that riddled this low, damp slope. That slope runs right down the
+          back of the <strong>Cathedral of St. Michael and St. Gudula</strong>, whose towers you can pick out rising
+          just above the station; a small Square de la Putterie still marks the spot today.
+        </p>
+        <p>
+          Fittingly humble company for a cathedral: this was a working-class quarter of narrow lanes and modest
+          houses, the kind of neighbourhood city authorities were only too glad to clear away as "insalubrious"
+          once the railway gave them the excuse. Which tracks with an old anecdotal pattern you'll notice in plenty
+          of European cities — the rough, unglamorous side of town has a funny habit of ending up tucked directly
+          behind the church.
+        </p>
+        <p>
+          In other words, you are walking through a modern Brussels landscape that sits on top of a neighbourhood that
+          largely disappeared in the 20th century. Look for the surviving fragments and street names that preserve the memory of it.
+        </p>
+        <a class="route-link" href="https://www.google.com/maps/dir/Brussels-Central+Station/Putterie,+Brussels,+Belgium" target="_blank" rel="noopener">↗ Walk: Central → Putterie</a>
+        <div class="note">The present Central Station opened in 1952, and the North–South connection radically reshaped this part of Brussels.</div>
+      </div>
+    </article>
+
+    <article class="stop">
+      <div class="num">3</div>
+      <div class="stop-card">
+        <div class="kicker">Walk · Grand-Place</div>
+        <h3>Enter the Grand-Place</h3>
+        <p>
+          Continue toward the <strong>Grand-Place</strong>, the great civic and commercial heart of historic Brussels.
+          Its history goes back to a medieval market; the surrounding guild houses and the Gothic Town Hall developed
+          over centuries, while much of the square was rebuilt after the bombardment of 1695.
+        </p>
+        <p>
+          This is the moment to slow down: walk around the entire square, look up at the guild houses, and take in the
+          contrast between the richly decorated façades and the scale of the space itself.
+        </p>
+        <a class="route-link" href="https://maps.app.goo.gl/nwwRDX7p8NingDLr9" target="_blank" rel="noopener">↗ Walk to the Grand-Place</a>
+      </div>
+    </article>
+
+    <article class="stop">
+      <div class="num">4</div>
+      <div class="stop-card">
+        <div class="kicker">Walk · City & commerce</div>
+        <h3>Continue to the Bourse</h3>
+        <p>
+          Leave the Grand-Place and head toward the <strong>Brussels Stock Exchange (Bourse)</strong>.
+          The monumental building reflects the 19th-century ambition to give Brussels a grand financial and commercial
+          centre. Today, the renovated building is also home to Belgian Beer World.
+        </p>
+        <a class="route-link" href="https://www.google.com/maps/dir/Grand-Place+Brussels/Bourse+Brussels" target="_blank" rel="noopener">↗ Walk: Grand-Place → Bourse</a>
+      </div>
+    </article>
+
+    <article class="stop">
+      <div class="num">5</div>
+      <div class="stop-card">
+        <div class="kicker">Walk · De Brouckère</div>
+        <h3>Walk toward the Hôtel Métropole</h3>
+        <p>
+          Continue north toward <strong>Place De Brouckère</strong> and pause outside the magnificent
+          <strong>Hôtel Métropole</strong>. Dating from 1895, the building combines eclectic architecture with
+          neo-Renaissance and neo-Rococo influences. Even though the hotel itself closed in 2020, the façade remains
+          one of the great visual landmarks of the square.
+        </p>
+        <div class="note">1895 is a telling date: it's the very year a young Victor Horta was finishing the Hôtel
+          Tassel across town, usually credited as the first Art Nouveau building anywhere. The Métropole's ornate
+          historicism is a reminder of what Horta was breaking away from.</div>
+        <a class="route-link" href="https://www.google.com/maps/dir/Bourse+Brussels/Hôtel+Métropole+Brussels" target="_blank" rel="noopener">↗ Walk: Bourse → Hôtel Métropole</a>
+      </div>
+    </article>
+
+    <div class="transport">
+      <strong>🚇 Metro transfer:</strong> From <strong>De Brouckère</strong>, take the metro toward
+      <strong>Montgomery</strong>. The purpose of this jump is to move from the dense historic centre to one of
+      Brussels' grandest monumental spaces without spending a long time walking through less interesting stretches.
+      <a href="https://www.google.com/maps/dir/De+Brouckère,+Brussels/Montgomery,+Brussels" target="_blank" rel="noopener">Open the route in Google Maps ↗</a>
+    </div>
+
+    <article class="stop">
+      <div class="num">6</div>
+      <div class="stop-card">
+        <div class="kicker">Alternative · By car</div>
+        <h3>Coming by car? Park at the Cinquantenaire</h3>
+        <p>
+          Skip this stop if you took the metro. If you are doing this part of the itinerary by car instead, use the suggested parking near the
+          <strong>Cinquantenaire</strong>. From here, the rest of the European Quarter can be explored comfortably on foot.
+        </p>
+        <a class="route-link" href="https://maps.app.goo.gl/jiWj8qxdychDRUKF8" target="_blank" rel="noopener">↗ Open the suggested parking in Google Maps</a>
+      </div>
+    </article>
+
+    <article class="stop">
+      <div class="num">7</div>
+      <div class="stop-card">
+        <div class="kicker">Walk · Cinquantenaire</div>
+        <h3>Walk via Montgomery and Merode to the Cinquantenaire</h3>
+        <p>
+          Make your way through <strong>Montgomery and Merode</strong> toward the Cinquantenaire.
+          The transition is striking: Brussels gradually opens from its residential streets into the monumental
+          19th-century park and its enormous triumphal arch.
+        </p>
+        <a class="route-link" href="https://maps.app.goo.gl/a99dxJXLipiwfsvV7" target="_blank" rel="noopener">↗ Walk: Montgomery / Merode → Cinquantenaire</a>
+        <div class="note">
+          <strong>Optional detour:</strong> around the park you can look at the monuments and statues connected with
+          Belgium's colonial history in the Congo. This is a useful place to discuss that history rather than simply
+          treating the monuments as decoration.
+        </div>
+      </div>
+    </article>
+
+    <article class="stop">
+      <div class="num">8</div>
+      <div class="stop-card">
+        <div class="kicker">Walk · European Quarter</div>
+        <h3>Continue to Berlaymont and the European Council</h3>
+        <p>
+          From the Cinquantenaire, continue toward the heart of the <strong>European Quarter</strong>.
+          The <strong>Berlaymont</strong> is the headquarters of the European Commission, while nearby buildings house
+          the institutions of the European Union, including the European Council.
+        </p>
+        <p>
+          This part of Brussels gives the tour a completely different character: you have moved from historic
+          Belgium into the political centre of today's European Union.
+        </p>
+        <a class="route-link" href="https://maps.app.goo.gl/dEuBF83bywu3qwma8" target="_blank" rel="noopener">↗ Walk: Cinquantenaire → Berlaymont / European Council</a>
+        <div class="note">
+          <strong>Optional:</strong> wander along <strong>Rue de la Loi</strong> to experience the institutional heart
+          of the European Quarter.
+        </div>
+      </div>
+    </article>
+
+    <article class="stop">
+      <div class="num">9</div>
+      <div class="stop-card">
+        <div class="kicker">Walk · Place Jourdan</div>
+        <h3>Head to Place Jourdan and Leopold Park</h3>
+        <p>
+          Continue to <strong>Place Jourdan</strong> and the leafy <strong>Leopold Park</strong>.
+          This is a good moment to change pace after the monumental European institutions: the square has a lively,
+          local atmosphere and the park provides a green break in the middle of the European Quarter.
+        </p>
+        <p>
+          And, naturally, this is the moment for one of Brussels' essential food rituals:
+          <strong>frites with mayonnaise</strong>. Pick up a cone at the traditional fritkot in the square and eat them
+          the Belgian way.
+        </p>
+        <a class="route-link" href="https://maps.app.goo.gl/nnZZ8i41fkvknJG9" target="_blank" rel="noopener">↗ Walk: European Quarter → Place Jourdan / Leopold Park</a>
+      </div>
+    </article>
+
+    <article class="stop">
+      <div class="num">10</div>
+      <div class="stop-card">
+        <div class="kicker">Walk · Hidden Brussels</div>
+        <h3>Climb to the Solvay Steps</h3>
+        <p>
+          Continue toward one of the city's more atmospheric viewpoints: the <strong>Solvay Steps</strong>.
+          It is a quieter, more intimate part of Brussels and a great place for a photograph.
+        </p>
+        <a class="route-link" href="https://maps.app.goo.gl/DHVCEMzAuRkNtMqM8" target="_blank" rel="noopener">↗ Walk to the Solvay Steps</a>
+        <div class="note"><strong>Photo stop:</strong> this is the place for the classic photo opportunity mentioned in the original itinerary.</div>
+      </div>
+    </article>
+
+    <article class="stop">
+      <div class="num">11</div>
+      <div class="stop-card">
+        <div class="kicker">Walk · European Parliament</div>
+        <h3>Visit the European Parliament</h3>
+        <p>
+          From the Solvay Steps, continue toward the <strong>European Parliament</strong>.
+          The Parliament's visitors' area includes the <strong>Parlamentarium</strong>, the European Parliament's
+          free visitors' centre, where you can learn how the institution works and how European legislation is made.
+        </p>
+        <a class="route-link" href="https://maps.app.goo.gl/mbCbU9JnP9TBAE31A" target="_blank" rel="noopener">↗ Walk to the European Parliament</a>
+        <div class="note">If you want to go inside, check the visitor centre's opening arrangements before setting off.</div>
+      </div>
+    </article>
+
+    <article class="stop">
+      <div class="num">12</div>
+      <div class="stop-card">
+        <div class="kicker">Pause · Place du Luxembourg</div>
+        <h3>Have a Belgian beer at Place Lux</h3>
+        <p>
+          Just opposite the Parliament is <strong>Place du Luxembourg</strong>, a lively square surrounded by cafés,
+          restaurants and the offices of the European Quarter. This is the perfect place for a short Belgian beer break.
+        </p>
+        <p>
+          At the recommended brewery, try a <strong>Vedett</strong> or one of the <strong>Ginette</strong> beers.
+          It is a deliberately relaxed pause before continuing toward the centre.
+        </p>
+        <a class="route-link" href="https://maps.app.goo.gl/B7RRWuGzE3hj4Cw6A" target="_blank" rel="noopener">↗ Open the recommended brewery in Google Maps</a>
+      </div>
+    </article>
+
+    <article class="stop">
+      <div class="num">13</div>
+      <div class="stop-card">
+        <div class="kicker">Walk · Avenue Louise · Art Nouveau</div>
+        <h3>Walk toward Trône and admire Avenue Louise</h3>
+        <p>
+          Leave Place du Luxembourg and head toward <strong>Trône</strong>, taking in <strong>Avenue Louise</strong>
+          and its grand urban scale. This is one of Brussels' most prestigious shopping and residential avenues,
+          lined with luxury boutiques, offices and elegant architecture.
+        </p>
+        <p>
+          This avenue and the streets just off it (Ixelles and Saint-Gilles) are also the heart of Brussels'
+          <strong>Art Nouveau</strong> district — the style <strong>Victor Horta</strong> effectively invented here
+          in the 1890s, built on flowing "whiplash" lines, exposed iron and glass, and light-filled interiors.
+        </p>
+        <a class="route-link" href="https://maps.app.goo.gl/NgV9DQrjhjBF4C6s5" target="_blank" rel="noopener">↗ Walk toward Trône / Avenue Louise</a>
+        <div class="note">
+          <strong>Optional:</strong> if you want more shopping, continue along Avenue Louise toward the Apple Store
+          and the surrounding luxury boutiques.
+        </div>
+        <div class="note">
+          <strong>For the architecture fans:</strong> Horta's own <strong>Hôtel Solvay</strong> stands right on this
+          avenue, at 224 Avenue Louise — a private Art Nouveau townhouse he designed down to the doorknobs
+          (1895–1900), now a small museum open only a handful of days a month. His own house nearby in Saint-Gilles
+          is also a museum, if you have time for a longer detour on another day.
+        </div>
+      </div>
+    </article>
+
+    <article class="stop">
+      <div class="num">14</div>
+      <div class="stop-card">
+        <div class="kicker">Walk · Royal Quarter</div>
+        <h3>Continue to the Royal Palace and Royal Park</h3>
+        <p>
+          From Rue de Trône, turn toward the <strong>Royal Palace</strong> and the <strong>Parc de Bruxelles
+          (Royal Park)</strong>. This brings the route back toward the historic centre and into the monumental heart
+          of the Belgian monarchy.
+        </p>
+        <p>
+          Take a moment to look at the palace, then cross into the park. The formal layout provides a beautiful
+          contrast with the intimate streets you will encounter later in the old centre.
+        </p>
+        <a class="route-link" href="https://maps.app.goo.gl/xQyC4pb9YVvt7ePN9" target="_blank" rel="noopener">↗ Walk: Trône → Royal Palace / Royal Park</a>
+        <div class="note">
+          <strong>Pause:</strong> the little bar shown in the original itinerary is a good place to sit down,
+          have a drink and rest before continuing into the historic centre.
+        </div>
+        <div class="note">
+          <strong>Bonus:</strong> directly across the park from the Royal Palace stands the <strong>Palais de la
+          Nation</strong>, seat of Belgium's federal parliament. If it happens to be sitting, it's usually possible to
+          visit — worth checking on the day.
+        </div>
+      </div>
+    </article>
+
+    <article class="stop">
+      <div class="num">15</div>
+      <div class="stop-card">
+        <div class="kicker">Walk · Mont des Arts</div>
+        <h3>Climb to Mont des Arts for a panoramic view</h3>
+        <p>
+          Head to <strong>Mont des Arts</strong>, the terraced garden and cultural complex built on the site of a
+          neighbourhood cleared under Leopold II. Its formal, geometric layout leads up to one of the best panoramic
+          viewpoints in the city: on a clear day you can pick out the Town Hall tower on the Grand-Place and, further
+          off, the Basilica of Koekelberg and even the Atomium.
+        </p>
+        <a class="route-link" href="https://maps.app.goo.gl/eMzdtNPBJuSVKoL4A" target="_blank" rel="noopener">↗ Walk to Mont des Arts</a>
+        <div class="note">
+          <strong>Bonus:</strong> off to one side you can spot the <strong>Palais de Justice</strong>, often called the
+          largest courthouse in the world at around 26,000 m². It was built in the 19th century under Leopold II, who
+          is said to have seen judicial power as the greatest power a people could hold.
+        </div>
+      </div>
+    </article>
+
+    <article class="stop">
+      <div class="num">16</div>
+      <div class="stop-card">
+        <div class="kicker">Visit · Place Royale</div>
+        <h3>A short stop at the Magritte Museum</h3>
+        <p>
+          Just off Mont des Arts, at Place Royale, is the <strong>Magritte Museum</strong>, home to the world's
+          largest collection of work by <strong>René Magritte</strong> — one of the most renowned
+          <strong>surrealist</strong> artists in the world.
+        </p>
+        <a class="route-link" href="https://www.google.com/maps/search/?api=1&query=Magritte+Museum+Brussels" target="_blank" rel="noopener">↗ Open the Magritte Museum in Google Maps</a>
+      </div>
+    </article>
+
+    <article class="stop">
+      <div class="num">17</div>
+      <div class="stop-card">
+        <div class="kicker">Walk · Mont des Arts</div>
+        <h3>See the Carillon du Mont des Arts</h3>
+        <p>
+          Look up for the <strong>Carillon du Mont des Arts</strong>, the sun-shaped clock and bell tower built into
+          the complex near the top of the garden. Its geometric, sunburst design is pure <strong>Art Deco</strong> —
+          the same style you'll meet again at Brussels-Central and, next stop, at Bozar.
+        </p>
+        <a class="route-link" href="https://maps.app.goo.gl/e335o8gNZeRAvtmBA" target="_blank" rel="noopener">↗ Open the Carillon in Google Maps</a>
+        <div class="note">
+          The original itinerary notes evocative designs referencing Belgium's colonial-era history in the Congo,
+          including an image of the explorer Henry Morton Stanley — worth a closer look if you're interested, though
+          it's a detail we haven't been able to independently confirm.
+        </div>
+      </div>
+    </article>
+
+    <article class="stop">
+      <div class="num">18</div>
+      <div class="stop-card">
+        <div class="kicker">Walk · Near Central Station · Horta</div>
+        <h3>Pass by Bozar — Horta's other Art Deco landmark</h3>
+        <p>
+          Just to the side, near Brussels-Central Station, is <strong>Bozar</strong> (the Centre for Fine Arts), the
+          city's landmark venue for modern and contemporary art. Barack Obama gave his March 2014 EU–US relations
+          speech here.
+        </p>
+        <ol>
+          <li>Bozar is a <strong>Victor Horta</strong> building too — designed in 1923 and opened in 1928, it's the
+            clearest sibling to Brussels-Central: the same architect, working in the same rounded, geometric
+            <strong>Art Deco</strong> vocabulary he adopted once his earlier Art Nouveau style went out of fashion
+            after the First World War.</li>
+          <li>The site was brutal to build on: a steep drop between Rue Royale and Rue Ravenstein, a protected
+            sightline from the Royal Palace to the Town Hall spire that Horta couldn't block, and a legal requirement
+            to keep shops at street level. He solved it by burying much of the complex and building in reinforced
+            concrete — an engineering feat as much as a design one.</li>
+          <li>So between stops 1, 13 and 18 you've now seen Horta's full career arc: Art Nouveau's inventor
+            reinventing himself as one of Brussels' foremost Art Deco architects.</li>
+        </ol>
+        <a class="route-link" href="https://www.google.com/maps/search/?api=1&query=BOZAR+Centre+for+Fine+Arts+Brussels" target="_blank" rel="noopener">↗ Open Bozar in Google Maps</a>
+        <div class="note">
+          <strong>Local tip:</strong> the original itinerary notes this area as a spot where crowds gather to
+          celebrate when Belgium's national football team, the Red Devils, win.
+        </div>
+      </div>
+    </article>
+
+    <article class="stop">
+      <div class="num">19</div>
+      <div class="stop-card">
+        <div class="kicker">Treat · Chocolate</div>
+        <h3>Treat yourself at the Galeries Royales Saint-Hubert</h3>
+        <p>
+          You've earned a break. Duck into the <strong>Galerie de la Reine</strong>, part of the Galeries Royales
+          Saint-Hubert — Europe's first covered shopping arcade, and still one of the loveliest places in the city
+          just to stand still under the glass roof for a minute.
+        </p>
+        <ol>
+          <li>Walk the length of the arcade and look up at the glass-and-iron roof before you start browsing.</li>
+          <li>Pop into a couple of the chocolate houses along the way to compare — most will let you taste before you buy.</li>
+          <li>Stop at <strong>Mary</strong>, a Belgian Royal Warrant-holding chocolatier founded in 1919 by Mary
+            Delluc, for handmade, artisanal pralines — it's the recommended pick here.</li>
+          <li>Pick up a small box to share with the team, or just to keep you going for the last stretch.</li>
+        </ol>
+        <a class="route-link" href="https://maps.app.goo.gl/VdJugtUK2UAGFveN8" target="_blank" rel="noopener">↗ Walk to the Galerie de la Reine</a>
+      </div>
+    </article>
+
+    <article class="stop">
+      <div class="num">20</div>
+      <div class="stop-card">
+        <div class="kicker">Walk · Old Brussels</div>
+        <h3>Wander back into the historic centre</h3>
+        <p>
+          From the Royal Quarter, let your pace slow down as you make your way back toward the old city — this stretch
+          rewards looking up and around rather than walking it quickly.
+        </p>
+        <ol>
+          <li>Keep an eye out for <strong>Masonic influences and symbolism</strong> worked into the architecture and
+            street design of the city centre, including a compass motif — a small detail, but a fun one to spot.</li>
+          <li>As you reach the Grand-Place, look for the <strong>Maison du Cygne</strong> (House of the Swan), where
+            Karl Marx gathered with fellow exiles and, with Friedrich Engels, drafted the Communist Manifesto in
+            1847–48.</li>
+          <li>Nearby, find the <strong>Maison du Pigeon</strong> (House of the Pigeon) — Victor Hugo's home during his
+            exile in Brussels.</li>
+          <li>Take a moment on the square itself: after the grand avenues and the European Quarter, this is the
+            payoff view of the whole walk.</li>
+        </ol>
+        <a class="route-link" href="https://www.google.com/maps/dir/Royal+Palace+of+Brussels/Grand-Place+Brussels" target="_blank" rel="noopener">↗ Return toward the Grand-Place</a>
+        <div class="note"><strong>Bonus:</strong> if you have a few extra minutes, wander the little side streets around the square before moving on — that's where a lot of Brussels' charm hides.</div>
+      </div>
+    </article>
+
+    <article class="stop">
+      <div class="num">21</div>
+      <div class="stop-card">
+        <div class="kicker">Landmark · Old Brussels</div>
+        <h3>Say hello to Manneken-Pis</h3>
+        <p>
+          A short walk from the Grand-Place brings you to <strong>Manneken-Pis</strong> — Brussels' most famous (and
+          most good-humoured) landmark. Go in with the right expectations and it's a fun couple of minutes rather than
+          a letdown.
+        </p>
+        <ol>
+          <li>Manage expectations: the statue is small, and there's usually a crowd around it — don't build it up too
+            much beforehand.</li>
+          <li>The bronze figure dates to 1619, made by Jérôme Duquesnoy the Elder, and has come to represent the
+            city's irreverent sense of humour.</li>
+          <li>If he's dressed for the occasion, that's a genuine Brussels tradition — his wardrobe now runs to nearly
+            1,000 costumes.</li>
+          <li>What you're looking at is a replica; the original lives safely at the Brussels City Museum, a short
+            walk away on the Grand-Place.</li>
+        </ol>
+        <a class="route-link" href="https://www.google.com/maps/search/?api=1&query=Manneken-Pis+Brussels" target="_blank" rel="noopener">↗ Visit Manneken-Pis</a>
+      </div>
+    </article>
+
+    <article class="stop">
+      <div class="num">22</div>
+      <div class="stop-card">
+        <div class="kicker">Finale · Fish & drinks</div>
+        <h3>Wind down around the old Fish Market</h3>
+        <p>
+          Finish the day the way Brussels itself grew up: by the water. Head toward <strong>Vismet / the old Fish
+          Market</strong>, near Sainte-Catherine — the historic port once reached deep into the centre, and although
+          the old harbour basins were filled in long ago, the neighbourhood's seafood identity never left.
+        </p>
+        <p>Two ways to close it out, depending on the mood:</p>
+        <ol>
+          <li><strong>Classic:</strong> settle in at one of the seafood restaurants and terraces around Vismet /
+            Sainte-Catherine for a relaxed, traditional finish.</li>
+          <li><strong>Modern twist:</strong> head instead to <strong>Fish Tank</strong>, a contemporary seafood bar
+            at 246 Rue Haute in the Marolles, set inside a former fishmonger's shop — a nice way to turn the old
+            fish-trade story into an actual drink-and-food stop.</li>
+        </ol>
+        <a class="route-link" href="https://www.google.com/maps/search/?api=1&query=Vismet+Brussels" target="_blank" rel="noopener">↗ Old Fish Market / Vismet</a>
+        <a class="route-link" href="https://www.google.com/maps/search/?api=1&query=Fish+Tank+246+Rue+Haute+Brussels" target="_blank" rel="noopener">↗ Fish Tank · seafood & drinks</a>
+        <div class="note">Either way, you've covered the historic centre, the European Quarter and the Royal Quarter on foot in one day — take your time over this last stop.</div>
+      </div>
+    </article>
+
+  </section>
+
+  <footer>
+    <p><strong>Useful references</strong></p>
+    <div class="sources">
+      <a href="https://www.visit.brussels/en/visitors/plan-your-trip/a-legendary-stay-for-history-buffs/day-1-exploring-the-historical-centre" target="_blank" rel="noopener">Visit Brussels · Historical Centre</a>
+      <a href="https://www.visit.brussels/en/visitors/professionals/venue-details.Manneken-Pis.250486" target="_blank" rel="noopener">Visit Brussels · Manneken-Pis</a>
+      <a href="https://www.visit.brussels/en/visitors/venue-details.Old-Port-fish-market.1613" target="_blank" rel="noopener">Visit Brussels · Old Port / Fish Market</a>
+      <a href="https://www.visit.brussels/en/visitors/venue-details.Fish-Tank.50004168" target="_blank" rel="noopener">Visit Brussels · Fish Tank</a>
+    </div>
+    <p style="margin-top:18px">Prepared as a walking itinerary; opening hours and transport conditions can change, so check the destination before setting off.</p>
+  </footer>
+</main>
+</body>
+</html>
