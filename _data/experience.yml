@@ -1,0 +1,37 @@
+# Career timeline, newest first. One public line per role in `summary`.
+
+- title: Lead Cryptographer (since 2023), previously Cryptographer
+  org: Technology Innovation Institute (TII), Cryptography Research Centre
+  place: Abu Dhabi, UAE
+  dates: 2021 – Present
+  summary: "Applied cryptography for privacy-preserving AI: MPC and FHE for private LLM inference and federated learning."
+
+- title: Cryptographic Engineer
+  org: KBC Group, Belgium's second-largest bank
+  place: Brussels, Belgium
+  dates: Apr 2019 – Jan 2021
+  summary: "Cryptographic engineering for one of Belgium's largest banks: payments, key management and privacy-preserving analytics."
+
+- title: Senior Researcher, Applied Cryptography (affiliated until 2022)
+  org: imec-COSIC, KU Leuven
+  place: Leuven, Belgium
+  dates: Mar 2016 – Mar 2019
+  summary: "Research on MPC, private set intersection and privacy-preserving ML; core developer of SCALE-MAMBA."
+
+- title: Senior Analyst
+  org: Accenture Belgium
+  place: Brussels, Belgium
+  dates: Sep 2015 – Feb 2016
+  summary: Security and functional design for banking clients.
+
+- title: Research Assistant and PhD Candidate
+  org: UCLouvain, CORE and Crypto Group
+  place: Louvain-la-Neuve, Belgium
+  dates: Apr 2011 – Aug 2015
+  summary: "PhD on secure multi-party computation for combinatorial optimization: auctions, graphs and electricity markets."
+
+- title: SOA Architect, then Software Engineer
+  org: Credimetrica S.A. and Red Partner (Oracle partner)
+  place: Quito, Ecuador
+  dates: Mar 2008 – Mar 2011
+  summary: Software and service-oriented architecture for financial-data providers and Oracle-stack clients.

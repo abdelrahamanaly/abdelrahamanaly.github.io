@@ -1,0 +1,80 @@
+# Selected publications, newest first. The full list lives on Google Scholar.
+# Each entry needs year, title, authors and venue; url is optional (prefer a DOI link).
+#
+#   - year: 2026
+#     title: Paper title
+#     authors: Aly A., Coauthor B.
+#     venue: Conference
+#     url: https://doi.org/10.xxxx/xxxxx
+
+- year: 2025
+  title: "FANNG-MPC: Framework for Artificial Neural Networks and Generic MPC"
+  authors: Aly A., et al.
+  venue: IACR TCHES
+  url: https://doi.org/10.46586/tches.v2025.i1.1-36
+
+- year: 2022
+  title: "Through the Looking-Glass: Benchmarking Secure Multi-Party Computation Comparisons for ReLUs"
+  authors: Aly A., Nawaz K., Salazar E., Sucasas V.
+  venue: CANS
+  url: https://doi.org/10.1007/978-3-031-20974-1_3
+
+- year: 2022
+  title: A Fast, Practical and Simple Shortest Path Protocol for Multiparty Computation
+  authors: Aly A., Cleemput S.
+  venue: ESORICS
+  url: https://doi.org/10.1007/978-3-031-17143-7_37
+
+- year: 2020
+  title: Design of Symmetric-Key Primitives for Advanced Cryptographic Protocols
+  authors: Aly A., Ashur T., Ben-Sasson E., Dhooghe S., Szepieniec A.
+  venue: IACR ToSC / FSE
+  url: https://doi.org/10.46586/tosc.v2020.i3.1-45
+
+- year: 2019
+  title: "Zaphod: Efficiently Combining LSSS and Garbled Circuits in SCALE"
+  authors: Aly A., Orsini E., Rotaru D., Smart N. P., Wood T.
+  venue: WAHC
+  url: https://doi.org/10.1145/3338469.3358943
+
+- year: 2019
+  title: Benchmarking Privacy Preserving Scientific Operations
+  authors: Aly A., Smart N. P.
+  venue: ACNS
+  url: https://doi.org/10.1007/978-3-030-21568-2_25
+
+- year: 2019
+  title: "DataBlinder: A Distributed Data Protection Middleware Supporting Search and Computation on Encrypted Data"
+  authors: Aly A., Beni E. H., Legaisse B., Joosen W.
+  venue: Middleware Industry Track
+  url: https://doi.org/10.1145/3366626.3368132
+
+- year: 2019
+  title: A Secure and Privacy-Preserving Protocol for Smart Metering Operational Data Collection
+  authors: Mustafa M. A., Cleemput S., Aly A., Abidin A.
+  venue: IEEE Transactions on Smart Grid
+  url: https://doi.org/10.1109/tsg.2019.2906016
+
+- year: 2018
+  title: Practically Efficient Secure Distributed Exponentiation without Bit-Decomposition
+  authors: Aly A., Abidin A., Nikova S.
+  venue: Financial Cryptography
+  url: https://doi.org/10.1007/978-3-662-58387-6_16
+
+- year: 2017
+  title: "SePCAR: A Secure and Privacy-Enhancing Protocol for Car Access Provision"
+  authors: Symeonidis I., Aly A., Mustafa M. A., Mennink B., Dhooghe S., Preneel B.
+  venue: ESORICS
+  url: https://doi.org/10.1007/978-3-319-66399-9_26
+
+- year: 2016
+  title: Practically Efficient Secure Single-Commodity Multi-Market Auctions
+  authors: Aly A., Van Vyve M.
+  venue: Financial Cryptography
+  url: https://doi.org/10.1007/978-3-662-54970-4_7
+
+- year: 2013
+  title: Securely Solving Simple Combinatorial Graph Problems
+  authors: Aly A., Cuvelier E., Mawet S., Pereira O., Van Vyve M.
+  venue: Financial Cryptography
+  url: https://doi.org/10.1007/978-3-642-39884-1_21

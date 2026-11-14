@@ -1,0 +1,34 @@
+# The "also" section: education, community and languages.
+
+education:
+  - degree: PhD in Engineering Sciences
+    school: UCLouvain, Belgium
+    year: 2015
+    detail: "Combinatorial Problems with Secure Multiparty Computation. Supervisor: Prof. Mathieu Van Vyve."
+  - degree: Engineer in Computer and Information Systems
+    school: ESPE, Ecuador
+    year: 2010
+
+community:
+  - Program Chair, Latincrypt 2023.
+  - "Program committees: ACM CCS, USENIX Security, ESORICS, PoPETs, ACM AsiaCCS, CT-RSA, IEEE SaTML, IWEP."
+  - Reviewer for IEEE TIFS and IACR ToSC, and external reviewer for Asiacrypt and Eurocrypt.
+  - Around 10 invited talks, courses and tutorials, many for the Latin American cryptography community. Member of CriptoLatino.
+
+languages:
+  - name: Spanish
+    level: native
+  - name: English
+    level: fluent
+  - name: French
+    level: fluent
+  - name: Dutch
+    level: intermediate
+
+# Pages that live in their own folder next to index.html. The first one also gets the hero button.
+side_projects:
+  - title: A walk through the heart of Brussels
+    url: brussels/
+    where: Brussels · walking tour
+    button: "🧇 Brussels walk"
+    text: "A curated route from Brussels-Central to the Grand-Place, the European Quarter and Mont des Arts: history, Horta's Art Nouveau and Art Deco, and frites along the way."

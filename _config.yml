@@ -1,0 +1,12 @@
+# Jekyll configuration. GitHub Pages builds this site on every merge to main.
+title: "Abdel Aly · Cryptographer"
+description: "I build systems that compute on data nobody is allowed to see. Applied cryptography: MPC, FHE and private AI."
+url: "https://abdelrahamanaly.github.io"
+baseurl: ""
+
+# Not part of the published site.
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - vendor

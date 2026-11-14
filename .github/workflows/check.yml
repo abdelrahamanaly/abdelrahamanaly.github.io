@@ -1,0 +1,26 @@
+# Builds the site on every pull request with the same engine GitHub Pages uses,
+# so a broken YAML edit fails here instead of on the live site.
+name: Check site build
+
+on:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build with Jekyll
+        uses: actions/jekyll-build-pages@v1
+        with:
+          source: ./
+          destination: ./_site
+      - name: Check the pages exist
+        run: |
+          test -s _site/index.html
+          test -s _site/brussels/index.html
+          grep -q 'class="pubs"' _site/index.html

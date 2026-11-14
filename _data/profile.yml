@@ -1,0 +1,53 @@
+# Who you are, the hero, the numbers strip and the contact section.
+# Text is plain: no HTML. Fields ending in _em are shown with the mint highlight.
+
+name: Abdelrahaman Aly
+short_name: Abdel
+author_name: "Aly A."          # bolded in the publication list
+title: Lead cryptographer, PhD
+kicker: [Lead Cryptographer, MPC, FHE, Private AI, Key custody, PQC]
+
+# The tagline. The middle part sits under the orange bar until hovered.
+tagline:
+  before: "I build systems that compute on data"
+  redacted: "nobody is allowed"
+  after: "to see."
+tagline_hint: "// hover the orange bar. it's fine, you're allowed."
+
+route: [Quito, Louvain-la-Neuve, Leuven, Brussels, Abu Dhabi]
+note: "Based in Abu Dhabi; previously Belgium and Ecuador."
+
+links:
+  email: abdelrahaman.aly@gmail.com
+  scholar: https://scholar.google.com/citations?user=FDfDueMAAAAJ&hl=en
+  github: https://github.com/abdelrahamanaly
+
+numbers:
+  - value: "18"
+    label: years in applied cryptography
+  - value: "1,300+"
+    label: citations
+  - value: "15"
+    label: h-index
+  - value: "9"
+    label: conferences as program chair or committee member
+
+# Scrolls under the numbers. Keep the count above in sync.
+venues: [Latincrypt (Program Chair), ACM CCS, USENIX Security, ESORICS, PoPETs, ACM AsiaCCS, CT-RSA, IEEE SaTML, IWEP]
+
+about:
+  heading: "Papers in,"
+  heading_em: "software out."
+  text: >-
+    Eighteen years of turning cryptography papers into software people can run. I wrote MPC
+    protocols for electricity-market auctions during my PhD, maintained the SCALE-MAMBA framework
+    at KU Leuven, shipped cryptographic services (Apple Pay among them) at Belgium's second-largest
+    bank, and now lead a team at TII building LLM inference on encrypted data. I do my best work
+    where research meets engineering: choosing the protocol that fits, setting security parameters
+    honestly, and getting a small team to deliver it.
+
+contact:
+  heading: "Got data nobody should see?"
+  text: "Happy to talk about privacy technology, private AI, research collaborations and speaking."
+
+footer: "this page is not encrypted. mostly. press"

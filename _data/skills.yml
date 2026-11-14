@@ -1,0 +1,16 @@
+# Toolbox chips, grouped.
+
+- group: Cryptography
+  items: [MPC, "FHE (CKKS, BFV)", secret sharing, garbled circuits, threshold signatures, PSI, anonymous credentials, "post-quantum (ML-KEM, ML-DSA)", protocol design and security analysis]
+
+- group: Private AI
+  items: [Private LLM inference, encrypted neural-network inference, federated learning, secure aggregation, differential privacy, threat modelling]
+
+- group: Keys and custody
+  items: [HSMs, PKI and certificate lifecycle, key ceremonies, cryptographic inventory, crypto-agility, MPC wallets, key backup and recovery]
+
+- group: Tools
+  items: [SCALE-MAMBA, MP-SPDZ, FANNG-MPC, CrypTen, OpenFHE, Microsoft SEAL, HEaaN, Flower]
+
+- group: Engineering
+  items: [C++, Python, "Java (Spring Boot)", Linux, Docker, GitLab CI/CD, software architecture, requirements, LLM coding agents]
