@@ -24,7 +24,15 @@ git push -u origin main
 3. In the repository, go to Settings → Pages. Under Source, choose "Deploy from a branch", then `main` and `/ (root)`.
 4. After a minute the site is live at https://abdelrahamanaly.github.io.
 
-To update the site, run `node make.js` in `../src`, then commit and push `index.html` again.
+Live at https://abdelrahamanaly.github.io (published 2026-11-14).
+
+To update it, run `node make.js` in `../src`. Then propose the change as a pull request:
+
+```bash
+git switch -c update-site && git commit -am "Update site" && git push -u origin update-site && gh pr create --fill
+```
+
+Review and merge the PR on GitHub. Pages redeploys from `main` within a minute.
 
 ## Easter eggs
 - The orange bar in the tagline reveals the hidden words on hover or tap.
