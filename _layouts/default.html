@@ -22,7 +22,7 @@
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"Person","name":{{ p.name | jsonify }},"alternateName":"Abdel Aly","jobTitle":{{ p.title | jsonify }},
  "worksFor":{"@type":"Organization","name":"Technology Innovation Institute"},"url":{{ site.url | jsonify }},
- "sameAs":[{{ p.links.scholar | jsonify }},{{ p.links.github | jsonify }}{% if site.linkedin != "" and site.linkedin %},{{ site.linkedin | jsonify }}{% endif %}]}
+ "sameAs":[{{ p.links.scholar | jsonify }},{{ p.links.github | jsonify }}{% if p.links.linkedin %},{{ p.links.linkedin | jsonify }}{% endif %}]}
 </script>
 {%- endif %}
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>

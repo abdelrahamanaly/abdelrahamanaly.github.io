@@ -8,7 +8,7 @@ The personal website of **Abdelrahaman (Abdel) Aly**: applied cryptography and p
 
 | Path | What it is |
 |---|---|
-| `_data/profile.yml` | Name, tagline, links, the numbers strip, the program-committee ticker, about and contact text |
+| `_data/profile.yml` | Name, tagline, links (email, Scholar, GitHub, LinkedIn), the numbers strip, the program-committee ticker, about and contact text |
 | `_data/highlights.yml` | The "Work, then and now" cards |
 | `_data/experience.yml` | The career timeline |
 | `_data/skills.yml` | The research-topic chips |
@@ -21,7 +21,7 @@ The personal website of **Abdelrahaman (Abdel) Aly**: applied cryptography and p
 | `_includes/cipher.txt` | The hex texture behind the hero |
 | `assets/site.css`, `assets/site.js` | Styles and the interactive bits |
 | `brussels/` | The Brussels walking tour, a standalone page |
-| `_config.yml` | Jekyll settings, plus the search and LinkedIn settings: `google_site_verification`, `linkedin`, `og_image` |
+| `_config.yml` | Jekyll settings, plus the search and link-preview settings: `google_site_verification`, `og_image` |
 | `.github/workflows/check.yml` | Builds every pull request to catch mistakes before they go live |
 | `.github/pull_request_template.md` | The Description / Solution / Test outline every pull request starts from |
 

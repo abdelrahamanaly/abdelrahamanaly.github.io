@@ -24,6 +24,8 @@ layout: default
       <a class="btn solid" href="#contact">Say hello</a>
       <a class="btn" href="{{ p.links.scholar }}">Google Scholar</a>
       <a class="btn" href="{{ p.links.github }}">GitHub</a>
+      {%- if p.links.linkedin %}
+      <a class="btn" href="{{ p.links.linkedin }}">LinkedIn</a>{% endif %}
       {%- if tour %}
       <a class="btn tour" href="{{ tour.url }}">{{ tour.button | escape }}</a>
       {%- endif %}
@@ -227,6 +229,8 @@ layout: default
       <a class="btn" href="mailto:{{ p.links.email }}">{{ p.links.email }}</a>
       <a class="btn" href="{{ p.links.scholar }}">Google Scholar</a>
       <a class="btn" href="{{ p.links.github }}">GitHub</a>
+      {%- if p.links.linkedin %}
+      <a class="btn" href="{{ p.links.linkedin }}">LinkedIn</a>{% endif %}
     </div>
   </div>
 </section>
