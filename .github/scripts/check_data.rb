@@ -48,6 +48,7 @@ SCHEMA = {
   "stack.yml"        => { list: %w[layer what tools], nested: { "tools" => %w[name] } },
   "skills.yml"       => { list: %w[group items] },
   "food.yml"         => { list: %w[course], nested: { "places" => %w[name note] } },
+  "piglet.yml"       => { list: %w[section], nested: { "items" => %w[title] } },
   "profile.yml"      => { keys: %w[name title links about contact] },
   "about.yml"        => { keys: %w[education community languages] },
 }
@@ -130,6 +131,16 @@ Dir["_data/*.yml"].sort.each do |path|
         next
       end
       sub.val.each { |item| item.val.is_a?(Hash) ? need(path, item, keys, "This item") : problem(path, item.line, "this item should be a block of \"key: value\" lines") }
+    end
+  end
+
+  # Piglet's page: a section needs items or "soon:".
+  if name == "piglet.yml"
+    doc.val.each do |sec|
+      next unless sec.val.is_a?(Hash)
+      if blank?(sec.val["items"]) && blank?(sec.val["soon"])
+        problem(path, sec.line, "this section has no \"items:\"; add some, or a \"soon:\" line to show it as coming")
+      end
     end
   end
 

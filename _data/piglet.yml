@@ -1,0 +1,29 @@
+# Piglet's page (/piglet/): tricks, tips and favourite things.
+#
+# Each "- section:" block is one part of the page, shown in file order.
+# Each item under it is one card:
+#   title:  the trick, tip or thing
+#   how:    optional; how you taught it, or how it works (one or two sentences)
+#   tag:    optional; a short label on the card, e.g. "easy", "advanced", "grooming"
+#
+# A section with no items yet shows a "still to come" box instead:
+#   soon: Still to come.
+#
+# To add a card, copy a "- title:" block under "items:" (replace the "soon:" line
+# with "items:" the first time). Wrap text in quotes when it contains a colon (:).
+
+- section: Tricks he knows
+  intro: One card per trick, with how we taught it.
+  soon: Still to come. Piglet is rehearsing.
+  # items:
+  #   - title: Sit
+  #     tag: easy
+  #     how: Hold a treat above his nose and move it back; his bottom goes down on its own.
+
+- section: Tips
+  intro: Grooming that curly coat, training, and city life with a labradoodle.
+  soon: Still to come.
+
+- section: Favourite things
+  intro: Toys, walks and treats, ranked by Piglet.
+  soon: Still to come.
