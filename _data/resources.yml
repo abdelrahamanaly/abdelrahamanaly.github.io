@@ -1,0 +1,37 @@
+# Useful resources, shown in section 07 of the homepage.
+#
+# To add one, copy an item block (the lines from "- title:" to "note:") under the right group,
+# then change the text. To add a new group, copy a whole "- group:" block.
+#
+#   title: the link text (required)
+#   url:   the full address, starting with https:// (required)
+#   by:    who made or maintains it (optional)
+#   note:  one short sentence on why it is useful (optional)
+#
+# Wrap a value in "double quotes" if it contains a colon (:) or starts with a special character.
+
+- group: Learning MPC
+  items:
+    - title: awesome-mpc
+      by: Dragoș Rotaru
+      url: https://github.com/rdragos/awesome-mpc
+      note: The curated list of MPC software, papers, courses and tutorials. Start here.
+    - title: A Crash Course on MPC
+      by: Daniel Escudero
+      url: https://medium.com/applied-mpc/a-crash-course-on-mpc-part-0-311fae2ce184
+      note: A light series of blog posts that builds MPC up from the basics.
+    - title: An Introduction to Secret-Sharing-Based Secure Multiparty Computation
+      by: Daniel Escudero
+      url: https://eprint.iacr.org/2022/062
+      note: The longer, technical companion to the blog posts.
+
+- group: Conferences and deadlines
+  items:
+    - title: MPC Conference Deadlines
+      by: Ajith Suresh
+      url: https://ajithsuresh.github.io/mpc-deadlines.github.io/
+      note: Upcoming submission deadlines for venues that publish MPC.
+    - title: Top Cyber Security Conferences Ranking
+      by: Jianying Zhou
+      url: http://jianying.space/conference-ranking.html
+      note: Security and cryptography venues ranked by a yearly conference impact factor.

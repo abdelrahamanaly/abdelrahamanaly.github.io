@@ -12,6 +12,7 @@ The personal website of **Abdelrahaman (Abdel) Aly**: applied cryptography and p
 | `_data/highlights.yml` | The "Work, then and now" cards |
 | `_data/experience.yml` | The career timeline |
 | `_data/skills.yml` | The research-topic and software chips |
+| `_data/resources.yml` | Useful resources (section 07): links grouped by topic |
 | `_data/publications.yml` | Selected publications, each with a DOI link |
 | `_data/about.yml` | Education, community service, languages and side projects |
 | `index.html` | The homepage template (Liquid). It only arranges the data above |
@@ -63,6 +64,18 @@ Examples:
 community:
   - Program committee, Some Conference 2026.
 ```
+
+```yaml
+# _data/resources.yml: add a useful resource under an existing group
+- group: Learning MPC
+  items:
+    - title: Name of the resource
+      by: Who made it            # optional
+      url: https://example.org/
+      note: One sentence on why it is useful.   # optional
+```
+
+To start a new group, add a new `- group:` block with its own `items:` list. The section disappears if the file is empty.
 
 YAML tips: indent with spaces, never tabs. Wrap text in quotes when it contains a colon (`:`) or starts with a special character.
 

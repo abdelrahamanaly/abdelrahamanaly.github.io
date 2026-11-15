@@ -151,6 +151,14 @@ a.card.side { display: block; text-decoration: none; color: inherit; }
 .pubs u { text-decoration: none; color: var(--ink); font-weight: 700; }
 .pubs .venue { font: 600 12px "JetBrains Mono", monospace; color: var(--teal); background: var(--mint-tint); padding: 1px 7px; border-radius: 5px; margin-left: 4px; white-space: nowrap; }
 .more { margin-top: 18px; }
+.resources { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 34px; }
+.resources h3 { font: 600 13px "JetBrains Mono", monospace; color: var(--orange); text-transform: uppercase; margin-bottom: 12px; }
+.resources ul { list-style: none; }
+.resources li { margin-bottom: 18px; }
+.resources a { font-weight: 700; color: var(--ink); text-decoration-color: var(--mint); text-underline-offset: 3px; }
+.resources a:hover { color: var(--teal); }
+.resources .by { color: var(--teal); font: 600 12px "JetBrains Mono", monospace; margin-left: 8px; white-space: nowrap; }
+.resources p { color: var(--grey); font-size: 15px; margin-top: 2px; }
 .three { display: grid; grid-template-columns: repeat(3, 1fr); gap: 34px; }
 .three h3 { font: 600 13px "JetBrains Mono", monospace; color: var(--orange); text-transform: uppercase; margin-bottom: 12px; }
 .three ul { list-style: none; }
