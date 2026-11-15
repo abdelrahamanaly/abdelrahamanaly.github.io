@@ -4,13 +4,13 @@
   org: Technology Innovation Institute (TII), Cryptography Research Centre
   place: Abu Dhabi, UAE
   dates: 2021 – Present
-  summary: "Privacy-enhancing technologies, mainly MPC and FHE. Main focus: privacy-preserving machine learning, for training (federated learning) and inference (private LLM inference)."
+  summary: "Part of the PETs team: research, design and development of applied privacy-enhancing technologies, among them MPC, FHE and private machine learning."
 
 - title: Cryptographic Engineer
   org: KBC Group, Belgium's second-largest bank
   place: Brussels, Belgium
   dates: Apr 2019 – Jan 2021
-  summary: "Cryptographic services for the bank's systems, including the Apple Pay integration; HSM and PKI key management; an MPC fraud-detection prototype."
+  summary: "Cryptographic engineering for the bank's systems: payments, key management and a privacy-preserving fraud-detection prototype."
 
 - title: Senior Researcher, Applied Cryptography (affiliated until 2022)
   org: imec-COSIC, KU Leuven

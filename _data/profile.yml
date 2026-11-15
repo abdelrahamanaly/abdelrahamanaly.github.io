@@ -44,11 +44,10 @@ about:
     auctions, graphs and electricity markets. As a postdoc at COSIC, KU Leuven, with Bart Preneel and
     Nigel Smart, I was one of the maintainers of the SCALE-MAMBA framework. In between I worked in
     industry: software for financial-data providers in Quito, software design for banks at Accenture,
-    and cryptographic engineering at KBC, where I worked on the Apple Pay integration and HSM and PKI
-    key management. Today I am at TII's Cryptography Research Centre, where our team works on
-    privacy-enhancing technologies (PETs). My own focus is privacy-preserving machine learning, for
-    both training and inference; together we build and design systems such as LLM inference on
-    encrypted data.
+    and cryptographic engineering at KBC. Today I am part of the PETs team at TII's Cryptography
+    Research Centre, where we research, design and develop applied privacy-enhancing technologies:
+    ways to use data without exposing it, from secure computation and homomorphic encryption to
+    private machine learning.
 
 contact:
   heading: "Say hello."
