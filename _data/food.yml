@@ -1,0 +1,65 @@
+# The food menu on the Brussels tour: "Brussels, by the mouthful" (/brussels/#food).
+#
+# Each "- course:" block is one section of the menu, shown in file order.
+# Each place under it is one line:
+#   name:  shown on the menu; it links to Google Maps
+#   maps:  optional; what to search for in Google Maps (default: the name followed by "Brussels")
+#   stop:  optional; the number of the nearest stop on the walk. The tag jumps to that stop.
+#          Leave it out and the tag says "anytime".
+#   note:  one or two short sentences
+#
+# To add a place, copy a "- name:" block under the right course.
+# To add a course, copy a whole "- course:" block. The menu disappears if this file is empty.
+# Wrap text in quotes when it contains a colon (:).
+
+- course: Typically Brussels
+  places:
+    - name: Frites at Place Jourdan
+      maps: Place Jourdan Brussels
+      stop: 9
+      note: A cone from the fritkot, with mayonnaise. Eat them standing up.
+    - name: A Vedet or a Ginette at Place Lux
+      maps: Place du Luxembourg Brussels
+      stop: 12
+      note: The beer break in the middle of the European Quarter.
+    - name: Fin de Siècle
+      maps: Fin de Siecle Rue des Chartreux 9 Brussels
+      stop: 4
+      note: "Brussels home cooking near Saint-Géry: stoemp, vol-au-vent, rabbit grand-mère."
+    - name: Nüetnigenough
+      maps: Nüetnigenough Rue du Lombard Brussels
+      stop: 21
+      note: "A small Belgian brasserie on Rue du Lombard, between the Grand-Place and Manneken-Pis: classics cooked with beer, and plenty more to drink. Go early."
+    - name: Moules-frites at Sainte-Catherine
+      maps: Sainte-Catherine Brussels
+      stop: 22
+      note: A pot of mussels on a terrace by the old quays.
+
+- course: Just good
+  places:
+    - name: Nona Pasta
+      maps: Nona Pasta Rue Sainte-Catherine Brussels
+      stop: 22
+      note: "Fresh pasta and nothing else, a few steps from Sainte-Catherine. Small, no bookings: go early. Its pizza sibling is down the same street."
+    - name: Chocolate in the Galeries
+      maps: Galeries Royales Saint-Hubert Brussels
+      stop: 19
+      note: Taste before you buy; compare two or three houses.
+
+- course: A sight to see
+  places:
+    - name: Wolf
+      maps: Wolf Sharing Food Market Rue du Fosse aux Loups 50 Brussels
+      stop: 5
+      note: A food hall of some seventeen stalls inside a renovated Art Deco bank, behind seven-metre bronze doors. Come for the building, stay for lunch.
+
+- course: A drink with a view
+  places:
+    - name: Bozar rooftop
+      maps: Bozar rooftop Brussels
+      stop: 18
+      note: A drink on the roof of Horta's Art Deco Centre for Fine Arts.
+    - name: Brucity rooftop
+      maps: Brucity Rooftop Rue des Halles 4 Brussels
+      stop: 4
+      note: "The roof of the City of Brussels' own offices, open to the public, with a bar on top and a 360° view over the old town. Weekdays enter through the Brucity atrium on Rue des Halles."
