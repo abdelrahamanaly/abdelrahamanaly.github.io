@@ -9,9 +9,9 @@ The personal website of **Abdelrahaman (Abdel) Aly**: applied cryptography, secu
 | Path | What it is |
 |---|---|
 | `_data/profile.yml` | Name, tagline, links, the numbers strip, the program-committee ticker, about and contact text |
-| `_data/highlights.yml` | The "Things I'm proud of" cards |
+| `_data/highlights.yml` | The "What I work on" cards |
 | `_data/experience.yml` | The career timeline |
-| `_data/skills.yml` | The toolbox chips |
+| `_data/skills.yml` | The research-topic and software chips |
 | `_data/publications.yml` | Selected publications, each with a DOI link |
 | `_data/about.yml` | Education, community service, languages and side projects |
 | `index.html` | The homepage template (Liquid). It only arranges the data above |
@@ -67,7 +67,7 @@ Then open http://localhost:4000. This needs Ruby and Bundler. The Gemfile pins t
 
 - The orange bar in the tagline hides a few words until you hover over it or tap it.
 - **encrypt this page**, or the `E` key, scrambles every word into hex and back.
-- Section 05 has a secret-sharing toy: it splits a number into three shares that each look random.
+- Section 05 has a secret-sharing toy: it splits a number into three additive shares modulo a prime (2⁶¹ − 1) or the ring ℤ/2⁶⁴, each uniformly random on its own.
 
 ## Licence
 

@@ -1,17 +1,17 @@
-# "Things I'm proud of" cards. Four fit best (two rows of two).
+# "What I work on" cards. Four fit best (two rows of two).
 
 - title: LLM inference on encrypted data
   where: TII
-  text: Architecting private LLM inference that combines fully homomorphic encryption and multi-party computation, so prompts stay encrypted end to end.
+  text: Building and designing private LLM inference that combines fully homomorphic encryption and multi-party computation, so prompts stay encrypted end to end.
 
 - title: PetalGuard
   where: TII
-  text: Technical lead and architect of PetalGuard, TII's private federated learning framework for large language models.
+  text: Leading the design and building of PetalGuard, TII's private federated learning framework for large language models.
 
 - title: From SCALE-MAMBA to FANNG-MPC
   where: KU Leuven → TII
-  text: Years as a maintainer of KU Leuven's SCALE-MAMBA MPC framework, then co-designer of FANNG-MPC, TII's fork for neural networks (TCHES 2025).
+  text: One of the maintainers of KU Leuven's SCALE-MAMBA MPC framework during my postdoc, then co-designer of FANNG-MPC, TII's fork for neural networks (TCHES 2025).
 
 - title: Cryptography inside a bank
   where: KBC
-  text: "Cryptographic engineering for production banking systems: payments, key management, and a privacy-preserving fraud-detection prototype."
+  text: "Cryptographic engineering for production banking systems: the Apple Pay integration, key and certificate lifecycle on HSMs and PKI, and an MPC prototype that looked for fraud in transactions without exposing them."

@@ -55,15 +55,41 @@
   lock.addEventListener("click", toggle);
   addEventListener("keydown", (e) => { if ((e.key === "e" || e.key === "E") && !e.target.closest("input,textarea")) toggle(); });
 
-  // Secret-sharing toy: three additive shares mod 1000.
+  // Secret-sharing toy: three additive shares over the prime field F_p (p = 2^61 - 1)
+  // or the ring Z_{2^64}. Randomness comes from crypto.getRandomValues; shares are uniform.
+  const MODS = {
+    p:    { m: (1n << 61n) - 1n, name: "p", note: "A prime field, the setting of SCALE-MAMBA and most MPC protocols: every non-zero value has an inverse, so division works." },
+    "2k": { m: 1n << 64n,        name: "2⁶⁴", note: "The ring of 64-bit integers, the setting of SPDZ2k-style protocols: arithmetic wraps around exactly like a CPU word." },
+  };
+  let mod = MODS.p;
   const input = document.getElementById("secret");
-  function split() {
-    const s = Math.max(0, Math.min(999, parseInt(input.value || "0", 10)));
-    const a = Math.floor(Math.random() * 1000), b = Math.floor(Math.random() * 1000);
-    const c = (((s - a - b) % 1000) + 1000) % 1000;
-    [a, b, c].forEach((v, i) => { const el = document.getElementById("s" + i); el.textContent = String(v).padStart(3, "0"); el.style.color = "#ff5622"; setTimeout(() => (el.style.color = ""), 300); });
-    document.getElementById("sum").innerHTML = "A + B + C mod 1000 = <b>" + s + "</b>";
+  const mo = (x, m) => ((x % m) + m) % m;
+  function rand(m) {
+    // Uniform in [0, m): draw 64 bits; for the Mersenne prime keep 61 and reject p itself.
+    const w = new BigUint64Array(1);
+    for (;;) {
+      crypto.getRandomValues(w);
+      const r = m === MODS.p.m ? w[0] >> 3n : w[0];
+      if (r < m) return r;
+    }
   }
+  function split() {
+    let s;
+    try { s = BigInt((input.value || "0").trim()); input.removeAttribute("aria-invalid"); }
+    catch { input.setAttribute("aria-invalid", "true"); return; }
+    const m = mod.m, sm = mo(s, m);
+    const a = rand(m), b = rand(m), c = mo(sm - a - b, m);
+    [a, b, c].forEach((v, i) => { const el = document.getElementById("s" + i); el.textContent = v.toString(); el.style.color = "#ff5622"; setTimeout(() => (el.style.color = ""), 300); });
+    document.getElementById("sum").innerHTML = "A + B + C mod " + mod.name + " = <b>" + sm.toString() + "</b>" +
+      (sm !== s ? ' <span class="wrap-note">(your number, reduced mod ' + mod.name + ")</span>" : "");
+  }
+  document.querySelectorAll(".modulus button").forEach((btn) => btn.addEventListener("click", () => {
+    mod = MODS[btn.dataset.mod];
+    document.querySelectorAll(".modulus button").forEach((x) => x.setAttribute("aria-checked", String(x === btn)));
+    document.getElementById("modnote").textContent = mod.note;
+    split();
+  }));
+  document.getElementById("modnote").textContent = mod.note;
   input.addEventListener("input", split);
   document.getElementById("resplit").addEventListener("click", split);
   split();

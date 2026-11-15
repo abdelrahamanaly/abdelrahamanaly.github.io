@@ -58,8 +58,8 @@ layout: default
   </section>
 
   <section id="work">
-    <div class="label">02 / signature work</div>
-    <h2>Things I'm <em>proud of</em></h2>
+    <div class="label">02 / research</div>
+    <h2>What I <em>work on</em></h2>
     <div class="cards">
       {%- for h in site.data.highlights %}
       {%- assign tilt = forloop.index0 | modulo: 4 %}
@@ -74,7 +74,7 @@ layout: default
 
   <section id="experience">
     <div class="label">03 / experience</div>
-    <h2>Eighteen years, <em>five cities</em></h2>
+    <h2>Five cities, <em>one thread</em></h2>
     <ol class="timeline">
       {%- for e in site.data.experience %}
       <li class="role">
@@ -90,8 +90,8 @@ layout: default
   </section>
 
   <section id="skills">
-    <div class="label">04 / toolbox</div>
-    <h2>What I <em>work with</em></h2>
+    <div class="label">04 / interests</div>
+    <h2>What I <em>think about</em></h2>
     <div class="skills">
       {%- for g in site.data.skills %}
       <div class="skillgroup"><h3>{{ g.group | escape }}</h3><div class="chips">{% for i in g.items %}<span>{{ i | escape }}</span>{% endfor %}</div></div>
@@ -105,9 +105,14 @@ layout: default
     <div class="toy">
       <div>
         <h3>Split a secret into three shares.</h3>
-        <p>Each party holds one random-looking number. Any one or two of them learn nothing; all three together recover the secret. This is the building block of MPC, the thing I've spent my career on.</p>
-        <label for="secret">YOUR SECRET (0–999)</label>
-        <input id="secret" type="number" min="0" max="999" value="42"><button id="resplit">re-split</button>
+        <p>Each party holds one uniformly random number modulo <i>m</i>. Any one or two of them learn nothing; all three added together, mod <i>m</i>, give back the secret. This is additive secret sharing, the building block of MPC.</p>
+        <div class="modulus" role="radiogroup" aria-label="Modulus">
+          <button type="button" role="radio" aria-checked="true" data-mod="p">prime field 𝔽<sub>p</sub>, p = 2<sup>61</sup> − 1</button>
+          <button type="button" role="radio" aria-checked="false" data-mod="2k">ring ℤ<sub>2<sup>64</sup></sub></button>
+        </div>
+        <p class="modnote" id="modnote"></p>
+        <label for="secret">YOUR SECRET (a whole number)</label>
+        <input id="secret" type="text" inputmode="numeric" autocomplete="off" value="42"><button id="resplit">re-split</button>
       </div>
       <div class="shares">
         <div class="share"><div class="who">party A sees</div><b id="s0">—</b><small>looks random</small></div>

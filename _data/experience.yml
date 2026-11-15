@@ -10,13 +10,13 @@
   org: KBC Group, Belgium's second-largest bank
   place: Brussels, Belgium
   dates: Apr 2019 – Jan 2021
-  summary: "Cryptographic engineering for one of Belgium's largest banks: payments, key management and privacy-preserving analytics."
+  summary: "Cryptographic services for the bank's systems, including the Apple Pay integration; HSM and PKI key management; an MPC fraud-detection prototype."
 
 - title: Senior Researcher, Applied Cryptography (affiliated until 2022)
   org: imec-COSIC, KU Leuven
   place: Leuven, Belgium
   dates: Mar 2016 – Mar 2019
-  summary: "Research on MPC, private set intersection and privacy-preserving ML; core developer of SCALE-MAMBA."
+  summary: "Postdoctoral research with Bart Preneel and Nigel Smart on MPC, private set intersection and privacy-preserving ML; one of the maintainers of SCALE-MAMBA."
 
 - title: Senior Analyst
   org: Accenture Belgium
@@ -34,4 +34,4 @@
   org: Credimetrica S.A. and Red Partner (Oracle partner)
   place: Quito, Ecuador
   dates: Mar 2008 – Mar 2011
-  summary: Software and service-oriented architecture for financial-data providers and Oracle-stack clients.
+  summary: Interoperability between financial-information providers, and consulting on Oracle BI, Java and SOA.

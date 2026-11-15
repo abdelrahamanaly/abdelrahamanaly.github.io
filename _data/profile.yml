@@ -4,8 +4,8 @@
 name: Abdelrahaman Aly
 short_name: Abdel
 author_name: "Aly A."          # bolded in the publication list
-title: Lead cryptographer, PhD
-kicker: [Lead Cryptographer, MPC, FHE, Private AI, Key custody, PQC]
+title: Cryptographer and researcher
+kicker: [Applied cryptography, Secure computation, MPC, FHE, Private AI]
 
 # The tagline. The middle part sits under the orange bar until hovered.
 tagline:
@@ -39,15 +39,17 @@ about:
   heading: "Papers in,"
   heading_em: "software out."
   text: >-
-    Eighteen years of turning cryptography papers into software people can run. I wrote MPC
-    protocols for electricity-market auctions during my PhD, maintained the SCALE-MAMBA framework
-    at KU Leuven, shipped cryptographic services (Apple Pay among them) at Belgium's second-largest
-    bank, and now lead a team at TII building LLM inference on encrypted data. I do my best work
-    where research meets engineering: choosing the protocol that fits, setting security parameters
-    honestly, and getting a small team to deliver it.
+    I work on making secure computation practical: protocols that let several parties compute on
+    data none of them can see, and the software that runs them. My PhD at UCLouvain applied MPC to
+    auctions, graphs and electricity markets. As a postdoc at COSIC, KU Leuven, with Bart Preneel and
+    Nigel Smart, I was one of the maintainers of the SCALE-MAMBA framework. In between I worked in
+    industry: software for financial-data providers in Quito, security design for banks at Accenture,
+    and cryptographic engineering at KBC, where I worked on the Apple Pay integration and HSM and PKI
+    key management. Today I lead the MPC and FHE work at TII's Cryptography Research Centre,
+    building and designing LLM inference on encrypted data.
 
 contact:
-  heading: "Got data nobody should see?"
-  text: "Happy to talk about privacy technology, private AI, research collaborations and speaking."
+  heading: "Say hello."
+  text: "Always glad to hear from fellow researchers and students: questions about a paper, MPC or FHE, or an idea worth trying."
 
 footer: "this page is not encrypted. mostly. press"
