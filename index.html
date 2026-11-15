@@ -8,7 +8,7 @@ layout: default
 <nav>
   <div class="wrap">
     <a class="logo" href="#top">abdel<i>⊕</i>aly</a>
-    <div class="links"><a href="#work">Work</a><a href="#experience">Experience</a><a href="#play">Play</a><a href="#papers">Papers</a><a href="#resources">Resources</a><a href="#contact">Contact</a></div>
+    <div class="links"><a href="#work">Work</a><a href="#experience">Experience</a><a href="#play">Play</a><a href="#papers">Papers</a><a href="#tools">Tools</a><a href="#contact">Contact</a></div>
     <button class="lock" id="lock" aria-pressed="false" title="Press E">🔒 encrypt this page</button>
   </div>
 </nav>
@@ -135,9 +135,9 @@ layout: default
   </section>
 
   {%- if site.data.resources.size > 0 %}
-  <section id="resources">
-    <div class="label">07 / resources</div>
-    <h2>Useful <em>resources</em></h2>
+  <section id="tools">
+    <div class="label">07 / tools</div>
+    <h2>Tools I find <em>useful</em></h2>
     <div class="resources">
       {%- for g in site.data.resources %}
       <div><h3>{{ g.group | escape }}</h3><ul>

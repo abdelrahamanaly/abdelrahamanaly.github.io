@@ -1,4 +1,4 @@
-# Useful resources, shown in section 07 of the homepage.
+# Tools I find useful, shown in section 07 of the homepage ("07 / tools").
 #
 # To add one, copy an item block (the lines from "- title:" to "note:") under the right group,
 # then change the text. To add a new group, copy a whole "- group:" block.
@@ -35,3 +35,14 @@
       by: Jianying Zhou
       url: http://jianying.space/conference-ranking.html
       note: Security and cryptography venues ranked by a yearly conference impact factor.
+
+- group: From TII
+  items:
+    - title: FANNG-MPC
+      by: TII Cryptography Research Centre
+      url: https://github.com/Crypto-TII/FANNG-MPC
+      note: Our MPC library for neural networks, a fork of SCALE-MAMBA.
+    - title: Fast Parameter Selection
+      by: Chiara Marcolla, Sergi Rovira et al.
+      url: https://fastparameterselection.readthedocs.io/en/latest/
+      note: Picks secure parameters for LWE-based schemes, such as FHE, quickly and flexibly.

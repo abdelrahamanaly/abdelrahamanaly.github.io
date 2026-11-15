@@ -12,7 +12,7 @@ The personal website of **Abdelrahaman (Abdel) Aly**: applied cryptography and p
 | `_data/highlights.yml` | The "Work, then and now" cards |
 | `_data/experience.yml` | The career timeline |
 | `_data/skills.yml` | The research-topic and software chips |
-| `_data/resources.yml` | Useful resources (section 07): links grouped by topic |
+| `_data/resources.yml` | "Tools I find useful" (section 07): links grouped by topic |
 | `_data/publications.yml` | Selected publications, each with a DOI link |
 | `_data/about.yml` | Education, community service, languages and side projects |
 | `index.html` | The homepage template (Liquid). It only arranges the data above |
@@ -66,7 +66,7 @@ community:
 ```
 
 ```yaml
-# _data/resources.yml: add a useful resource under an existing group
+# _data/resources.yml: add a tool or link under an existing group
 - group: Learning MPC
   items:
     - title: Name of the resource
