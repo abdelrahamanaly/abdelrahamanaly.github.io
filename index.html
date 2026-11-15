@@ -94,7 +94,7 @@ layout: default
     <h2>What I <em>think about</em></h2>
     <div class="skills">
       {%- for g in site.data.skills %}
-      <div class="skillgroup"><h3>{{ g.group | escape }}</h3><div class="chips">{% for i in g.items %}<span>{{ i | escape }}</span>{% endfor %}</div></div>
+      <div class="skillgroup"><h3>{{ g.group | escape }}</h3>{% if g.note %}<p class="groupnote">{{ g.note | escape }}</p>{% endif %}<div class="chips">{% for i in g.items %}<span>{{ i | escape }}</span>{% endfor %}</div></div>
       {%- endfor %}
     </div>
   </section>

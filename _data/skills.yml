@@ -1,4 +1,5 @@
 # Research topics and software, grouped. Shown as chips in section 04.
+# A group may have an optional "note:", a short line shown under its heading.
 
 - group: Research topics
   items: [Secure multi-party computation, "Homomorphic encryption (CKKS, BFV)", Secret sharing, Garbled circuits, Private set intersection, Threshold cryptography, Post-quantum cryptography]
@@ -9,5 +10,6 @@
 - group: From industry
   items: [Payments cryptography, HSMs and PKI, Key management and ceremonies, Crypto-agility, "Standards-compliant crypto: FIPS, PKCS, IETF", MPC for fraud detection]
 
-- group: Cryptographic software, a selection
-  items: [SCALE-MAMBA, MP-SPDZ, FANNG-MPC, CrypTen, OpenFHE, Microsoft SEAL, HEaaN, Flower, Bouncy Castle, Java security providers (JCA/JCE), Python cryptographic libraries, and many more MPC frameworks]
+- group: Software, a sample
+  note: From open-source research frameworks to industry libraries and commercial systems.
+  items: [SCALE-MAMBA, MP-SPDZ, FANNG-MPC, CrypTen, OpenFHE, Microsoft SEAL, HEaaN, Flower, Bouncy Castle, Java security providers (JCA/JCE), Python cryptographic libraries, Commercial software for banks and financial data, and many more]
