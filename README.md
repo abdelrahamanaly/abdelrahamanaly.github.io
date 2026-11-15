@@ -24,6 +24,7 @@ The personal website of **Abdelrahaman (Abdel) Aly**: applied cryptography and p
 | `_data/food.yml` | The tour's food menu, "Brussels, by the mouthful": courses of places, each linked to Google Maps and the nearest stop |
 | `_config.yml` | Jekyll settings, plus the search and link-preview settings: `google_site_verification`, `og_image` |
 | `.github/workflows/check.yml` | Builds every pull request to catch mistakes before they go live |
+| `.github/workflows/check-data.yml`, `.github/scripts/check_data.rb` | Checks the YAML in `_data/` on every pull request (the rules are in the script) |
 | `.github/pull_request_template.md` | The Description / Solution / Test outline every pull request starts from |
 
 The site is built with [Jekyll](https://jekyllrb.com/), the engine GitHub Pages runs natively. There is no build step to maintain: GitHub rebuilds the site after every merge to `main`.
@@ -32,12 +33,37 @@ The site is built with [Jekyll](https://jekyllrb.com/), the engine GitHub Pages 
 
 Almost every change is a YAML edit in `_data/`; the templates rarely need touching.
 
-1. Open the YAML file on GitHub and click the pencil icon.
-2. Make the change, choose **Create a new branch** and open a pull request.
-3. The **Check site build** job runs. A green check means the site builds.
-4. Merge. The live site updates within about a minute.
+### What to edit
 
-`main` is protected, so every change goes through a pull request.
+| To change… | Edit |
+|---|---|
+| A paper | `_data/publications.yml` |
+| A job or role | `_data/experience.yml` |
+| The "Work, then and now" cards | `_data/highlights.yml` |
+| A research topic | `_data/skills.yml` |
+| A tool in the stack | `_data/stack.yml` |
+| A link in "Tools I find useful" | `_data/resources.yml` |
+| A talk, committee, degree or language | `_data/about.yml` |
+| A restaurant, bar or rooftop on the Brussels tour | `_data/food.yml` |
+| Your name, links, about text or the numbers strip | `_data/profile.yml` |
+
+### Four steps
+
+1. Open the file on GitHub and click the pencil icon.
+2. Make the change, choose **Create a new branch** and open a pull request.
+3. Wait for the checks (about a minute):
+   - **build** builds the whole site, exactly as GitHub Pages will.
+   - **data** checks the YAML: every entry has the keys it needs, Brussels stops exist, links are full `https://` addresses. A problem shows up next to its line under **Files changed**, in plain words.
+   - **links (advisory)** opens every link and lists broken ones in the run summary. It never blocks a merge, since some sites refuse automated checks.
+4. When **build** and **data** are green, merge. The live site updates within about a minute.
+
+`main` is protected: every change goes through a pull request, and a red **build** or **data** check blocks the merge.
+
+To run the data check on your own machine before pushing:
+
+```bash
+ruby .github/scripts/check_data.rb
+```
 
 ### Merge message
 

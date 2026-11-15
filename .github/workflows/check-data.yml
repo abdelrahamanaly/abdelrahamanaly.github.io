@@ -1,0 +1,47 @@
+# Checks the YAML data files on every pull request.
+#
+#   data   Every entry has the keys the site needs, food-menu stops exist on the
+#          tour, and links are full https:// addresses. Problems appear next to
+#          the line in the pull request's "Files changed" tab. Required to merge.
+#   links  Opens every link in _data/ and lists the broken ones in the run
+#          summary. Advisory only: some sites (LinkedIn, Scholar, publishers)
+#          refuse automated checks, so a failure here does not block merging.
+#
+# The rules are in .github/scripts/check_data.rb. Run them locally with:
+#   ruby .github/scripts/check_data.rb
+name: Check data files
+
+on:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  data:
+    name: data
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: "3.3"
+      - name: Check the YAML in _data/
+        run: ruby .github/scripts/check_data.rb
+
+  links:
+    name: links (advisory)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Open every link in _data/
+        uses: lycheeverse/lychee-action@v2
+        with:
+          args: >-
+            --no-progress
+            --max-retries 2
+            --accept 200..=299,403,429,999
+            './_data/*.yml'
+          fail: false
+          jobSummary: true
