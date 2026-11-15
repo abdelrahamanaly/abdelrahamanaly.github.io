@@ -107,8 +107,8 @@ layout: default
         <h3>Split a secret into three shares.</h3>
         <p>Each party holds one uniformly random number modulo <i>m</i>. Any one or two of them learn nothing; all three added together, mod <i>m</i>, give back the secret. This is additive secret sharing, the building block of MPC.</p>
         <div class="modulus" role="radiogroup" aria-label="Modulus">
-          <button type="button" role="radio" aria-checked="true" data-mod="p">prime field 𝔽<sub>p</sub>, p = 2<sup>61</sup> − 1</button>
-          <button type="button" role="radio" aria-checked="false" data-mod="2k">ring ℤ<sub>2<sup>64</sup></sub></button>
+          <button type="button" role="radio" aria-checked="true" data-mod="p">prime field 𝔽<sub>p</sub>, p = 1009</button>
+          <button type="button" role="radio" aria-checked="false" data-mod="2k">ring ℤ<sub>2<sup>10</sup></sub> = ℤ<sub>1024</sub></button>
         </div>
         <p class="modnote" id="modnote"></p>
         <label for="secret">YOUR SECRET (a whole number)</label>

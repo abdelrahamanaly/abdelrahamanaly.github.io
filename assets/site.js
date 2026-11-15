@@ -55,22 +55,21 @@
   lock.addEventListener("click", toggle);
   addEventListener("keydown", (e) => { if ((e.key === "e" || e.key === "E") && !e.target.closest("input,textarea")) toggle(); });
 
-  // Secret-sharing toy: three additive shares over the prime field F_p (p = 2^61 - 1)
-  // or the ring Z_{2^64}. Randomness comes from crypto.getRandomValues; shares are uniform.
+  // Secret-sharing toy: three additive shares over the prime field F_p (p = 1009)
+  // or the ring Z_{2^10}. Randomness comes from crypto.getRandomValues; shares are uniform.
   const MODS = {
-    p:    { m: (1n << 61n) - 1n, name: "p", note: "A prime field, the setting of SCALE-MAMBA and most MPC protocols: every non-zero value has an inverse, so division works." },
-    "2k": { m: 1n << 64n,        name: "2⁶⁴", note: "The ring of 64-bit integers, the setting of SPDZ2k-style protocols: arithmetic wraps around exactly like a CPU word." },
+    p:    { m: 1009n, name: "1009", note: "A prime field, the setting of SCALE-MAMBA and most MPC protocols: every non-zero value has an inverse, so division works. Real deployments use primes of 64 bits or more." },
+    "2k": { m: 1024n, name: "2¹⁰", note: "A ring of integers modulo a power of two, the setting of SPDZ2k-style protocols: arithmetic wraps around like a CPU word. Real deployments use 2⁶⁴." },
   };
   let mod = MODS.p;
   const input = document.getElementById("secret");
   const mo = (x, m) => ((x % m) + m) % m;
   function rand(m) {
-    // Uniform in [0, m): draw 64 bits; for the Mersenne prime keep 61 and reject p itself.
-    const w = new BigUint64Array(1);
+    // Uniform in [0, m): rejection sampling on 32-bit draws, so no value is favoured.
+    const w = new Uint32Array(1), lim = 2 ** 32 - (2 ** 32 % Number(m));
     for (;;) {
       crypto.getRandomValues(w);
-      const r = m === MODS.p.m ? w[0] >> 3n : w[0];
-      if (r < m) return r;
+      if (w[0] < lim) return BigInt(w[0]) % m;
     }
   }
   function split() {
