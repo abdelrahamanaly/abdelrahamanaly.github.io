@@ -49,10 +49,6 @@
       maps: Cafe Capitale Rue du Midi 45 Brussels
       stop: 4
       note: A nice coffee on Rue du Midi; they roast their own.
-    - name: La Maison des Crêpes
-      maps: La Maison des Crepes Rue du Midi 13 Brussels
-      stop: 4
-      note: "Not Belgian, just authentic: proper crêpes on Rue du Midi, a few steps from the Bourse."
     - name: Nona Pasta
       maps: Nona Pasta Rue Sainte-Catherine Brussels
       stop: 22
@@ -68,6 +64,10 @@
       maps: Wolf Sharing Food Market Rue du Fosse aux Loups 50 Brussels
       stop: 5
       note: A food hall of some seventeen stalls inside a renovated Art Deco bank, behind seven-metre bronze doors. Come for the building, stay for lunch.
+    - name: La Maison des Crêpes
+      maps: La Maison des Crepes Rue du Midi 13 Brussels
+      stop: 4
+      note: "Not Belgian, just authentic: proper crêpes on Rue du Midi, a few steps from the Bourse."
 
 - course: A drink with a view
   places:
