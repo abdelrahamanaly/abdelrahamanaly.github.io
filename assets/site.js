@@ -1,4 +1,4 @@
-// Homepage interactions: tagline decrypt, "encrypt this page" (button or E key), secret-sharing toy.
+// Homepage interactions: tagline decrypt, "encrypt this page" (button or E key), secret-sharing demo.
 (() => {
   const HEX = "0123456789abcdef";
   const rnd = () => HEX[Math.floor(Math.random() * 16)];
@@ -55,7 +55,7 @@
   lock.addEventListener("click", toggle);
   addEventListener("keydown", (e) => { if ((e.key === "e" || e.key === "E") && !e.target.closest("input,textarea")) toggle(); });
 
-  // Secret-sharing toy: three additive shares over the prime field F_p (p = 2^61 - 1)
+  // Secret-sharing demo: three additive shares over the prime field F_p (p = 2^61 - 1)
   // or the ring Z_{2^64}. Randomness comes from crypto.getRandomValues; shares are uniform.
   const MODS = {
     p:    { m: (1n << 61n) - 1n, name: "p", note: "A prime field, the setting of SCALE-MAMBA and most MPC protocols: every non-zero value has an inverse, so division works. p = 2⁶¹ − 1 is a Mersenne prime." },

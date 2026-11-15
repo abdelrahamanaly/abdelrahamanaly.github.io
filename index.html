@@ -8,7 +8,7 @@ layout: default
 <nav>
   <div class="wrap">
     <a class="logo" href="#top">abdel<i>⊕</i>aly</a>
-    <div class="links"><a href="#work">Work</a><a href="#experience">Experience</a><a href="#toy">Play</a><a href="#papers">Papers</a><a href="#contact">Contact</a></div>
+    <div class="links"><a href="#work">Work</a><a href="#experience">Experience</a><a href="#demo">Demo</a><a href="#papers">Papers</a><a href="#contact">Contact</a></div>
     <button class="lock" id="lock" aria-pressed="false" title="Press E">🔒 encrypt this page</button>
   </div>
 </nav>
@@ -46,7 +46,7 @@ layout: default
   <section id="about">
     <div class="label">01 / about</div>
     <div class="about">
-      <div><h2>{{ p.about.heading | escape }} <em>{{ p.about.heading_em | escape }}</em></h2><p>{{ p.about.text | escape }}</p></div>
+      <div><h2>{{ p.about.heading | escape }} <em>{{ p.about.heading_em | escape }}</em></h2><div class="prose">{% for para in p.about.paragraphs %}<p>{{ para | escape }}</p>{% endfor %}</div></div>
       <div>
         <ol class="route" aria-label="Where I have worked">
           {%- for city in p.route %}<li style="--i:{{ forloop.index0 }}"><span>{{ city | escape }}</span></li>{% endfor %}
@@ -58,8 +58,8 @@ layout: default
   </section>
 
   <section id="work">
-    <div class="label">02 / research</div>
-    <h2>What I <em>work on</em></h2>
+    <div class="label">02 / work</div>
+    <h2>Work, <em>then and now</em></h2>
     <div class="cards">
       {%- for h in site.data.highlights %}
       {%- assign tilt = forloop.index0 | modulo: 4 %}
@@ -99,9 +99,9 @@ layout: default
     </div>
   </section>
 
-  <section id="toy">
-    <div class="label">05 / play</div>
-    <h2>Try a <em>secret-sharing</em> toy</h2>
+  <section id="demo">
+    <div class="label">05 / demo</div>
+    <h2>Try <em>secret sharing</em></h2>
     <div class="toy">
       <div>
         <h3>Split a secret into three shares.</h3>
