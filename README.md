@@ -21,7 +21,7 @@ The personal website of **Abdelrahaman (Abdel) Aly**: applied cryptography and p
 | `_includes/cipher.txt` | The hex texture behind the hero |
 | `assets/site.css`, `assets/site.js` | Styles and the interactive bits |
 | `brussels/` | The Brussels walking tour, a standalone page |
-| `piglet/`, `_data/piglet.yml` | Piglet's page: tricks, tips and favourite things, filled in from the YAML |
+| `piglet/`, `_data/piglet.yml` | Piglet's page: the circus of tricks (with a trick tree drawn from `builds_on:`), the kitchen of nutrition tips, and a treat calculator |
 | `_data/food.yml` | The tour's food menu, "Brussels, by the mouthful": courses of places, each linked to Google Maps and the nearest stop |
 | `_config.yml` | Jekyll settings, plus the search and link-preview settings: `google_site_verification`, `og_image` |
 | `.github/workflows/check.yml` | Builds every pull request to catch mistakes before they go live |
@@ -46,7 +46,7 @@ Almost every change is a YAML edit in `_data/`; the templates rarely need touchi
 | A link in "Tools I find useful" | `_data/resources.yml` |
 | A talk, committee, degree or language | `_data/about.yml` |
 | A restaurant, bar or rooftop on the Brussels tour | `_data/food.yml` |
-| A trick, tip or favourite thing on Piglet's page | `_data/piglet.yml` |
+| A trick or nutrition tip on Piglet's page | `_data/piglet.yml` (the fields are explained at the top) |
 | Your name, links, about text or the numbers strip | `_data/profile.yml` |
 
 ### Four steps

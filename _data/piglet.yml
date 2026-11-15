@@ -1,29 +1,45 @@
-# Piglet's page (/piglet/): tricks, tips and favourite things.
-#
-# Each "- section:" block is one part of the page, shown in file order.
-# Each item under it is one card:
-#   title:  the trick, tip or thing
-#   how:    optional; how you taught it, or how it works (one or two sentences)
-#   tag:    optional; a short label on the card, e.g. "easy", "advanced", "grooming"
-#
-# A section with no items yet shows a "still to come" box instead:
-#   soon: Still to come.
-#
-# To add a card, copy a "- title:" block under "items:" (replace the "soon:" line
-# with "items:" the first time). Wrap text in quotes when it contains a colon (:).
+# Piglet's page (/piglet/). Four parts, each filled in from this file.
+# Wrap text in quotes when it contains a colon (:). Indent with spaces, never tabs.
+# Until a part has entries, its "soon:" line is shown in a "still to come" box.
 
-- section: Tricks he knows
-  intro: One card per trick, with how we taught it.
+# ── 1. The Piglet Circus: one card ("act") per trick ─────────────────────────
+#   title:      the trick
+#   level:      1, 2 or 3 stars (1 = beginner, 3 = show-off)
+#   props:      optional; what you need: "nothing", "a cushion", "a hoop"
+#   builds_on:  optional; the title of the trick it builds on. This draws the
+#               trick tree (part 2). Must match another act's title exactly.
+#   how:        how you taught it, shown when the card is flipped
+circus:
+  intro: Tonight only, live from the living room. Tap a card to see how we taught it.
   soon: Still to come. Piglet is rehearsing.
-  # items:
-  #   - title: Sit
-  #     tag: easy
-  #     how: Hold a treat above his nose and move it back; his bottom goes down on its own.
+  acts:
+  # - title: Sit
+  #   level: 1
+  #   props: nothing
+  #   how: Hold a treat above his nose and move it back; his bottom goes down on its own.
+  # - title: Beg
+  #   level: 2
+  #   builds_on: Sit
+  #   how: From a sit, lift the treat slowly until he sits up on his back legs.
 
-- section: Tips
-  intro: Grooming that curly coat, training, and city life with a labradoodle.
-  soon: Still to come.
+# ── 2. The trick tree is drawn automatically from "builds_on:" above. ────────
+tree:
+  intro: Big acrobatics are small tricks stacked up. To teach one, start from the one below it.
+  soon: The tree grows as tricks with "builds_on:" are added to the circus.
 
-- section: Favourite things
-  intro: Toys, walks and treats, ranked by Piglet.
-  soon: Still to come.
+# ── 3. Piglet's kitchen: one card per nutrition tip ──────────────────────────
+#   title:  the tip in a few words
+#   tag:    optional; a short label: "treats", "coat", "hydration", ...
+#   tip:    one or two sentences
+kitchen:
+  intro: What goes in the bowl, and what never should. Every dog is different, so check with your vet.
+  soon: Still to come. The chef is shopping.
+  tips:
+  # - title: Treats are part of the meal
+  #   tag: treats
+  #   tip: Count training treats in the day's food, and use small pieces.
+
+# ── 4. The treat calculator ──────────────────────────────────────────────────
+#   weight_kg:  Piglet's weight, used as the starting value (leave empty to start blank)
+calculator:
+  weight_kg:

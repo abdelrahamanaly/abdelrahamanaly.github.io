@@ -61,6 +61,51 @@ layout: null
   footer{padding:8px 0 48px;color:var(--grey);font-size:.95rem}
   @media (max-width:860px){header .wrap{grid-template-columns:1fr}.photo{order:-1}.section{padding:22px 20px}}
   @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.photo img,.card{transition:none}}
+  .section h2 em{font-style:normal;color:var(--orange)}
+  .jump{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 28px}
+  .jump a{text-decoration:none;font:600 13px "JetBrains Mono",monospace;border:2px solid var(--ink);border-radius:999px;padding:6px 14px;background:var(--card);transition:transform .15s}
+  .jump a:hover{transform:translateY(-2px) rotate(-2deg);border-color:var(--orange)}
+  .chips{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 18px}
+  .chip{font:600 12px "JetBrains Mono",monospace;border:2px solid var(--mint-line);background:transparent;color:var(--ink);border-radius:999px;padding:6px 12px;cursor:pointer}
+  .chip.on{background:var(--navy);border-color:var(--navy);color:var(--mint)}
+  .acts{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,230px),1fr));gap:16px}
+  .act[hidden]{display:none}
+  .act-inner{all:unset;display:block;width:100%;height:210px;perspective:900px;cursor:pointer}
+  .act-inner:focus-visible{outline:3px solid var(--orange);outline-offset:4px;border-radius:12px}
+  .face{position:absolute;inset:0;display:flex;flex-direction:column;gap:6px;padding:18px;border-radius:12px;border:2px solid var(--ink);-webkit-backface-visibility:hidden;backface-visibility:hidden;transition:transform .5s;box-sizing:border-box}
+  .act-inner{position:relative}
+  .front{background:repeating-linear-gradient(135deg,var(--card) 0 14px,color-mix(in srgb,var(--orange) 7%,var(--card)) 14px 28px)}
+  .back{background:var(--navy);color:#fff;transform:rotateY(180deg)}
+  .act-inner[aria-pressed="true"] .front{transform:rotateY(-180deg)}
+  .act-inner[aria-pressed="true"] .back{transform:rotateY(0)}
+  .act-no{font:600 11px "JetBrains Mono",monospace;text-transform:uppercase;color:var(--orange);letter-spacing:.5px}
+  .act-title{font-weight:900;font-size:1.3rem;line-height:1.15}
+  .stars{color:var(--orange);font-size:1.1rem;letter-spacing:2px}
+  .props{font:600 11px "JetBrains Mono",monospace;color:var(--grey)}
+  .back .props{color:var(--mint)}
+  .how{font-size:.95rem;color:#dbe6ea;overflow:auto}
+  .hint{margin-top:auto;font:600 11px "JetBrains Mono",monospace;color:var(--grey)}
+  .treeview ul{list-style:none;margin:0;padding-left:26px;border-left:2px dashed var(--mint-line)}
+  .treeview>ul{padding-left:0;border:0}
+  .treeview li{position:relative;margin:10px 0}
+  .treeview ul ul li::before{content:"";position:absolute;left:-26px;top:16px;width:20px;border-top:2px dashed var(--mint-line)}
+  .node{display:inline-flex;align-items:center;gap:8px;border:2px solid var(--ink);border-radius:999px;padding:4px 14px;background:var(--card);font-weight:800}
+  .node small{color:var(--orange);font-size:.8rem;letter-spacing:1px}
+  .calc-row{display:flex;flex-wrap:wrap;align-items:center;gap:10px 12px;margin:0 0 18px}
+  .calc-row label{font:600 13px "JetBrains Mono",monospace}
+  #kg{width:96px;font:800 1.2rem "Albert Sans",sans-serif;padding:6px 10px;border:2px solid var(--ink);border-radius:10px;background:var(--card);color:var(--ink)}
+  #kg-range{flex:1;min-width:160px;accent-color:var(--orange)}
+  .readout{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+  .readout div{border:2px solid var(--mint-line);border-radius:12px;padding:12px 14px}
+  .readout .treat{border-color:var(--orange)}
+  .big{display:block;font-weight:900;font-size:clamp(1.6rem,4vw,2.3rem);line-height:1}
+  .treat .big{color:var(--orange)}
+  .lbl{font:600 11px "JetBrains Mono",monospace;color:var(--grey)}
+  .bowl{margin:16px 0 0;height:14px;border-radius:999px;background:var(--mint-line);overflow:hidden}
+  .bowl span{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--mint) 90%,var(--orange) 90%);transition:width .4s}
+  .fine{margin:10px 0 0;font-size:.85rem;color:var(--grey)}
+  @media (max-width:560px){.readout{grid-template-columns:1fr}}
+  @media (prefers-reduced-motion:reduce){.face,.bowl span{transition:none}}
 </style>
 </head>
 <body>
@@ -68,11 +113,11 @@ layout: null
 <header>
   <div class="wrap">
     <div>
-      <div class="eyebrow">Labradoodle · Tricks + Tips</div>
+      <div class="eyebrow">Labradoodle · Acrobatics + Kitchen</div>
       <h1>Meet <em>Piglet.</em></h1>
       <p class="hero-copy">
-        Curly, black and always ready for the next treat. This is where the tricks he knows live, with how we taught
-        them, plus the tips we picked up along the way: grooming that coat, training, and city life with a doodle.
+        Curly, black and secretly an acrobat. Come for the circus of tricks he knows and how we taught them,
+        stay for the kitchen: what goes in the bowl of a happy doodle, and a calculator to check the treats.
       </p>
     </div>
     <figure class="photo">
@@ -83,27 +128,148 @@ layout: null
 </header>
 
 <main class="wrap">
-  {%- for s in site.data.piglet %}
-  <section class="section" id="{{ s.section | slugify }}">
-    <div class="kicker">{% if forloop.index < 10 %}0{% endif %}{{ forloop.index }}</div>
-    <h2>{{ s.section }}</h2>
-    {%- if s.intro %}<p class="intro">{{ s.intro }}</p>{% endif %}
-    {%- if s.items and s.items.size > 0 %}
+  {%- assign pg = site.data.piglet %}
+  <nav class="jump" aria-label="On this page"><a href="#circus">🎪 Circus</a><a href="#tree">🌳 Trick tree</a><a href="#kitchen">🥣 Kitchen</a><a href="#calc">🧮 Treat calculator</a></nav>
+
+  {%- assign acts = pg.circus.acts %}
+  <section class="section" id="circus">
+    <div class="kicker">01 · Tonight only</div>
+    <h2>The Piglet <em>Circus</em></h2>
+    {%- if pg.circus.intro %}<p class="intro">{{ pg.circus.intro }}</p>{% endif %}
+    {%- if acts and acts.size > 0 %}
+    <div class="chips" role="group" aria-label="Filter by level">
+      <button class="chip on" data-level="all">All acts</button>
+      <button class="chip" data-level="1">★ Beginner</button>
+      <button class="chip" data-level="2">★★ Getting fancy</button>
+      <button class="chip" data-level="3">★★★ Show-off</button>
+    </div>
+    <ol class="acts">
+      {%- for a in acts %}
+      {%- assign lv = a.level | default: 1 %}
+      <li class="act" data-level="{{ lv }}">
+        <button class="act-inner" aria-pressed="false">
+          <span class="face front">
+            <span class="act-no">Act {{ forloop.index }}</span>
+            <span class="act-title">{{ a.title }}</span>
+            <span class="stars" aria-label="{{ lv }} of 3 stars">{% for i in (1..3) %}{% if i <= lv %}★{% else %}☆{% endif %}{% endfor %}</span>
+            {%- if a.props %}<span class="props">props: {{ a.props }}</span>{% endif %}
+            <span class="hint">tap to see how ↻</span>
+          </span>
+          <span class="face back">
+            <span class="act-title">How we taught it</span>
+            <span class="how">{{ a.how | default: "Piglet is keeping this one secret." }}</span>
+            {%- if a.builds_on %}<span class="props">builds on: {{ a.builds_on }}</span>{% endif %}
+          </span>
+        </button>
+      </li>
+      {%- endfor %}
+    </ol>
+    {%- else %}
+    <p class="soon">{{ pg.circus.soon }}</p>
+    {%- endif %}
+  </section>
+
+  <section class="section" id="tree">
+    <div class="kicker">02 · Small steps, stacked</div>
+    <h2>The trick <em>tree</em></h2>
+    {%- if pg.tree.intro %}<p class="intro">{{ pg.tree.intro }}</p>{% endif %}
+    <div id="treeview" class="treeview"></div>
+    <p class="soon" id="tree-soon">{{ pg.tree.soon }}</p>
+    <script type="application/json" id="acts-data">{{ acts | jsonify }}</script>
+  </section>
+
+  {%- assign tips = pg.kitchen.tips %}
+  <section class="section" id="kitchen">
+    <div class="kicker">03 · From the bowl</div>
+    <h2>Piglet's <em>kitchen</em></h2>
+    {%- if pg.kitchen.intro %}<p class="intro">{{ pg.kitchen.intro }}</p>{% endif %}
+    {%- if tips and tips.size > 0 %}
     <div class="cards">
-      {%- for i in s.items %}
+      {%- for t in tips %}
       <div class="card">
-        {%- if i.tag %}<span class="tag">{{ i.tag }}</span>{% endif %}
-        <h3>{{ i.title }}</h3>
-        {%- if i.how %}<p>{{ i.how }}</p>{% endif %}
+        {%- if t.tag %}<span class="tag">{{ t.tag }}</span>{% endif %}
+        <h3>{{ t.title }}</h3>
+        <p>{{ t.tip }}</p>
       </div>
       {%- endfor %}
     </div>
-    {%- elsif s.soon %}
-    <p class="soon">{{ s.soon }}</p>
+    {%- else %}
+    <p class="soon">{{ pg.kitchen.soon }}</p>
     {%- endif %}
   </section>
-  {%- endfor %}
+
+  <section class="section calc" id="calc">
+    <div class="kicker">04 · Play with it</div>
+    <h2>How many treats <em>today?</em></h2>
+    <p class="intro">Enter a dog's weight. The resting energy estimate vets use is 70 × weight<sup>0.75</sup> kcal a day; a typical adult needs about 1.6 times that, and treats should stay under 10% of the total.</p>
+    <div class="calc-row">
+      <label for="kg">Weight</label>
+      <input id="kg" type="number" min="1" max="100" step="0.5" inputmode="decimal" value="{{ pg.calculator.weight_kg }}" placeholder="e.g. 20">
+      <span class="unit">kg</span>
+      <input id="kg-range" type="range" min="1" max="60" step="0.5" value="{{ pg.calculator.weight_kg | default: 20 }}" aria-label="Weight slider">
+    </div>
+    <div class="readout" aria-live="polite">
+      <div><span class="big" id="rer">–</span><span class="lbl">kcal at rest</span></div>
+      <div><span class="big" id="day">–</span><span class="lbl">kcal a typical day</span></div>
+      <div class="treat"><span class="big" id="treats">–</span><span class="lbl">kcal of treats, max</span></div>
+    </div>
+    <div class="bowl" aria-hidden="true"><span id="bowl-fill"></span></div>
+    <p class="fine">A rough guide for healthy adult dogs. Puppies, seniors, very active or neutered dogs differ; your vet knows best.</p>
+  </section>
 </main>
 <footer class="wrap"><p>A side quest by <a href="../">Abdel Aly</a>, supervised by Piglet.</p></footer>
+<script>
+(function () {
+  // Circus: flip cards and filter by level.
+  document.querySelectorAll(".act-inner").forEach(function (b) {
+    b.addEventListener("click", function () { b.setAttribute("aria-pressed", b.getAttribute("aria-pressed") === "true" ? "false" : "true"); });
+  });
+  document.querySelectorAll(".chip").forEach(function (c) {
+    c.addEventListener("click", function () {
+      document.querySelectorAll(".chip").forEach(function (x) { x.classList.toggle("on", x === c); });
+      document.querySelectorAll(".act").forEach(function (a) { a.hidden = c.dataset.level !== "all" && a.dataset.level !== c.dataset.level; });
+    });
+  });
+
+  // Trick tree: drawn from each act's "builds_on".
+  var acts = [];
+  try { acts = JSON.parse(document.getElementById("acts-data").textContent) || []; } catch (e) {}
+  var titles = acts.map(function (a) { return a.title; });
+  var linked = acts.some(function (a) { return a.builds_on && titles.indexOf(a.builds_on) >= 0; });
+  if (linked) {
+    var kids = function (parent) { return acts.filter(function (a) { return a.builds_on === parent; }); };
+    var stars = function (n) { return "★★★".slice(0, n || 1); };
+    var build = function (list) {
+      var ul = document.createElement("ul");
+      list.forEach(function (a) {
+        var li = document.createElement("li"), n = document.createElement("span");
+        n.className = "node"; n.textContent = a.title + " ";
+        var s = document.createElement("small"); s.textContent = stars(a.level); n.appendChild(s);
+        li.appendChild(n);
+        var k = kids(a.title); if (k.length) li.appendChild(build(k));
+        ul.appendChild(li);
+      });
+      return ul;
+    };
+    var roots = acts.filter(function (a) { return !a.builds_on || titles.indexOf(a.builds_on) < 0; });
+    document.getElementById("treeview").appendChild(build(roots));
+    document.getElementById("tree-soon").hidden = true;
+  }
+
+  // Treat calculator: RER = 70 × kg^0.75; typical adult ≈ 1.6 × RER; treats ≤ 10%.
+  var kg = document.getElementById("kg"), range = document.getElementById("kg-range");
+  var out = function (id, v) { document.getElementById(id).textContent = v; };
+  var calc = function () {
+    var w = parseFloat(kg.value);
+    if (!(w > 0 && w <= 100)) { ["rer", "day", "treats"].forEach(function (id) { out(id, "–"); }); document.getElementById("bowl-fill").style.width = "0"; return; }
+    var rer = 70 * Math.pow(w, 0.75), day = rer * 1.6;
+    out("rer", Math.round(rer)); out("day", Math.round(day)); out("treats", Math.round(day * 0.1));
+    document.getElementById("bowl-fill").style.width = Math.min(100, day / 25) + "%";
+  };
+  kg.addEventListener("input", function () { if (kg.value) range.value = kg.value; calc(); });
+  range.addEventListener("input", function () { kg.value = range.value; calc(); });
+  calc();
+})();
+</script>
 </body>
 </html>
