@@ -21,6 +21,7 @@ The personal website of **Abdelrahaman (Abdel) Aly**: applied cryptography and p
 | `brussels/` | The Brussels walking tour, a standalone page |
 | `_config.yml` | Jekyll settings |
 | `.github/workflows/check.yml` | Builds every pull request to catch mistakes before they go live |
+| `.github/pull_request_template.md` | The Description / Solution / Test outline every pull request starts from |
 
 The site is built with [Jekyll](https://jekyllrb.com/), the engine GitHub Pages runs natively. There is no build step to maintain: GitHub rebuilds the site after every merge to `main`.
 
