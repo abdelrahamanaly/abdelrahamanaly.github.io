@@ -26,10 +26,6 @@
       maps: Frites Atelier Rue Sainte-Catherine Brussels
       stop: 22
       note: The same national dish, taken seriously, near Sainte-Catherine.
-    - name: La Maison des Crêpes
-      maps: La Maison des Crepes Rue du Midi 13 Brussels
-      stop: 4
-      note: An authentic bite on Rue du Midi, a few steps from the Bourse.
     - name: A Vedet or a Ginette at Place Lux
       maps: Place du Luxembourg Brussels
       stop: 12
@@ -53,6 +49,10 @@
       maps: Cafe Capitale Rue du Midi 45 Brussels
       stop: 4
       note: A nice coffee on Rue du Midi; they roast their own.
+    - name: La Maison des Crêpes
+      maps: La Maison des Crepes Rue du Midi 13 Brussels
+      stop: 4
+      note: "Not Belgian, just authentic: proper crêpes on Rue du Midi, a few steps from the Bourse."
     - name: Nona Pasta
       maps: Nona Pasta Rue Sainte-Catherine Brussels
       stop: 22
