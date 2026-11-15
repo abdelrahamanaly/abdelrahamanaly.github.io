@@ -3,8 +3,8 @@
 - group: Research topics
   items: [Secure multi-party computation, "Homomorphic encryption (CKKS, BFV)", Secret sharing, Garbled circuits, Private set intersection, Threshold cryptography, Post-quantum cryptography]
 
-- group: Private AI
-  items: [Private LLM inference, Encrypted neural-network inference, Federated learning, Secure aggregation, Differential privacy]
+- group: Privacy-preserving ML
+  items: [Private training, Federated learning, Secure aggregation, Differential privacy, Private LLM inference, Encrypted neural-network inference]
 
 - group: From industry
   items: [Payments cryptography, HSMs and PKI, Key management, MPC for fraud detection]

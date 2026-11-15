@@ -4,7 +4,7 @@
   org: Technology Innovation Institute (TII), Cryptography Research Centre
   place: Abu Dhabi, UAE
   dates: 2021 – Present
-  summary: "Applied cryptography for privacy-preserving AI: MPC and FHE for private LLM inference and federated learning."
+  summary: "Privacy-enhancing technologies, mainly MPC and FHE. Main focus: privacy-preserving machine learning, for training (federated learning) and inference (private LLM inference)."
 
 - title: Cryptographic Engineer
   org: KBC Group, Belgium's second-largest bank

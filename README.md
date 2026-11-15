@@ -1,6 +1,6 @@
 # abdelrahamanaly.github.io
 
-The personal website of **Abdelrahaman (Abdel) Aly**: applied cryptography, secure multi-party computation (MPC), fully homomorphic encryption (FHE) and privacy-preserving AI.
+The personal website of **Abdelrahaman (Abdel) Aly**: applied cryptography and privacy-enhancing technologies: secure multi-party computation (MPC), fully homomorphic encryption (FHE) and privacy-preserving machine learning.
 
 **Live:** https://abdelrahamanaly.github.io · **Side project:** [a walk through the heart of Brussels](https://abdelrahamanaly.github.io/brussels/)
 
