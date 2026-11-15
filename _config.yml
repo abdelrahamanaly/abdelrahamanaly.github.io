@@ -1,8 +1,17 @@
 # Jekyll configuration. GitHub Pages builds this site on every merge to main.
-title: "Abdel Aly · Cryptographer"
-description: "Abdel Aly, cryptographer and researcher: privacy-enhancing technologies, secure multi-party computation, homomorphic encryption and privacy-preserving machine learning."
+title: "Abdelrahaman (Abdel) Aly · Cryptographer and researcher"
+description: "Abdelrahaman (Abdel) Aly, cryptographer and researcher: privacy-enhancing technologies, secure multi-party computation, homomorphic encryption and privacy-preserving machine learning."
 url: "https://abdelrahamanaly.github.io"
 baseurl: ""
+
+# Builds /sitemap.xml for search engines (supported by GitHub Pages).
+plugins:
+  - jekyll-sitemap
+
+# Search and link previews. Leave a value empty ("") to leave it out.
+google_site_verification: ""   # the content="..." value of the meta tag from Google Search Console
+linkedin: ""                   # your LinkedIn profile URL, e.g. https://www.linkedin.com/in/...
+og_image: "/assets/preview.png"                 # a 1200x627 image for LinkedIn previews, e.g. /assets/preview.png
 
 # Not part of the published site.
 exclude:
