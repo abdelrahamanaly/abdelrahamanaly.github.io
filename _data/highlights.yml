@@ -14,4 +14,4 @@
 
 - title: Cryptography inside a bank
   where: KBC
-  text: "Cryptographic engineering for production banking systems: payments, key management, and an MPC prototype that looked for fraud in transactions without exposing them."
+  text: "Cryptographic engineering for production banking systems: the Apple Pay integration, key and certificate lifecycle on HSMs and PKI, and an MPC prototype that looked for fraud in transactions without exposing them."
