@@ -41,17 +41,17 @@ about:
   # One entry per paragraph.
   paragraphs:
     - >-
-      I work on making secure computation practical: protocols that let several parties
-      compute on data none of them can see, and the software that runs them.
+      I make secure computation practical: protocols that let parties compute on data
+      none of them can see, and the software that runs them.
     - >-
-      My PhD at UCLouvain applied MPC to auctions, graphs and electricity markets. As a
-      postdoc at COSIC, KU Leuven, with Bart Preneel and Nigel Smart, I was one of the
-      maintainers of SCALE-MAMBA. In industry I built software for financial-data providers
-      in Quito, did software design for banks at Accenture, and cryptographic engineering at KBC.
+      PhD at UCLouvain, on MPC for auctions, graphs and electricity markets. Postdoc at
+      COSIC, KU Leuven, with Bart Preneel and Nigel Smart, as one of the maintainers of
+      SCALE-MAMBA. In industry, software design for banks at Accenture and cryptographic
+      engineering at KBC.
     - >-
-      Today I am part of the PETs team at TII's Cryptography Research Centre, where we
-      research, design and develop applied privacy-enhancing technologies. My own work is
-      mostly applied MPC, and some FHE, used in privacy-preserving machine learning.
+      Today I am part of TII's PETs team, where we research, design and develop applied
+      privacy-enhancing technologies. My own work is mostly applied MPC, with some FHE,
+      for privacy-preserving machine learning.
 
 contact:
   heading: "Say hello."

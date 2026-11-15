@@ -7,10 +7,7 @@
   items: [Private training, Federated learning, Secure aggregation, Differential privacy, Private LLM inference, Encrypted neural-network inference]
 
 - group: From industry
-  items: [Payments cryptography, HSMs and PKI, Key management, Key ceremonies, Crypto-agility, FIPS-compliant cryptography, PKCS standards, MPC for fraud detection]
+  items: [Payments cryptography, HSMs and PKI, Key management and ceremonies, Crypto-agility, "Standards-compliant crypto: FIPS, PKCS, IETF", MPC for fraud detection]
 
-- group: Software I've worked with
-  items: [SCALE-MAMBA, MP-SPDZ, FANNG-MPC, CrypTen, OpenFHE, Microsoft SEAL, HEaaN, Flower]
-
-- group: Cryptographic libraries
-  items: [Bouncy Castle, Java security providers (JCA/JCE), Python cryptographic libraries, MPC frameworks in several languages]
+- group: Cryptographic software, a selection
+  items: [SCALE-MAMBA, MP-SPDZ, FANNG-MPC, CrypTen, OpenFHE, Microsoft SEAL, HEaaN, Flower, Bouncy Castle, Java security providers (JCA/JCE), Python cryptographic libraries, and many more MPC frameworks]
