@@ -43,7 +43,7 @@ about:
     data none of them can see, and the software that runs them. My PhD at UCLouvain applied MPC to
     auctions, graphs and electricity markets. As a postdoc at COSIC, KU Leuven, with Bart Preneel and
     Nigel Smart, I was one of the maintainers of the SCALE-MAMBA framework. In between I worked in
-    industry: software for financial-data providers in Quito, security design for banks at Accenture,
+    industry: software for financial-data providers in Quito, software design for banks at Accenture,
     and cryptographic engineering at KBC, where I worked on the Apple Pay integration and HSM and PKI
     key management. Today I lead the MPC and FHE work at TII's Cryptography Research Centre,
     building and designing LLM inference on encrypted data.
