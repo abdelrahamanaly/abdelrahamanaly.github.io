@@ -8,6 +8,10 @@
 #          Leave it out and the tag says "anytime".
 #   note:  one or two short sentences
 #
+# A course with no places yet can say what is coming instead:
+#   - course: Sunday brunch
+#     soon: Still to come.
+#
 # To add a place, copy a "- name:" block under the right course.
 # To add a course, copy a whole "- course:" block. The menu disappears if this file is empty.
 # Wrap text in quotes when it contains a colon (:).
@@ -18,6 +22,14 @@
       maps: Place Jourdan Brussels
       stop: 9
       note: A cone from the fritkot, with mayonnaise. Eat them standing up.
+    - name: Frites Atelier
+      maps: Frites Atelier Rue Sainte-Catherine Brussels
+      stop: 22
+      note: The same national dish, taken seriously, near Sainte-Catherine.
+    - name: La Maison des Crêpes
+      maps: La Maison des Crepes Rue du Midi 13 Brussels
+      stop: 4
+      note: An authentic bite on Rue du Midi, a few steps from the Bourse.
     - name: A Vedet or a Ginette at Place Lux
       maps: Place du Luxembourg Brussels
       stop: 12
@@ -37,6 +49,10 @@
 
 - course: Just good
   places:
+    - name: Café Capitale
+      maps: Cafe Capitale Rue du Midi 45 Brussels
+      stop: 4
+      note: A nice coffee on Rue du Midi; they roast their own.
     - name: Nona Pasta
       maps: Nona Pasta Rue Sainte-Catherine Brussels
       stop: 22
@@ -63,3 +79,10 @@
       maps: Brucity Rooftop Rue des Halles 4 Brussels
       stop: 4
       note: "The roof of the City of Brussels' own offices, open to the public, with a bar on top and a 360° view over the old town. Weekdays enter through the Brucity atrium on Rue des Halles."
+    - name: Beursschouwburg rooftop
+      maps: Beursschouwburg Rue Auguste Orts 20 Brussels
+      stop: 4
+      note: The arts centre behind the Bourse opens its roof for drinks in the warm months. Check before you go.
+
+- course: Sunday brunch
+  soon: Still to come. A short list of Sunday brunches is on its way.
