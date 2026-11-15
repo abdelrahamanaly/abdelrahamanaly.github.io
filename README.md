@@ -11,8 +11,9 @@ The personal website of **Abdelrahaman (Abdel) Aly**: applied cryptography and p
 | `_data/profile.yml` | Name, tagline, links, the numbers strip, the program-committee ticker, about and contact text |
 | `_data/highlights.yml` | The "Work, then and now" cards |
 | `_data/experience.yml` | The career timeline |
-| `_data/skills.yml` | The research-topic and software chips |
-| `_data/resources.yml` | "Tools I find useful" (section 07): links grouped by topic |
+| `_data/skills.yml` | The research-topic chips |
+| `_data/stack.yml` | "The stack I've worked across": layers from private ML down to the keys, with linked tools |
+| `_data/resources.yml` | "Tools I find useful" (section 07): a small terminal with one tab per step (learn → build → publish) |
 | `_data/publications.yml` | Selected publications, each with a DOI link |
 | `_data/about.yml` | Education, community service, languages and side projects |
 | `index.html` | The homepage template (Liquid). It only arranges the data above |
@@ -66,16 +67,18 @@ community:
 ```
 
 ```yaml
-# _data/resources.yml: add a tool or link under an existing group
-- group: Learning MPC
+# _data/resources.yml: add a tool under an existing step
+- step: learn
+  title: Learn MPC
   items:
-    - title: Name of the resource
+    - title: Name of the tool
+      kind: course               # the tag shown in brackets: list, blog, paper, library, tool, ...
       by: Who made it            # optional
       url: https://example.org/
       note: One sentence on why it is useful.   # optional
 ```
 
-To start a new group, add a new `- group:` block with its own `items:` list. The section disappears if the file is empty.
+To add a step, copy a whole `- step:` block; it gets its own tab, in file order. The section disappears if the file is empty.
 
 YAML tips: indent with spaces, never tabs. Wrap text in quotes when it contains a colon (`:`) or starts with a special character.
 

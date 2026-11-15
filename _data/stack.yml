@@ -1,0 +1,53 @@
+# "The stack I've worked across", shown in section 04 under the interest chips.
+# Layers run from the top (applications) down to the hardware. Each layer names a few
+# representative tools; keep it to two or three per layer.
+#
+#   layer: short name of the layer (required)
+#   what:  one short line on what happens at this layer (optional)
+#   tools: list of tools; each has a name and, optionally, a url
+#
+# Wrap a value in "double quotes" if it contains a colon (:) or starts with a special character.
+
+- layer: Private ML
+  what: training and inference on data nobody sees
+  tools:
+    - name: CrypTen
+      url: https://github.com/facebookresearch/CrypTen
+    - name: Flower
+      url: https://flower.ai/
+
+- layer: MPC
+  what: secret sharing and SPDZ-family protocols
+  tools:
+    - name: SCALE-MAMBA
+      url: https://github.com/KULeuven-COSIC/SCALE-MAMBA
+    - name: MP-SPDZ
+      url: https://github.com/data61/MP-SPDZ
+    - name: FANNG-MPC
+      url: https://github.com/Crypto-TII/FANNG-MPC
+
+- layer: FHE
+  what: CKKS and BFV, computing on ciphertexts
+  tools:
+    - name: OpenFHE
+      url: https://openfhe.org/
+    - name: Microsoft SEAL
+      url: https://github.com/microsoft/SEAL
+    - name: HEaaN
+      url: https://heaan.it/
+
+- layer: Production cryptography
+  what: the libraries and providers inside banking systems
+  tools:
+    - name: Bouncy Castle
+      url: https://www.bouncycastle.org/
+    - name: Java JCA/JCE providers
+      url: https://docs.oracle.com/en/java/javase/21/security/java-cryptography-architecture-jca-reference-guide.html
+    - name: Python crypto libraries
+
+- layer: Keys and trust
+  what: where the keys live and how they are managed
+  tools:
+    - name: HSMs
+    - name: PKI and certificate lifecycle
+    - name: Key ceremonies

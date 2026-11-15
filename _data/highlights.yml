@@ -12,6 +12,6 @@
   where: KU Leuven 2016–19 → TII
   text: One of the maintainers of KU Leuven's SCALE-MAMBA MPC framework during my postdoc, then co-designer of FANNG-MPC, TII's fork for neural networks (TCHES 2025).
 
-- title: Cryptography inside a bank
+- title: Cryptography for Banking
   where: KBC · 2019–21
   text: "Cryptographic engineering for production banking systems: the Apple Pay integration, key and certificate lifecycle on HSMs and PKI, and an MPC prototype that looked for fraud in transactions without exposing them."

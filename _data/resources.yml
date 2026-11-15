@@ -1,48 +1,64 @@
-# Tools I find useful, shown in section 07 of the homepage ("07 / tools").
+# "Tools I find useful", section 07 of the homepage ("07 / tools").
+# It looks like a terminal: one tab per step, in this order. Visitors click a step
+# (or "ls -R" for everything, "shuf -n 1" for a random pick).
 #
-# To add one, copy an item block (the lines from "- title:" to "note:") under the right group,
-# then change the text. To add a new group, copy a whole "- group:" block.
+# To add a tool, copy an item block (from "- title:" to "note:") under the right step
+# and change the text:
 #
 #   title: the link text (required)
 #   url:   the full address, starting with https:// (required)
+#   kind:  a one-word tag shown in brackets, e.g. list, blog, paper, library, tool,
+#          deadlines, ranking, course, video (required)
 #   by:    who made or maintains it (optional)
 #   note:  one short sentence on why it is useful (optional)
 #
+# To add a step, copy a whole "- step:" block. "step" is the one-word tab name
+# (lowercase, no spaces); "title" is the heading shown above its list.
 # Wrap a value in "double quotes" if it contains a colon (:) or starts with a special character.
 
-- group: Learning MPC
+- step: learn
+  title: Learn MPC
   items:
     - title: awesome-mpc
+      kind: list
       by: Dragoș Rotaru
       url: https://github.com/rdragos/awesome-mpc
       note: The curated list of MPC software, papers, courses and tutorials. Start here.
     - title: A Crash Course on MPC
+      kind: blog
       by: Daniel Escudero
       url: https://medium.com/applied-mpc/a-crash-course-on-mpc-part-0-311fae2ce184
-      note: A light series of blog posts that builds MPC up from the basics.
+      note: A light series of posts that builds MPC up from the basics.
     - title: An Introduction to Secret-Sharing-Based Secure Multiparty Computation
+      kind: paper
       by: Daniel Escudero
       url: https://eprint.iacr.org/2022/062
-      note: The longer, technical companion to the blog posts.
+      note: The longer, technical companion to the posts.
 
-- group: Conferences and deadlines
-  items:
-    - title: MPC Conference Deadlines
-      by: Ajith Suresh
-      url: https://ajithsuresh.github.io/mpc-deadlines.github.io/
-      note: Upcoming submission deadlines for venues that publish MPC.
-    - title: Top Cyber Security Conferences Ranking
-      by: Jianying Zhou
-      url: http://jianying.space/conference-ranking.html
-      note: Security and cryptography venues ranked by a yearly conference impact factor.
-
-- group: From TII
+- step: build
+  title: Build on solid code
   items:
     - title: FANNG-MPC
+      kind: library
       by: TII Cryptography Research Centre
       url: https://github.com/Crypto-TII/FANNG-MPC
       note: Our MPC library for neural networks, a fork of SCALE-MAMBA.
     - title: Fast Parameter Selection
+      kind: tool
       by: Chiara Marcolla, Sergi Rovira et al.
       url: https://fastparameterselection.readthedocs.io/en/latest/
       note: Picks secure parameters for LWE-based schemes, such as FHE, quickly and flexibly.
+
+- step: publish
+  title: Find the right venue
+  items:
+    - title: MPC Conference Deadlines
+      kind: deadlines
+      by: Ajith Suresh
+      url: https://ajithsuresh.github.io/mpc-deadlines.github.io/
+      note: Upcoming submission deadlines for venues that publish MPC.
+    - title: Top Cyber Security Conferences Ranking
+      kind: ranking
+      by: Jianying Zhou
+      url: http://jianying.space/conference-ranking.html
+      note: Security and cryptography venues ranked by a yearly conference impact factor.

@@ -51,13 +51,14 @@
   .intro-card h2,.tip-card h2{margin:0 0 10px;font-size:1.6rem;font-weight:900;letter-spacing:-.5px}
 
   .route{position:relative;container-type:inline-size}
-  /* Two lines down the side: on foot for the whole route, and by car from the parking stop onward. */
+  /* Two lines down the side: the full walk through every stop, and the short visit (stops 6 to 12) for visitors who arrive by car. */
   .route{--walk-x:20px;--car-x:30px;--dot:26px}
   .route::before{content:"";position:absolute;left:var(--walk-x);top:24px;bottom:24px;width:3px;background:var(--mint-line)}
   .route .car-start::after,.route .car-start ~ .stop::after{content:"";position:absolute;left:var(--car-x);top:0;bottom:-22px;width:3px;
     background:repeating-linear-gradient(to bottom,var(--orange) 0 8px,transparent 8px 14px);z-index:1}
   .route .car-start::after{top:var(--dot)}
-  .route .stop:last-child::after{bottom:auto;height:var(--dot)}
+  .route .stop:last-child::after,.route .car-end::after{bottom:auto;height:var(--dot)}
+  .route .car-end ~ .stop::after{content:none}
   .legend{display:flex;flex-wrap:wrap;gap:8px 22px;margin:0 0 22px;font:600 13px "JetBrains Mono",monospace;color:var(--grey)}
   .legend span{display:inline-flex;align-items:center;gap:8px}
   .legend i{display:inline-block;width:28px;height:3px;background:var(--mint-line)}
@@ -114,16 +115,19 @@
     <div class="eyebrow">Brussels · Walking + Metro · History + Architecture + Food</div>
     <h1>A walk through the heart of Brussels.</h1>
     <p class="hero-copy">
-      A deliberately paced route that starts at Brussels-Central, follows the traces of the vanished Putterie quarter,
-      opens onto the Grand-Place and Bourse, then jumps by metro to Montgomery and the Cinquantenaire, through the
-      European Quarter, Avenue Louise, the Royal Palace and Mont des Arts, before returning to the historic centre
-      for Manneken-Pis and a seafood finish. Along the way, keep an eye out for Brussels' own architectural signature: the city that
-      gave the world <strong>Art Nouveau</strong>, through Victor Horta, before Horta himself helped usher in
+      Old Brussels and new Brussels in one walk. Start under Horta's Art Deco station, wander the medieval lanes
+      to the Grand-Place, ride the metro into the glass-and-steel quarter of the European institutions, then come
+      back through royal parks and the Mont des Arts for Manneken-Pis, chocolate and seafood. Watch the city's own
+      signature as you go: Victor Horta gave the world <strong>Art Nouveau</strong> here, then helped bring in
       <strong>Art Deco</strong> a generation later.
     </p>
+    <p class="hero-copy">
+      <strong>Short on time, or arriving by car?</strong> Park at the Cinquantenaire and take the short visit of
+      modern Brussels: stops 6 to 12, the European Quarter on foot.
+    </p>
     <div class="quick">
-      <span class="pill">Start: Brussels-Central</span>
-      <span class="pill">Walk → Metro → Walk</span>
+      <span class="pill">Full walk: 22 stops from Brussels-Central</span>
+      <span class="pill">Short visit: stops 6–12, modern Brussels</span>
       <span class="pill">Watch for: Horta · Art Nouveau · Art Deco</span>
       <span class="pill">Finish: seafood & drinks</span>
     </div>
@@ -153,7 +157,7 @@
     </div>
   </section>
 
-  <div class="legend" aria-label="Route lines"><span><i></i>On foot: the whole route</span><span class="car"><i></i>By car: from the Cinquantenaire parking (stop 6)</span></div>
+  <div class="legend" aria-label="Route lines"><span><i></i>Full walk: all 22 stops</span><span class="car"><i></i>Short visit, modern Brussels: arrive by car, stops 6 to 12</span></div>
   <section class="route">
 
     <article class="stop">
@@ -275,11 +279,12 @@
     <article class="stop car-start">
       <div class="num">6</div>
       <div class="stop-card">
-        <div class="kicker">Alternative · By car</div>
-        <h3>Coming by car? Park at the Cinquantenaire</h3>
+        <div class="kicker">Short visit · Start here if you arrive by car</div>
+        <h3>Arriving by car? Park at the Cinquantenaire</h3>
         <p>
-          Skip this stop if you took the metro. If you are doing this part of the itinerary by car instead, use the suggested parking near the
-          <strong>Cinquantenaire</strong>. From here, the rest of the European Quarter can be explored comfortably on foot.
+          This is where the short visit of modern Brussels begins. Leave the car at the suggested parking near the
+          <strong>Cinquantenaire</strong> and follow the dashed line on foot through the European Quarter to
+          <strong>Place du Luxembourg</strong> (stop 12). On the full walk, skip this stop: you arrive by metro.
         </p>
         <a class="route-link" href="https://maps.app.goo.gl/jiWj8qxdychDRUKF8" target="_blank" rel="noopener">↗ Open the suggested parking in Google Maps</a>
       </div>
@@ -374,7 +379,7 @@
       </div>
     </article>
 
-    <article class="stop">
+    <article class="stop car-end">
       <div class="num">12</div>
       <div class="stop-card">
         <div class="kicker">Pause · Place du Luxembourg</div>

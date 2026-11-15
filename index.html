@@ -94,14 +94,32 @@ layout: default
     <h2>What I <em>think about</em></h2>
     <div class="skills">
       {%- for g in site.data.skills %}
-      <div class="skillgroup"><h3>{{ g.group | escape }}</h3><div class="chips">{% for i in g.items %}<span>{{ i | escape }}</span>{% endfor %}</div></div>
+      <div class="skillgroup"><h3>{{ g.group | escape }}</h3>{% if g.note %}<p class="groupnote">{{ g.note | escape }}</p>{% endif %}<div class="chips">{% for i in g.items %}<span>{{ i | escape }}</span>{% endfor %}</div></div>
       {%- endfor %}
     </div>
+    {%- if site.data.stack.size > 0 %}
+    <div class="stack">
+      <div class="stack-h">
+        <h3>The stack I've worked across</h3>
+        <p>From the HSM up to private ML. Each layer names a few of the tools I have used in research and in production; there are many more.</p>
+      </div>
+      <ol class="layers">
+        {%- for l in site.data.stack %}
+        <li style="--i:{{ forloop.index0 }}">
+          <span class="lnum">L{{ forloop.length | minus: forloop.index0 }}</span>
+          <div class="lname"><b>{{ l.layer | escape }}</b>{% if l.what %}<span>{{ l.what | escape }}</span>{% endif %}</div>
+          <div class="ltools">{% for t in l.tools %}{% if t.url %}<a href="{{ t.url }}" target="_blank" rel="noopener">{{ t.name | escape }} <i aria-hidden="true">↗</i></a>{% else %}<span>{{ t.name | escape }}</span>{% endif %}{% endfor %}</div>
+        </li>
+        {%- endfor %}
+      </ol>
+      <p class="stack-foot">Held to the standards industry runs on: <a href="https://csrc.nist.gov/projects/cryptographic-module-validation-program" target="_blank" rel="noopener">NIST FIPS 140</a>, PKCS and IETF RFCs, and built with crypto-agility in mind.</p>
+    </div>
+    {%- endif %}
   </section>
 
   <section id="play">
     <div class="label">05 / play</div>
-    <h2>Try <em>secret sharing</em></h2>
+    <h2>Let's play around with <em>secret sharing</em></h2>
     <div class="toy">
       <div>
         <h3>Split a secret into three shares.</h3>
@@ -134,16 +152,36 @@ layout: default
     <p class="more"><a class="btn" style="color:var(--teal);border-color:var(--teal)" href="{{ p.links.scholar }}">All papers on Google Scholar →</a></p>
   </section>
 
-  {%- if site.data.resources.size > 0 %}
+  {%- assign tools = site.data.resources -%}
+  {%- if tools.size > 0 %}
   <section id="tools">
     <div class="label">07 / tools</div>
     <h2>Tools I find <em>useful</em></h2>
-    <div class="resources">
-      {%- for g in site.data.resources %}
-      <div><h3>{{ g.group | escape }}</h3><ul>
-        {%- for r in g.items %}<li><a href="{{ r.url }}">{{ r.title | escape }}</a>{% if r.by %}<span class="by">{{ r.by | escape }}</span>{% endif %}{% if r.note %}<p>{{ r.note | escape }}</p>{% endif %}</li>{% endfor %}
-      </ul></div>
-      {%- endfor %}
+    <p class="lede">A research loop in {{ tools.size }} steps: {% for g in tools %}<b>{{ g.step | escape }}</b>{% unless forloop.last %} → {% endunless %}{% endfor %}. Pick a step, or let the shell pick for you.</p>
+    <div class="term" id="term">
+      <div class="term-bar" aria-hidden="true"><i></i><i></i><i></i><span>abdel@tii: ~/tools</span></div>
+      <div class="term-tabs" role="tablist" aria-label="Steps">
+        {%- for g in tools %}
+        <button type="button" role="tab" data-step="{{ g.step }}" aria-selected="false"><span>0{{ forloop.index }}</span> {{ g.step | escape }}</button>{% unless forloop.last %}<i aria-hidden="true">→</i>{% endunless %}
+        {%- endfor %}
+        <span class="spacer"></span>
+        <button type="button" role="tab" data-step="all" aria-selected="true">ls -R</button>
+        <button type="button" class="lucky" id="lucky">shuf -n 1</button>
+      </div>
+      <div class="term-body">
+        <div class="prompt" aria-hidden="true"><span class="ps1">~/tools $</span> <span id="cmd">ls -R</span><span class="caret">▍</span></div>
+        {%- for g in tools %}
+        <div class="step" data-step="{{ g.step }}">
+          <div class="step-h"><span>0{{ forloop.index }}/{{ g.step | escape }}</span> # {{ g.title | escape }}</div>
+          <ul>
+            {%- for r in g.items %}
+            <li><a href="{{ r.url }}" target="_blank" rel="noopener"><span class="kind">[{{ r.kind | default: "link" | escape }}]</span><span class="what"><b>{{ r.title | escape }}</b>{% if r.by %} <span class="by">{{ r.by | escape }}</span>{% endif %}{% if r.note %}<span class="note">{{ r.note | escape }}</span>{% endif %}</span><span class="go" aria-hidden="true">↗</span></a></li>
+            {%- endfor %}
+          </ul>
+        </div>
+        {%- endfor %}
+        <div class="term-foot" id="termfoot" aria-live="polite"></div>
+      </div>
     </div>
   </section>
   {%- endif %}

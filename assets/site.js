@@ -94,3 +94,61 @@
   document.getElementById("resplit").addEventListener("click", split);
   split();
 })();
+
+// Tools terminal (section 07): a tab "types" an ls command, then lists that step's entries.
+// Without JavaScript every step is simply shown.
+(() => {
+  const term = document.getElementById("term");
+  if (!term) return;
+  const tabs = [...term.querySelectorAll('[role="tab"]')];
+  const steps = [...term.querySelectorAll(".step")];
+  const rows = [...term.querySelectorAll(".step li")];
+  const cmd = document.getElementById("cmd");
+  const foot = document.getElementById("termfoot");
+  const still = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  let timer, last;
+  steps.forEach((s) => s.querySelectorAll("li").forEach((li, i) => li.style.setProperty("--n", i)));
+
+  function type(text, done) {
+    clearInterval(timer);
+    if (still) { cmd.textContent = text; return done(); }
+    let i = 0;
+    cmd.textContent = "";
+    term.classList.add("typing");
+    timer = setInterval(() => {
+      cmd.textContent = text.slice(0, ++i);
+      if (i >= text.length) { clearInterval(timer); term.classList.remove("typing"); done(); }
+    }, 30);
+  }
+
+  function show(step, pick) {
+    tabs.forEach((t) => t.setAttribute("aria-selected", String(t.dataset.step === step)));
+    const command = pick ? "shuf -n 1 */" : step === "all" ? "ls -R" : "ls " + step + "/";
+    type(command, () => {
+      rows.forEach((li) => li.classList.remove("picked"));
+      let n = 0;
+      steps.forEach((s) => {
+        const on = step === "all" || s.dataset.step === step;
+        s.hidden = !on;
+        s.classList.remove("show");
+        if (on) { void s.offsetWidth; s.classList.add("show"); n += s.querySelectorAll("li").length; }
+      });
+      if (pick) {
+        pick.classList.add("picked");
+        pick.querySelector("a").focus({ preventScroll: true });
+        foot.textContent = "picked 1 of " + rows.length + ". Enter opens it; roll again for another.";
+      } else {
+        foot.textContent = n + (n === 1 ? " entry" : " entries");
+      }
+    });
+  }
+
+  tabs.forEach((t) => t.addEventListener("click", () => show(t.dataset.step)));
+  document.getElementById("lucky").addEventListener("click", () => {
+    let li;
+    do { li = rows[Math.floor(Math.random() * rows.length)]; } while (rows.length > 1 && li === last);
+    last = li;
+    show(li.closest(".step").dataset.step, li);
+  });
+  foot.textContent = rows.length + " entries";
+})();
