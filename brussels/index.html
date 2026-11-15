@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Brussels — A Walk Through the Heart of the City</title>
-<meta name="description" content="A curated Brussels walking tour from Brussels-Central through Putterie, Grand-Place, Bourse and De Brouckère, by metro to Montgomery and the Cinquantenaire, through the Royal Quarter, Mont des Arts and the Galeries Royales Saint-Hubert, ending with Manneken-Pis and a seafood stop.">
+<meta name="description" content="A curated Brussels walking tour from Brussels-Central through Putterie, Grand-Place, Bourse and De Brouckère, by metro to Montgomery and the Cinquantenaire, through the Royal Quarter, Mont des Arts and the Galeries Royales Saint-Hubert, ending with Manneken-Pis, mussels near Sainte-Catherine and a menu of places to eat.">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Albert+Sans:wght@400;500;700;800;900&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
 <link rel="icon" href="../favicon.svg">
@@ -105,6 +105,34 @@
   @supports selector(.route:has(.stop-card)){
     .route:has(.stop-card:hover) .stop-card:not(:hover){opacity:.72}
   }
+
+  /* Food: the eyebrow link and the menu card */
+  html{scroll-padding-top:72px}
+  .food-link{color:var(--orange);text-decoration:none;border-bottom:1.5px dashed var(--orange);display:inline-block;transform-origin:50% 80%;animation:nibble 3s ease-in-out infinite}
+  .food-link:hover{animation-play-state:paused;color:#fff}
+  @keyframes nibble{0%,78%,100%{transform:none}83%{transform:rotate(-9deg) scale(1.08)}88%{transform:rotate(7deg) scale(1.08)}93%{transform:rotate(-3deg)}}
+  a.pill{text-decoration:none}
+  .pill-food{border-color:var(--orange);background:var(--orange);font-weight:700}
+  .tip-card a{color:var(--orange)}
+  .menu{position:relative;margin:56px 0 8px;background:var(--card);border:2px solid var(--ink);border-radius:14px;padding:34px 34px 26px;box-shadow:8px 8px 0 var(--mint);outline:1.5px dashed var(--mint-line);outline-offset:-14px}
+  .menu .kicker{margin-bottom:4px}
+  .menu h2{margin:0;font-size:clamp(1.8rem,4vw,2.5rem);font-weight:900;letter-spacing:-1px}
+  .menu h2 em{font-style:normal;color:var(--orange)}
+  .menu .lede{margin:6px 0 24px;color:var(--grey);max-width:62ch}
+  .courses{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+  .course h3{margin:0 0 14px;padding-bottom:8px;border-bottom:2px solid var(--ink);font:700 13px "JetBrains Mono",monospace;text-transform:uppercase;letter-spacing:.4px}
+  .course h3 span{color:var(--orange)}
+  .dish{margin:0 0 16px}
+  .dish .line{display:flex;align-items:baseline;gap:8px}
+  .dish .name{font-weight:800;text-decoration:none;transition:color .15s}
+  .dish .name:hover{color:var(--orange)}
+  .dish .dots{flex:1;min-width:16px;border-bottom:2px dotted var(--grey);opacity:.45;transform:translateY(-5px)}
+  .dish .at{flex:none;font:600 11px "JetBrains Mono",monospace;background:var(--navy);color:var(--mint);border-radius:999px;padding:3px 9px;text-decoration:none;transition:transform .15s}
+  .dish .at:hover{transform:rotate(-4deg) scale(1.08)}
+  .dish p{margin:3px 0 0;font-size:.92rem;line-height:1.5;color:var(--grey)}
+  .menu .tab{margin:10px 0 0;padding-top:12px;border-top:2px dashed var(--mint-line);font:600 12px "JetBrains Mono",monospace;color:var(--grey);text-align:right}
+  @media (max-width:860px){.courses{grid-template-columns:1fr;gap:10px}.menu{padding:28px 22px 22px}}
+  @media (prefers-reduced-motion:reduce){.food-link{animation:none}html{scroll-behavior:auto}}
 </style>
 </head>
 
@@ -112,12 +140,12 @@
 <nav class="site-nav"><div class="wrap"><a class="logo" href="../">abdel<i>⊕</i>aly</a><a class="home" href="../">← back to the homepage</a></div></nav>
 <header>
   <div class="wrap">
-    <div class="eyebrow">Brussels · Walking + Metro · History + Architecture + Food</div>
+    <div class="eyebrow">Brussels · Walking + Metro · History + Architecture + <a class="food-link" href="#food" title="Hungry? Jump to the menu">Food ↓</a></div>
     <h1>A walk through the heart of Brussels.</h1>
     <p class="hero-copy">
-      Old Brussels and new Brussels in one walk. Start under Horta's Art Deco station, wander the medieval lanes
+      Old Brussels and new Brussels in one walk. Start under Horta's Art Deco Central Station, wander the medieval lanes
       to the Grand-Place, ride the metro into the glass-and-steel quarter of the European institutions, then come
-      back through royal parks and the Mont des Arts for Manneken-Pis, chocolate and seafood. Watch the city's own
+      back through royal parks and the Mont des Arts for Manneken-Pis, chocolate and a pot of mussels. Watch the city's own
       signature as you go: Victor Horta gave the world <strong>Art Nouveau</strong> here, then helped bring in
       <strong>Art Deco</strong> a generation later.
     </p>
@@ -129,7 +157,8 @@
       <span class="pill">Full walk: 22 stops from Brussels-Central</span>
       <span class="pill">Short visit: stops 6–12, modern Brussels</span>
       <span class="pill">Watch for: Horta · Art Nouveau · Art Deco</span>
-      <span class="pill">Finish: seafood & drinks</span>
+      <span class="pill">Finish: mussels & drinks</span>
+      <a class="pill pill-food" href="#food">Hungry? See the menu ↓</a>
     </div>
   </div>
 </header>
@@ -148,7 +177,7 @@
       <h2>The rhythm</h2>
       <p><strong>Historic centre → Grand-Place → Bourse → De Brouckère → Metro → European Quarter → Place du
         Luxembourg → Avenue Louise → Royal Palace → Mont des Arts → Galeries St-Hubert → back to Grand-Place →
-        Manneken-Pis → food.</strong></p>
+        Manneken-Pis → <a href="#food">food</a>.</strong></p>
       <p>Take your time around the Grand-Place, the Cinquantenaire and Mont des Arts rather than treating them as
         quick photo stops.</p>
       <p><strong>Architecture thread:</strong> Victor Horta bookends this walk — his Art Deco Brussels-Central
@@ -158,9 +187,9 @@
   </section>
 
   <div class="legend" aria-label="Route lines"><span><i></i>Full walk: all 22 stops</span><span class="car"><i></i>Short visit, modern Brussels: arrive by car, stops 6 to 12</span></div>
-  <section class="route">
+  <section class="route" id="route">
 
-    <article class="stop">
+    <article class="stop" id="stop-1">
       <div class="num">1</div>
       <div class="stop-card">
         <div class="kicker">Start · Horta</div>
@@ -186,7 +215,7 @@
       </div>
     </article>
 
-    <article class="stop">
+    <article class="stop" id="stop-2">
       <div class="num">2</div>
       <div class="stop-card">
         <div class="kicker">Walk · The vanished city</div>
@@ -219,7 +248,7 @@
       </div>
     </article>
 
-    <article class="stop">
+    <article class="stop" id="stop-3">
       <div class="num">3</div>
       <div class="stop-card">
         <div class="kicker">Walk · Grand-Place</div>
@@ -237,7 +266,7 @@
       </div>
     </article>
 
-    <article class="stop">
+    <article class="stop" id="stop-4">
       <div class="num">4</div>
       <div class="stop-card">
         <div class="kicker">Walk · City & commerce</div>
@@ -251,7 +280,7 @@
       </div>
     </article>
 
-    <article class="stop">
+    <article class="stop" id="stop-5">
       <div class="num">5</div>
       <div class="stop-card">
         <div class="kicker">Walk · De Brouckère</div>
@@ -276,7 +305,7 @@
       <a href="https://www.google.com/maps/dir/De+Brouckère,+Brussels/Montgomery,+Brussels" target="_blank" rel="noopener">Open the route in Google Maps ↗</a>
     </div>
 
-    <article class="stop car-start">
+    <article class="stop car-start" id="stop-6">
       <div class="num">6</div>
       <div class="stop-card">
         <div class="kicker">Short visit · Start here if you arrive by car</div>
@@ -290,7 +319,7 @@
       </div>
     </article>
 
-    <article class="stop">
+    <article class="stop" id="stop-7">
       <div class="num">7</div>
       <div class="stop-card">
         <div class="kicker">Walk · Cinquantenaire</div>
@@ -309,7 +338,7 @@
       </div>
     </article>
 
-    <article class="stop">
+    <article class="stop" id="stop-8">
       <div class="num">8</div>
       <div class="stop-card">
         <div class="kicker">Walk · European Quarter</div>
@@ -331,7 +360,7 @@
       </div>
     </article>
 
-    <article class="stop">
+    <article class="stop" id="stop-9">
       <div class="num">9</div>
       <div class="stop-card">
         <div class="kicker">Walk · Place Jourdan</div>
@@ -350,7 +379,7 @@
       </div>
     </article>
 
-    <article class="stop">
+    <article class="stop" id="stop-10">
       <div class="num">10</div>
       <div class="stop-card">
         <div class="kicker">Walk · Hidden Brussels</div>
@@ -364,7 +393,7 @@
       </div>
     </article>
 
-    <article class="stop">
+    <article class="stop" id="stop-11">
       <div class="num">11</div>
       <div class="stop-card">
         <div class="kicker">Walk · European Parliament</div>
@@ -379,7 +408,7 @@
       </div>
     </article>
 
-    <article class="stop car-end">
+    <article class="stop car-end" id="stop-12">
       <div class="num">12</div>
       <div class="stop-card">
         <div class="kicker">Pause · Place du Luxembourg</div>
@@ -389,14 +418,14 @@
           restaurants and the offices of the European Quarter. This is the perfect place for a short Belgian beer break.
         </p>
         <p>
-          At the recommended brewery, try a <strong>Vedett</strong> or one of the <strong>Ginette</strong> beers.
+          At the recommended brewery, order a <strong>Vedett</strong>.
           It is a deliberately relaxed pause before continuing toward the centre.
         </p>
         <a class="route-link" href="https://maps.app.goo.gl/B7RRWuGzE3hj4Cw6A" target="_blank" rel="noopener">↗ Open the recommended brewery in Google Maps</a>
       </div>
     </article>
 
-    <article class="stop">
+    <article class="stop" id="stop-13">
       <div class="num">13</div>
       <div class="stop-card">
         <div class="kicker">Walk · Avenue Louise · Art Nouveau</div>
@@ -425,7 +454,7 @@
       </div>
     </article>
 
-    <article class="stop">
+    <article class="stop" id="stop-14">
       <div class="num">14</div>
       <div class="stop-card">
         <div class="kicker">Walk · Royal Quarter</div>
@@ -452,7 +481,7 @@
       </div>
     </article>
 
-    <article class="stop">
+    <article class="stop" id="stop-15">
       <div class="num">15</div>
       <div class="stop-card">
         <div class="kicker">Walk · Mont des Arts</div>
@@ -460,19 +489,21 @@
         <p>
           Head to <strong>Mont des Arts</strong>, the terraced garden and cultural complex built on the site of a
           neighbourhood cleared under Leopold II. Its formal, geometric layout leads up to one of the best panoramic
-          viewpoints in the city: on a clear day you can pick out the Town Hall tower on the Grand-Place and, further
-          off, the Basilica of Koekelberg and even the Atomium.
+          viewpoints in the city: the spire of the Town Hall on the Grand-Place rises straight out of the rooftops of
+          the lower town.
         </p>
         <a class="route-link" href="https://maps.app.goo.gl/eMzdtNPBJuSVKoL4A" target="_blank" rel="noopener">↗ Walk to Mont des Arts</a>
         <div class="note">
           <strong>Bonus:</strong> off to one side you can spot the <strong>Palais de Justice</strong>, often called the
           largest courthouse in the world at around 26,000 m². It was built in the 19th century under Leopold II, who
-          is said to have seen judicial power as the greatest power a people could hold.
+          is said to have seen judicial power as the greatest power a people could hold. Its esplanade, Place Poelaert,
+          is the city's real balcony: only from up there does the view reach the Basilica of Koekelberg and even the
+          Atomium.
         </div>
       </div>
     </article>
 
-    <article class="stop">
+    <article class="stop" id="stop-16">
       <div class="num">16</div>
       <div class="stop-card">
         <div class="kicker">Visit · Place Royale</div>
@@ -486,7 +517,7 @@
       </div>
     </article>
 
-    <article class="stop">
+    <article class="stop" id="stop-17">
       <div class="num">17</div>
       <div class="stop-card">
         <div class="kicker">Walk · Mont des Arts</div>
@@ -505,7 +536,7 @@
       </div>
     </article>
 
-    <article class="stop">
+    <article class="stop" id="stop-18">
       <div class="num">18</div>
       <div class="stop-card">
         <div class="kicker">Walk · Near Central Station · Horta</div>
@@ -535,7 +566,7 @@
       </div>
     </article>
 
-    <article class="stop">
+    <article class="stop" id="stop-19">
       <div class="num">19</div>
       <div class="stop-card">
         <div class="kicker">Treat · Chocolate</div>
@@ -556,7 +587,7 @@
       </div>
     </article>
 
-    <article class="stop">
+    <article class="stop" id="stop-20">
       <div class="num">20</div>
       <div class="stop-card">
         <div class="kicker">Walk · Old Brussels</div>
@@ -581,7 +612,7 @@
       </div>
     </article>
 
-    <article class="stop">
+    <article class="stop" id="stop-21">
       <div class="num">21</div>
       <div class="stop-card">
         <div class="kicker">Landmark · Old Brussels</div>
@@ -605,30 +636,80 @@
       </div>
     </article>
 
-    <article class="stop">
+    <article class="stop" id="stop-22">
       <div class="num">22</div>
       <div class="stop-card">
-        <div class="kicker">Finale · Fish & drinks</div>
-        <h3>Wind down around the old Fish Market</h3>
+        <div class="kicker">Finale · Mussels & drinks</div>
+        <h3>End with a pot of mussels at Sainte-Catherine</h3>
         <p>
-          Finish the day the way Brussels itself grew up: by the water. Head toward <strong>Vismet / the old Fish
-          Market</strong>, near Sainte-Catherine — the historic port once reached deep into the centre, and although
-          the old harbour basins were filled in long ago, the neighbourhood's seafood identity never left.
+          Finish the day the way Brussels itself grew up: by the water. Head toward <strong>Sainte-Catherine</strong> and the
+          old quays of Vismet — the historic port once reached deep into the centre, and although the harbour basins
+          were filled in long ago, this is still where Brussels goes for its mussels.
         </p>
         <p>Two ways to close it out, depending on the mood:</p>
         <ol>
-          <li><strong>Classic:</strong> settle in at one of the seafood restaurants and terraces around Vismet /
-            Sainte-Catherine for a relaxed, traditional finish.</li>
+          <li><strong>Classic:</strong> a steaming pot of <strong>moules-frites</strong>, mussels with fries, on one
+            of the terraces around Sainte-Catherine.</li>
           <li><strong>Modern twist:</strong> head instead to <strong>Fish Tank</strong>, a contemporary seafood bar
             at 246 Rue Haute in the Marolles, set inside a former fishmonger's shop — a nice way to turn the old
             fish-trade story into an actual drink-and-food stop.</li>
         </ol>
-        <a class="route-link" href="https://www.google.com/maps/search/?api=1&query=Vismet+Brussels" target="_blank" rel="noopener">↗ Old Fish Market / Vismet</a>
+        <a class="route-link" href="https://www.google.com/maps/search/?api=1&query=Vismet+Brussels" target="_blank" rel="noopener">↗ Sainte-Catherine / Vismet</a>
         <a class="route-link" href="https://www.google.com/maps/search/?api=1&query=Fish+Tank+246+Rue+Haute+Brussels" target="_blank" rel="noopener">↗ Fish Tank · seafood & drinks</a>
         <div class="note">Either way, you've covered the historic centre, the European Quarter and the Royal Quarter on foot in one day — take your time over this last stop.</div>
       </div>
     </article>
 
+  </section>
+
+  <section class="menu" id="food" aria-labelledby="food-title">
+    <div class="kicker">Menu du jour · served along the route</div>
+    <h2 id="food-title">Brussels, <em>by the mouthful.</em></h2>
+    <p class="lede">Every place the walk mentions, plus a few favourites. Tap a name for the map, or the tag to jump to the nearest stop.</p>
+    <div class="courses">
+      <div class="course">
+        <h3><span>01</span> Typically Brussels</h3>
+        <div class="dish">
+          <div class="line"><a class="name" href="https://www.google.com/maps/search/?api=1&query=Place+Jourdan+Brussels" target="_blank" rel="noopener">Frites at Place Jourdan</a><span class="dots"></span><a class="at" href="#stop-9">stop 9</a></div>
+          <p>A cone from the fritkot, with mayonnaise. Eat them standing up.</p>
+        </div>
+        <div class="dish">
+          <div class="line"><a class="name" href="https://www.google.com/maps/search/?api=1&query=Place+du+Luxembourg+Brussels" target="_blank" rel="noopener">A Vedett at Place Lux</a><span class="dots"></span><a class="at" href="#stop-12">stop 12</a></div>
+          <p>The beer break in the middle of the European Quarter.</p>
+        </div>
+        <div class="dish">
+          <div class="line"><a class="name" href="https://www.google.com/maps/search/?api=1&query=Fin+de+Siecle+Rue+des+Chartreux+9+Brussels" target="_blank" rel="noopener">Fin de Siècle</a><span class="dots"></span><a class="at" href="#stop-4">stop 4</a></div>
+          <p>Brussels home cooking near Saint-Géry: stoemp, vol-au-vent, rabbit grand-mère.</p>
+        </div>
+        <div class="dish">
+          <div class="line"><a class="name" href="https://www.google.com/maps/search/?api=1&query=Sainte-Catherine+Brussels" target="_blank" rel="noopener">Moules-frites at Sainte-Catherine</a><span class="dots"></span><a class="at" href="#stop-22">stop 22</a></div>
+          <p>A pot of mussels on a terrace by the old quays.</p>
+        </div>
+      </div>
+      <div class="course">
+        <h3><span>02</span> Just good</h3>
+        <div class="dish">
+          <div class="line"><a class="name" href="https://www.google.com/maps/search/?api=1&query=Nona+Brussels" target="_blank" rel="noopener">Nona</a><span class="dots"></span><a class="at" href="#route">anytime</a></div>
+          <p>Italian, and often named the best in town: Neapolitan pizza done properly.</p>
+        </div>
+        <div class="dish">
+          <div class="line"><a class="name" href="https://www.google.com/maps/search/?api=1&query=Fish+Tank+246+Rue+Haute+Brussels" target="_blank" rel="noopener">Fish Tank</a><span class="dots"></span><a class="at" href="#stop-22">stop 22</a></div>
+          <p>Seafood and drinks in a former fishmonger's shop in the Marolles.</p>
+        </div>
+        <div class="dish">
+          <div class="line"><a class="name" href="https://www.google.com/maps/search/?api=1&query=Galeries+Royales+Saint-Hubert+Brussels" target="_blank" rel="noopener">Chocolate in the Galeries</a><span class="dots"></span><a class="at" href="#stop-19">stop 19</a></div>
+          <p>Taste before you buy; compare two or three houses.</p>
+        </div>
+      </div>
+      <div class="course">
+        <h3><span>03</span> A sight to see</h3>
+        <div class="dish">
+          <div class="line"><a class="name" href="https://www.google.com/maps/search/?api=1&query=Wolf+Sharing+Food+Market+Rue+du+Fosse+aux+Loups+50+Brussels" target="_blank" rel="noopener">Wolf</a><span class="dots"></span><a class="at" href="#stop-5">stop 5</a></div>
+          <p>A food hall of some seventeen stalls inside a renovated Art Deco bank, behind seven-metre bronze doors. Come for the building, stay for lunch.</p>
+        </div>
+      </div>
+    </div>
+    <p class="tab">Opening hours change: check before you go · bon appétit</p>
   </section>
 
   <footer>
