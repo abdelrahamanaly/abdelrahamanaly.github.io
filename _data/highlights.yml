@@ -1,17 +1,17 @@
 # "What I work on" cards. Four fit best (two rows of two).
 
 - title: LLM inference on encrypted data
-  where: TII
+  where: TII · now
   text: With the team at TII, building and designing private LLM inference that combines fully homomorphic encryption and multi-party computation, so prompts stay encrypted end to end.
 
 - title: PetalGuard
-  where: TII
+  where: TII · now
   text: "Designing and building PetalGuard with the team: TII's private federated learning framework for large language models."
 
 - title: From SCALE-MAMBA to FANNG-MPC
-  where: KU Leuven → TII
+  where: KU Leuven 2016–19 → TII
   text: One of the maintainers of KU Leuven's SCALE-MAMBA MPC framework during my postdoc, then co-designer of FANNG-MPC, TII's fork for neural networks (TCHES 2025).
 
 - title: Cryptography inside a bank
-  where: KBC
+  where: KBC · 2019–21
   text: "Cryptographic engineering for production banking systems: the Apple Pay integration, key and certificate lifecycle on HSMs and PKI, and an MPC prototype that looked for fraud in transactions without exposing them."

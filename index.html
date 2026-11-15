@@ -8,7 +8,7 @@ layout: default
 <nav>
   <div class="wrap">
     <a class="logo" href="#top">abdel<i>⊕</i>aly</a>
-    <div class="links"><a href="#work">Work</a><a href="#experience">Experience</a><a href="#toy">Play</a><a href="#papers">Papers</a><a href="#contact">Contact</a></div>
+    <div class="links"><a href="#work">Work</a><a href="#experience">Experience</a><a href="#play">Play</a><a href="#papers">Papers</a><a href="#tools">Tools</a><a href="#contact">Contact</a></div>
     <button class="lock" id="lock" aria-pressed="false" title="Press E">🔒 encrypt this page</button>
   </div>
 </nav>
@@ -46,7 +46,7 @@ layout: default
   <section id="about">
     <div class="label">01 / about</div>
     <div class="about">
-      <div><h2>{{ p.about.heading | escape }} <em>{{ p.about.heading_em | escape }}</em></h2><p>{{ p.about.text | escape }}</p></div>
+      <div><h2>{{ p.about.heading | escape }} <em>{{ p.about.heading_em | escape }}</em></h2><div class="prose">{% for para in p.about.paragraphs %}<p>{{ para | escape }}</p>{% endfor %}</div></div>
       <div>
         <ol class="route" aria-label="Where I have worked">
           {%- for city in p.route %}<li style="--i:{{ forloop.index0 }}"><span>{{ city | escape }}</span></li>{% endfor %}
@@ -58,8 +58,8 @@ layout: default
   </section>
 
   <section id="work">
-    <div class="label">02 / research</div>
-    <h2>What I <em>work on</em></h2>
+    <div class="label">02 / work</div>
+    <h2>Work, <em>then and now</em></h2>
     <div class="cards">
       {%- for h in site.data.highlights %}
       {%- assign tilt = forloop.index0 | modulo: 4 %}
@@ -99,9 +99,9 @@ layout: default
     </div>
   </section>
 
-  <section id="toy">
+  <section id="play">
     <div class="label">05 / play</div>
-    <h2>Try a <em>secret-sharing</em> toy</h2>
+    <h2>Try <em>secret sharing</em></h2>
     <div class="toy">
       <div>
         <h3>Split a secret into three shares.</h3>
@@ -134,8 +134,22 @@ layout: default
     <p class="more"><a class="btn" style="color:var(--teal);border-color:var(--teal)" href="{{ p.links.scholar }}">All papers on Google Scholar →</a></p>
   </section>
 
+  {%- if site.data.resources.size > 0 %}
+  <section id="tools">
+    <div class="label">07 / tools</div>
+    <h2>Tools I find <em>useful</em></h2>
+    <div class="resources">
+      {%- for g in site.data.resources %}
+      <div><h3>{{ g.group | escape }}</h3><ul>
+        {%- for r in g.items %}<li><a href="{{ r.url }}">{{ r.title | escape }}</a>{% if r.by %}<span class="by">{{ r.by | escape }}</span>{% endif %}{% if r.note %}<p>{{ r.note | escape }}</p>{% endif %}</li>{% endfor %}
+      </ul></div>
+      {%- endfor %}
+    </div>
+  </section>
+  {%- endif %}
+
   <section id="more">
-    <div class="label">07 / also</div>
+    <div class="label">08 / also</div>
     <div class="three">
       <div><h3>Education</h3><ul>
         {%- for e in about.education %}<li><b>{{ e.degree | escape }}</b><span>{{ e.school | escape }}, {{ e.year }}</span>{% if e.detail %}<em>{{ e.detail | escape }}</em>{% endif %}</li>{% endfor %}
@@ -151,7 +165,7 @@ layout: default
 
   {%- if about.side_projects.size > 0 %}
   <section id="side">
-    <div class="label">08 / side projects</div>
+    <div class="label">09 / side projects</div>
     <h2>Off the <em>clock</em></h2>
     <div class="cards">
       {%- for s in about.side_projects %}
@@ -168,7 +182,7 @@ layout: default
 
 <section class="contact" id="contact">
   <div class="wrap">
-    <div class="label" style="color:#fff">09 / contact</div>
+    <div class="label" style="color:#fff">10 / contact</div>
     <h2>{{ p.contact.heading | escape }}</h2>
     <p>{{ p.contact.text | escape }}</p>
     <div class="cta" style="display:flex;gap:12px;flex-wrap:wrap;margin-top:28px">

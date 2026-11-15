@@ -77,6 +77,8 @@ h2 { font-size: clamp(30px, 4.4vw, 46px); font-weight: 900; letter-spacing: -1px
 h2 em { font-style: normal; background: linear-gradient(transparent 60%, color-mix(in srgb, var(--mint) 70%, transparent) 60%); }
 .about { display: grid; grid-template-columns: 1.4fr 1fr; gap: 48px; align-items: start; }
 .about p { font-size: 20px; line-height: 1.6; }
+.about .prose p { max-width: 62ch; text-align: justify; hyphens: auto; }
+.about .prose p + p { margin-top: 1em; }
 
 /* Route */
 .route { list-style: none; display: flex; justify-content: space-between; position: relative; padding: 34px 0 10px; }
@@ -119,7 +121,7 @@ a.card.side { display: block; text-decoration: none; color: inherit; }
 .chips span { background: var(--mint-tint); border: 1.5px solid var(--mint-line); border-radius: 99px; padding: 4px 13px; font-size: 15px; transition: transform .15s; }
 .chips span:hover { transform: translateY(-3px) rotate(-2deg); border-color: var(--orange); }
 
-/* Secret sharing toy */
+/* Secret-sharing demo */
 .toy { background: var(--navy); color: #fff; border-radius: 18px; padding: 34px; display: grid; grid-template-columns: 1fr 1.4fr; gap: 34px; align-items: center; position: relative; overflow: hidden; }
 .toy h3 { font-size: 26px; font-weight: 800; line-height: 1.2; margin-bottom: 10px; }
 .toy p { color: #c4d3de; font-size: 16px; }
@@ -149,6 +151,14 @@ a.card.side { display: block; text-decoration: none; color: inherit; }
 .pubs u { text-decoration: none; color: var(--ink); font-weight: 700; }
 .pubs .venue { font: 600 12px "JetBrains Mono", monospace; color: var(--teal); background: var(--mint-tint); padding: 1px 7px; border-radius: 5px; margin-left: 4px; white-space: nowrap; }
 .more { margin-top: 18px; }
+.resources { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 34px; }
+.resources h3 { font: 600 13px "JetBrains Mono", monospace; color: var(--orange); text-transform: uppercase; margin-bottom: 12px; }
+.resources ul { list-style: none; }
+.resources li { margin-bottom: 18px; }
+.resources a { font-weight: 700; color: var(--ink); text-decoration-color: var(--mint); text-underline-offset: 3px; }
+.resources a:hover { color: var(--teal); }
+.resources .by { color: var(--teal); font: 600 12px "JetBrains Mono", monospace; margin-left: 8px; white-space: nowrap; }
+.resources p { color: var(--grey); font-size: 15px; margin-top: 2px; }
 .three { display: grid; grid-template-columns: repeat(3, 1fr); gap: 34px; }
 .three h3 { font: 600 13px "JetBrains Mono", monospace; color: var(--orange); text-transform: uppercase; margin-bottom: 12px; }
 .three ul { list-style: none; }
@@ -173,6 +183,7 @@ footer .wrap { display: flex; justify-content: space-between; gap: 14px; flex-wr
   .num:nth-child(odd) { border-left: 0; }
   .num { border-top: 2px solid var(--mint-line); }
   .about, .toy, .three { grid-template-columns: 1fr; }
+  .about .prose p { text-align: left; }
   .cards { grid-template-columns: 1fr; }
   .role { grid-template-columns: 1fr; gap: 4px; }
   .route li span { writing-mode: vertical-rl; transform: rotate(180deg); }

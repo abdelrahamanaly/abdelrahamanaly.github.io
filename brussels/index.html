@@ -51,7 +51,17 @@
   .intro-card h2,.tip-card h2{margin:0 0 10px;font-size:1.6rem;font-weight:900;letter-spacing:-.5px}
 
   .route{position:relative;container-type:inline-size}
-  .route::before{content:"";position:absolute;left:25px;top:24px;bottom:24px;width:3px;background:var(--mint-line)}
+  /* Two lines down the side: on foot for the whole route, and by car from the parking stop onward. */
+  .route{--walk-x:20px;--car-x:30px;--dot:26px}
+  .route::before{content:"";position:absolute;left:var(--walk-x);top:24px;bottom:24px;width:3px;background:var(--mint-line)}
+  .route .car-start::after,.route .car-start ~ .stop::after{content:"";position:absolute;left:var(--car-x);top:0;bottom:-22px;width:3px;
+    background:repeating-linear-gradient(to bottom,var(--orange) 0 8px,transparent 8px 14px);z-index:1}
+  .route .car-start::after{top:var(--dot)}
+  .route .stop:last-child::after{bottom:auto;height:var(--dot)}
+  .legend{display:flex;flex-wrap:wrap;gap:8px 22px;margin:0 0 22px;font:600 13px "JetBrains Mono",monospace;color:var(--grey)}
+  .legend span{display:inline-flex;align-items:center;gap:8px}
+  .legend i{display:inline-block;width:28px;height:3px;background:var(--mint-line)}
+  .legend .car i{background:repeating-linear-gradient(to right,var(--orange) 0 8px,transparent 8px 14px)}
   .stop{position:relative;display:grid;grid-template-columns:52px 1fr;gap:18px;margin:0 0 22px}
   .num{width:52px;height:52px;display:grid;place-items:center;border-radius:50%;background:var(--navy);color:var(--mint);font:700 17px "JetBrains Mono",monospace;border:3px solid var(--orange);z-index:2;box-shadow:0 0 0 5px var(--bg)}
   .stop-card{background:var(--card);border:2px solid var(--ink);border-radius:14px;padding:24px 26px;box-shadow:6px 6px 0 var(--orange);transition:transform .2s ease, box-shadow .2s ease}
@@ -78,7 +88,7 @@
   @media (max-width:760px){
     .intro{grid-template-columns:1fr}
     header{min-height:58vh}
-    .route::before{left:20px}
+    .route{--walk-x:15px;--car-x:24px;--dot:21px}
     .stop{grid-template-columns:42px 1fr;gap:13px}
     .num{width:42px;height:42px;font-size:15px}
     .transport{margin-left:55px}
@@ -143,6 +153,7 @@
     </div>
   </section>
 
+  <div class="legend" aria-label="Route lines"><span><i></i>On foot: the whole route</span><span class="car"><i></i>By car: from the Cinquantenaire parking (stop 6)</span></div>
   <section class="route">
 
     <article class="stop">
@@ -261,7 +272,7 @@
       <a href="https://www.google.com/maps/dir/De+Brouckère,+Brussels/Montgomery,+Brussels" target="_blank" rel="noopener">Open the route in Google Maps ↗</a>
     </div>
 
-    <article class="stop">
+    <article class="stop car-start">
       <div class="num">6</div>
       <div class="stop-card">
         <div class="kicker">Alternative · By car</div>
