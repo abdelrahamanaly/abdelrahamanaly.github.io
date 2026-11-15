@@ -42,4 +42,4 @@ kitchen:
 # ── 4. The treat calculator ──────────────────────────────────────────────────
 #   weight_kg:  Piglet's weight, used as the starting value (leave empty to start blank)
 calculator:
-  weight_kg:
+  weight_kg: 18
