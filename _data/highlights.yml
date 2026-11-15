@@ -2,11 +2,11 @@
 
 - title: LLM inference on encrypted data
   where: TII
-  text: Building and designing private LLM inference that combines fully homomorphic encryption and multi-party computation, so prompts stay encrypted end to end.
+  text: With the team at TII, building and designing private LLM inference that combines fully homomorphic encryption and multi-party computation, so prompts stay encrypted end to end.
 
 - title: PetalGuard
   where: TII
-  text: One of the leads designing and building PetalGuard, TII's private federated learning framework for large language models.
+  text: "Designing and building PetalGuard with the team: TII's private federated learning framework for large language models."
 
 - title: From SCALE-MAMBA to FANNG-MPC
   where: KU Leuven → TII
