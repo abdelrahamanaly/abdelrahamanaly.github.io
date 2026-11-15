@@ -5,262 +5,92 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Brussels — A Walk Through the Heart of the City</title>
 <meta name="description" content="A curated Brussels walking tour from Brussels-Central through Putterie, Grand-Place, Bourse and De Brouckère, by metro to Montgomery and the Cinquantenaire, through the Royal Quarter, Mont des Arts and the Galeries Royales Saint-Hubert, ending with Manneken-Pis and a seafood stop.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Albert+Sans:wght@400;500;700;800;900&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="icon" href="../favicon.svg">
 <style>
-  /* Modern CSS: container queries + :has() + scroll-driven animation where supported. */
+  /* Matches the homepage: TII navy, mint and orange; Albert Sans and JetBrains Mono. */
   :root{
-    --ink:#17202a;
-    --muted:#68717c;
-    --paper:#fbfaf7;
-    --card:#ffffff;
-    --accent:#a3262b;
-    --accent-2:#d7a84b;
-    --line:#e6e1d7;
-    --shadow:0 18px 50px rgba(22,28,35,.08);
-    --radius:22px;
+    --navy:#233746; --navy-2:#182733; --mint:#7eddd3; --mint-tint:#e6f7f5; --mint-line:#c9ece8;
+    --orange:#ff5622; --teal:#167069; --ink:#1f2a33; --grey:#5b6b78; --bg:#fbfaf7; --card:#ffffff;
   }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){ --bg:#121c24; --card:#1b2934; --ink:#e6edf2; --grey:#9fb0bd; --mint-tint:#1d3340; --mint-line:#2c4757; --teal:#7eddd3; }
+  }
+  :root[data-theme="dark"]{ --bg:#121c24; --card:#1b2934; --ink:#e6edf2; --grey:#9fb0bd; --mint-tint:#1d3340; --mint-line:#2c4757; --teal:#7eddd3; }
 
   *{box-sizing:border-box}
   html{scroll-behavior:smooth}
-  body{
-    margin:0;
-    color:var(--ink);
-    background:
-      radial-gradient(circle at 15% 0%, rgba(215,168,75,.12), transparent 28rem),
-      radial-gradient(circle at 90% 15%, rgba(163,38,43,.08), transparent 26rem),
-      var(--paper);
-    font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-    line-height:1.65;
-  }
-
+  body{margin:0;color:var(--ink);background:var(--bg);font:17px/1.65 "Albert Sans",system-ui,sans-serif;overflow-x:hidden}
+  ::selection{background:var(--orange);color:#fff}
   a{color:inherit}
-  .wrap{width:min(1080px, calc(100% - 32px)); margin-inline:auto}
+  .wrap{width:min(1080px, calc(100% - 32px));margin-inline:auto}
 
-  header{
-    min-height:68vh;
-    display:grid;
-    place-items:center;
-    position:relative;
-    overflow:hidden;
-    padding:72px 0 90px;
-  }
+  .site-nav{position:sticky;top:0;z-index:10;background:color-mix(in srgb, var(--navy) 92%, transparent);backdrop-filter:blur(8px);color:#fff}
+  .site-nav .wrap{display:flex;align-items:center;justify-content:space-between;height:58px;gap:12px}
+  .site-nav .logo{font:700 15px "JetBrains Mono",monospace;color:var(--mint);text-decoration:none}
+  .site-nav .logo i{color:var(--orange);font-style:normal}
+  .site-nav .home{font:600 13px "JetBrains Mono",monospace;color:#fff;text-decoration:none;border:2px solid var(--mint);border-radius:99px;padding:6px 14px;transition:all .15s}
+  .site-nav .home:hover{background:var(--mint);color:var(--navy)}
 
-  header::before{
-    content:"BRUXELLES";
-    position:absolute;
-    inset:auto -3vw 1vh auto;
-    font-size:clamp(7rem,22vw,18rem);
-    font-weight:900;
-    letter-spacing:-.08em;
-    line-height:.75;
-    color:rgba(23,32,42,.035);
-    pointer-events:none;
-  }
+  header{min-height:64vh;display:grid;place-items:center;position:relative;overflow:hidden;padding:72px 0 96px;background:var(--navy);color:#fff}
+  header::before{content:"BRUXELLES";position:absolute;inset:auto -3vw 2vh auto;font-size:clamp(7rem,22vw,18rem);font-weight:900;letter-spacing:-.08em;line-height:.75;color:var(--mint);opacity:.07;pointer-events:none}
+  header::after{content:"";position:absolute;left:0;right:0;bottom:0;height:10px;background:linear-gradient(90deg,var(--orange) 0 62%,var(--mint) 62% 100%)}
+  .eyebrow{display:inline-flex;gap:8px;align-items:center;padding:7px 12px;border:1.5px solid var(--mint);border-radius:999px;color:var(--mint);font:600 12px "JetBrains Mono",monospace;text-transform:uppercase;letter-spacing:.3px}
+  h1{max-width:900px;margin:22px 0 18px;font-size:clamp(3rem,8vw,6.4rem);font-weight:900;line-height:.95;letter-spacing:-2px}
+  .hero-copy{max-width:720px;color:#c4d3de;font-size:clamp(1.05rem,2vw,1.22rem)}
+  .hero-copy strong{color:#fff}
+  .quick{margin-top:28px;display:flex;flex-wrap:wrap;gap:10px}
+  .pill{border:1.5px solid var(--mint-line);border-radius:999px;padding:7px 14px;background:rgba(255,255,255,.06);color:#fff;font-size:.9rem;transition:transform .15s}
+  .pill:hover{transform:translateY(-3px) rotate(-2deg);border-color:var(--orange)}
 
-  .eyebrow{
-    display:inline-flex;
-    gap:8px;
-    align-items:center;
-    padding:7px 12px;
-    border:1px solid var(--line);
-    border-radius:999px;
-    background:rgba(255,255,255,.72);
-    font-size:.76rem;
-    font-weight:800;
-    letter-spacing:.12em;
-    text-transform:uppercase;
-  }
+  main{padding:56px 0 80px}
+  .intro{display:grid;grid-template-columns:1.1fr .9fr;gap:24px;margin-bottom:44px}
+  .intro-card,.tip-card{background:var(--card);border:2px solid var(--ink);border-radius:14px;padding:26px;box-shadow:6px 6px 0 var(--orange)}
+  .tip-card{box-shadow:6px 6px 0 var(--mint)}
+  .intro-card h2,.tip-card h2{margin:0 0 10px;font-size:1.6rem;font-weight:900;letter-spacing:-.5px}
 
-  h1{
-    max-width:900px;
-    margin:22px 0 18px;
-    font-family: Georgia, "Times New Roman", serif;
-    font-size:clamp(3rem,8vw,6.8rem);
-    line-height:.94;
-    letter-spacing:-.055em;
-  }
+  .route{position:relative;container-type:inline-size}
+  .route::before{content:"";position:absolute;left:25px;top:24px;bottom:24px;width:3px;background:var(--mint-line)}
+  .stop{position:relative;display:grid;grid-template-columns:52px 1fr;gap:18px;margin:0 0 22px}
+  .num{width:52px;height:52px;display:grid;place-items:center;border-radius:50%;background:var(--navy);color:var(--mint);font:700 17px "JetBrains Mono",monospace;border:3px solid var(--orange);z-index:2;box-shadow:0 0 0 5px var(--bg)}
+  .stop-card{background:var(--card);border:2px solid var(--ink);border-radius:14px;padding:24px 26px;box-shadow:6px 6px 0 var(--orange);transition:transform .2s ease, box-shadow .2s ease}
+  .stop-card:hover{transform:translate(-3px,-3px);box-shadow:10px 10px 0 var(--mint)}
+  .kicker{color:var(--orange);font:600 12px "JetBrains Mono",monospace;text-transform:uppercase;letter-spacing:.3px}
+  h3{margin:6px 0 10px;font-size:clamp(1.45rem,4vw,2rem);font-weight:800;line-height:1.15;letter-spacing:-.5px}
+  p{margin:8px 0;color:var(--ink);opacity:.9}
+  .stop-card ol,.stop-card ul{margin:10px 0;padding-left:22px;color:var(--ink);opacity:.9}
+  .stop-card li{margin:5px 0}
+  .stop-card li::marker{color:var(--orange);font-weight:700}
+  .route-link{display:inline-flex;align-items:center;gap:8px;margin:15px 10px 0 0;padding:9px 14px;border-radius:10px;border:2px solid var(--teal);color:var(--teal);text-decoration:none;font:600 14px "Albert Sans",sans-serif;transition:all .15s}
+  .route-link:hover{background:var(--mint);border-color:var(--mint);color:var(--navy);transform:translate(-2px,-2px);box-shadow:4px 4px 0 var(--orange)}
+  .note{margin-top:15px;padding:13px 15px;border-left:4px solid var(--orange);background:var(--mint-tint);border-radius:0 12px 12px 0;color:var(--ink);font-size:.94rem}
+  .transport{margin:6px 0 28px 70px;padding:16px 18px;border:2px dashed var(--teal);border-radius:14px;background:var(--mint-tint);font-size:.95rem}
+  .transport strong{color:var(--orange)}
+  .transport a{color:var(--teal);font-weight:700}
 
-  .hero-copy{
-    max-width:720px;
-    color:#4d5761;
-    font-size:clamp(1.05rem,2vw,1.28rem);
-  }
-
-  .quick{
-    margin-top:28px;
-    display:flex;
-    flex-wrap:wrap;
-    gap:10px;
-  }
-  .pill{
-    border:1px solid var(--line);
-    border-radius:999px;
-    padding:9px 14px;
-    background:#fff;
-    font-size:.9rem;
-    box-shadow:0 8px 25px rgba(0,0,0,.04);
-  }
-
-  main{padding-bottom:80px}
-  .intro{
-    display:grid;
-    grid-template-columns:1.1fr .9fr;
-    gap:24px;
-    margin-bottom:38px;
-  }
-
-  .intro-card,.tip-card{
-    background:var(--card);
-    border:1px solid var(--line);
-    border-radius:var(--radius);
-    padding:26px;
-    box-shadow:var(--shadow);
-  }
-  .intro-card h2,.tip-card h2{
-    margin:0 0 10px;
-    font-family:Georgia,"Times New Roman",serif;
-    font-size:1.65rem;
-  }
-  .tip-card{
-    background:linear-gradient(145deg,#fff,#f4efe5);
-  }
-
-  .route{
-    position:relative;
-    container-type:inline-size;
-  }
-  .route::before{
-    content:"";
-    position:absolute;
-    left:25px;
-    top:24px;
-    bottom:24px;
-    width:2px;
-    background:linear-gradient(var(--accent-2), var(--accent), var(--accent-2));
-    opacity:.35;
-  }
-
-  .stop{
-    position:relative;
-    display:grid;
-    grid-template-columns:52px 1fr;
-    gap:18px;
-    margin:0 0 18px;
-  }
-
-  .num{
-    width:52px;
-    height:52px;
-    display:grid;
-    place-items:center;
-    border-radius:50%;
-    background:var(--ink);
-    color:#fff;
-    font-weight:900;
-    border:5px solid var(--paper);
-    z-index:2;
-    box-shadow:0 0 0 1px var(--line);
-  }
-
-  .stop-card{
-    background:rgba(255,255,255,.9);
-    border:1px solid var(--line);
-    border-radius:var(--radius);
-    padding:26px 28px;
-    box-shadow:0 10px 35px rgba(22,28,35,.055);
-    transition:transform .25s ease, box-shadow .25s ease;
-  }
-  .stop-card:hover{
-    transform:translateY(-3px);
-    box-shadow:0 20px 48px rgba(22,28,35,.10);
-  }
-
-  .kicker{
-    color:var(--accent);
-    font-size:.76rem;
-    font-weight:900;
-    letter-spacing:.12em;
-    text-transform:uppercase;
-  }
-  h3{
-    margin:5px 0 10px;
-    font-family:Georgia,"Times New Roman",serif;
-    font-size:clamp(1.55rem,4vw,2.25rem);
-    line-height:1.05;
-  }
-  p{margin:8px 0;color:#4f5963}
-  .stop-card ol,.stop-card ul{margin:10px 0;padding-left:22px;color:#4f5963}
-  .stop-card li{margin:4px 0}
-  .route-link{
-    display:inline-flex;
-    align-items:center;
-    gap:8px;
-    margin-top:15px;
-    padding:10px 14px;
-    border-radius:12px;
-    background:#f4f1ea;
-    color:var(--ink);
-    text-decoration:none;
-    font-weight:800;
-    border:1px solid #e7e0d3;
-  }
-  .route-link:hover{background:#ece7dc}
-  .note{
-    margin-top:15px;
-    padding:13px 15px;
-    border-left:3px solid var(--accent-2);
-    background:#faf7f0;
-    border-radius:0 12px 12px 0;
-    color:#555f68;
-    font-size:.94rem;
-  }
-
-  .transport{
-    margin:18px 0 28px 70px;
-    padding:16px 18px;
-    border:1px dashed #cfc7b8;
-    border-radius:15px;
-    background:#fffdf8;
-    font-size:.95rem;
-  }
-  .transport strong{color:var(--accent)}
-
-  footer{
-    margin-top:45px;
-    padding:30px 0 60px;
-    border-top:1px solid var(--line);
-    color:var(--muted);
-    font-size:.9rem;
-  }
-  footer a{color:var(--accent)}
+  footer{margin-top:48px;padding:30px 0 60px;border-top:2px solid var(--mint-line);color:var(--grey);font-size:.92rem}
+  footer a{color:var(--teal)}
   .sources{display:flex;flex-wrap:wrap;gap:12px 18px}
+  .made{font:13px "JetBrains Mono",monospace}
 
-  @container (max-width: 720px){
-    .stop-card{padding:22px}
-  }
-
+  @container (max-width: 720px){ .stop-card{padding:22px} }
   @media (max-width:760px){
     .intro{grid-template-columns:1fr}
-    header{min-height:62vh}
+    header{min-height:58vh}
     .route::before{left:20px}
     .stop{grid-template-columns:42px 1fr;gap:13px}
-    .num{width:42px;height:42px}
+    .num{width:42px;height:42px;font-size:15px}
     .transport{margin-left:55px}
+    .stop-card{box-shadow:4px 4px 0 var(--orange)}
   }
-
   @media (prefers-reduced-motion:no-preference){
     @supports (animation-timeline: view()){
-      .stop-card{
-        animation:rise linear both;
-        animation-timeline:view();
-        animation-range:entry 0% cover 28%;
-      }
-      @keyframes rise{
-        from{opacity:.55;transform:translateY(24px)}
-        to{opacity:1;transform:translateY(0)}
-      }
+      .stop-card{animation:rise linear both;animation-timeline:view();animation-range:entry 0% cover 28%}
+      @keyframes rise{from{opacity:.55;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
     }
   }
-
+  @media (prefers-reduced-motion:reduce){ *,*::before,*::after{transition:none !important;animation:none !important} }
   @supports selector(.route:has(.stop-card)){
     .route:has(.stop-card:hover) .stop-card:not(:hover){opacity:.72}
   }
@@ -268,6 +98,7 @@
 </head>
 
 <body>
+<nav class="site-nav"><div class="wrap"><a class="logo" href="../">abdel<i>⊕</i>aly</a><a class="home" href="../">← back to the homepage</a></div></nav>
 <header>
   <div class="wrap">
     <div class="eyebrow">Brussels · Walking + Metro · History + Architecture + Food</div>
@@ -793,6 +624,7 @@
       <a href="https://www.visit.brussels/en/visitors/venue-details.Fish-Tank.50004168" target="_blank" rel="noopener">Visit Brussels · Fish Tank</a>
     </div>
     <p style="margin-top:18px">Prepared as a walking itinerary; opening hours and transport conditions can change, so check the destination before setting off.</p>
+    <p class="made">A side quest by <a href="../">Abdel Aly</a>.</p>
   </footer>
 </main>
 </body>

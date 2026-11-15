@@ -1,32 +1,75 @@
-# abdel⊕aly: personal site
+# abdelrahamanaly.github.io
 
-One static page, generated from `../src/content.js` by `node build_site.js` (or `node make.js`).
-Do not edit `index.html` by hand; edit the content and rebuild.
+The personal website of **Abdelrahaman (Abdel) Aly**: applied cryptography and privacy-enhancing technologies: secure multi-party computation (MPC), fully homomorphic encryption (FHE) and privacy-preserving machine learning.
 
-`brussels/index.html` is your Brussels walking tour, copied in by hand. It is not generated, so edit it directly. The homepage links to it from "Side projects" (`site.sideProjects` in `content.js`).
+**Live:** https://abdelrahamanaly.github.io · **Side project:** [a walk through the heart of Brussels](https://abdelrahamanaly.github.io/brussels/)
 
-The page deliberately leaves out phone numbers. It shows only your email, Google Scholar and GitHub.
+## What's in this repository
 
-## Publish on GitHub Pages
+| Path | What it is |
+|---|---|
+| `_data/profile.yml` | Name, tagline, links, the numbers strip, the program-committee ticker, about and contact text |
+| `_data/highlights.yml` | The "What I work on" cards |
+| `_data/experience.yml` | The career timeline |
+| `_data/skills.yml` | The research-topic and software chips |
+| `_data/publications.yml` | Selected publications, each with a DOI link |
+| `_data/about.yml` | Education, community service, languages and side projects |
+| `index.html` | The homepage template (Liquid). It only arranges the data above |
+| `_layouts/default.html` | Page shell: `<head>`, fonts, stylesheet and script |
+| `_includes/cipher.txt` | The hex texture behind the hero |
+| `assets/site.css`, `assets/site.js` | Styles and the interactive bits |
+| `brussels/` | The Brussels walking tour, a standalone page |
+| `_config.yml` | Jekyll settings |
+| `.github/workflows/check.yml` | Builds every pull request to catch mistakes before they go live |
+| `.github/pull_request_template.md` | The Description / Solution / Test outline every pull request starts from |
 
-1. On GitHub, create a public repository named `abdelrahamanaly.github.io`. It must match your username exactly.
-2. Push this folder to it:
+The site is built with [Jekyll](https://jekyllrb.com/), the engine GitHub Pages runs natively. There is no build step to maintain: GitHub rebuilds the site after every merge to `main`.
 
-```bash
-cd ~/Documents/CV/website
-git init -b main
-git add index.html .nojekyll README.md brussels/
-git commit -m "Personal site"
-git remote add origin git@github.com:abdelrahamanaly/abdelrahamanaly.github.io.git
-git push -u origin main
+## Editing
+
+Almost every change is a YAML edit in `_data/`; the templates rarely need touching.
+
+1. Open the YAML file on GitHub and click the pencil icon.
+2. Make the change, choose **Create a new branch** and open a pull request.
+3. The **Check site build** job runs. A green check means the site builds.
+4. Merge. The live site updates within about a minute.
+
+`main` is protected, so every change goes through a pull request.
+
+Examples:
+
+```yaml
+# _data/publications.yml: add a paper at the top
+- year: 2026
+  title: A New Paper
+  authors: Aly A., Coauthor B.
+  venue: Conference
+  url: https://doi.org/10.xxxx/xxxxx
 ```
 
-3. In the repository, go to Settings → Pages. Under Source, choose "Deploy from a branch", then `main` and `/ (root)`.
-4. After a minute the site is live at https://abdelrahamanaly.github.io.
+```yaml
+# _data/about.yml: add a talk or a committee
+community:
+  - Program committee, Some Conference 2026.
+```
 
-To update the site, run `node make.js` in `../src`, then commit and push `index.html` again.
+YAML tips: indent with spaces, never tabs. Wrap text in quotes when it contains a colon (`:`) or starts with a special character.
+
+## Previewing locally
+
+```bash
+bundle install
+bundle exec jekyll serve
+```
+
+Then open http://localhost:4000. This needs Ruby and Bundler. The Gemfile pins the same versions GitHub Pages uses.
 
 ## Easter eggs
-- The orange bar in the tagline reveals the hidden words on hover or tap.
-- The "encrypt this page" button, or the `E` key, scrambles every word into hex and back.
-- The secret-sharing toy in section 05 splits a number into three additive shares mod 1000.
+
+- The orange bar in the tagline hides a few words until you hover over it or tap it.
+- **encrypt this page**, or the `E` key, scrambles every word into hex and back.
+- Section 05 has a secret-sharing toy: it splits a number into three additive shares modulo the prime 2⁶¹ − 1 or the ring ℤ/2⁶⁴, each uniformly random on its own.
+
+## Licence
+
+The code (templates, CSS, JavaScript) may be reused under the MIT licence. The text, the Brussels tour and other content are © Abdelrahaman Aly.

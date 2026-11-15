@@ -1,0 +1,56 @@
+# Who you are, the hero, the numbers strip and the contact section.
+# Text is plain: no HTML. Fields ending in _em are shown with the mint highlight.
+
+name: Abdelrahaman Aly
+short_name: Abdel
+author_name: "Aly A."          # bolded in the publication list
+title: Cryptographer and researcher
+kicker: [Applied cryptography, Privacy-enhancing technologies, MPC, FHE, Privacy-preserving ML]
+
+# The tagline. The middle part sits under the orange bar until hovered.
+tagline:
+  before: "I build systems that compute on data"
+  redacted: "nobody is allowed"
+  after: "to see."
+tagline_hint: "// hover the orange bar. it's fine, you're allowed."
+
+route: [Quito, Louvain-la-Neuve, Leuven, Brussels, Abu Dhabi]
+note: "Based in Abu Dhabi; previously Belgium and Ecuador."
+
+links:
+  email: abdelrahaman.aly@gmail.com
+  scholar: https://scholar.google.com/citations?user=FDfDueMAAAAJ&hl=en
+  github: https://github.com/abdelrahamanaly
+
+numbers:
+  - value: "18"
+    label: years in applied cryptography
+  - value: "1,300+"
+    label: citations
+  - value: "15"
+    label: h-index
+  - value: "9"
+    label: conferences as program chair or committee member
+
+# Scrolls under the numbers. Keep the count above in sync.
+venues: [Latincrypt (Program Chair), ACM CCS, USENIX Security, ESORICS, PoPETs, ACM AsiaCCS, CT-RSA, IEEE SaTML, IWEP]
+
+about:
+  heading: "Papers in,"
+  heading_em: "software out."
+  text: >-
+    I work on making secure computation practical: protocols that let several parties compute on
+    data none of them can see, and the software that runs them. My PhD at UCLouvain applied MPC to
+    auctions, graphs and electricity markets. As a postdoc at COSIC, KU Leuven, with Bart Preneel and
+    Nigel Smart, I was one of the maintainers of the SCALE-MAMBA framework. In between I worked in
+    industry: software for financial-data providers in Quito, software design for banks at Accenture,
+    and cryptographic engineering at KBC. Today I am part of the PETs team at TII's Cryptography
+    Research Centre, where we research, design and develop applied privacy-enhancing technologies.
+    My own work is mostly applied MPC, and to some extent FHE, much of it put to use in
+    privacy-preserving machine learning.
+
+contact:
+  heading: "Say hello."
+  text: "Always glad to hear from fellow researchers and students: questions about a paper, MPC or FHE, or an idea worth trying."
+
+footer: "this page is not encrypted. mostly. press"

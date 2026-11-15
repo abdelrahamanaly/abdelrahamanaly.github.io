@@ -1,0 +1,13 @@
+# Research topics and software, grouped. Shown as chips in section 04.
+
+- group: Research topics
+  items: [Secure multi-party computation, "Homomorphic encryption (CKKS, BFV)", Secret sharing, Garbled circuits, Private set intersection, Threshold cryptography, Post-quantum cryptography]
+
+- group: Privacy-preserving ML
+  items: [Private training, Federated learning, Secure aggregation, Differential privacy, Private LLM inference, Encrypted neural-network inference]
+
+- group: From industry
+  items: [Payments cryptography, HSMs and PKI, Key management, MPC for fraud detection]
+
+- group: Software I've worked with
+  items: [SCALE-MAMBA, MP-SPDZ, FANNG-MPC, CrypTen, OpenFHE, Microsoft SEAL, HEaaN, Flower]
