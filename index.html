@@ -97,11 +97,29 @@ layout: default
       <div class="skillgroup"><h3>{{ g.group | escape }}</h3>{% if g.note %}<p class="groupnote">{{ g.note | escape }}</p>{% endif %}<div class="chips">{% for i in g.items %}<span>{{ i | escape }}</span>{% endfor %}</div></div>
       {%- endfor %}
     </div>
+    {%- if site.data.stack.size > 0 %}
+    <div class="stack">
+      <div class="stack-h">
+        <h3>The stack I've worked across</h3>
+        <p>From the HSM up to private ML. Each layer names a few of the tools I have used in research and in production; there are many more.</p>
+      </div>
+      <ol class="layers">
+        {%- for l in site.data.stack %}
+        <li style="--i:{{ forloop.index0 }}">
+          <span class="lnum">L{{ forloop.length | minus: forloop.index0 }}</span>
+          <div class="lname"><b>{{ l.layer | escape }}</b>{% if l.what %}<span>{{ l.what | escape }}</span>{% endif %}</div>
+          <div class="ltools">{% for t in l.tools %}{% if t.url %}<a href="{{ t.url }}" target="_blank" rel="noopener">{{ t.name | escape }} <i aria-hidden="true">↗</i></a>{% else %}<span>{{ t.name | escape }}</span>{% endif %}{% endfor %}</div>
+        </li>
+        {%- endfor %}
+      </ol>
+      <p class="stack-foot">Held to the standards industry runs on: <a href="https://csrc.nist.gov/projects/cryptographic-module-validation-program" target="_blank" rel="noopener">NIST FIPS 140</a>, PKCS and IETF RFCs, and built with crypto-agility in mind.</p>
+    </div>
+    {%- endif %}
   </section>
 
   <section id="play">
     <div class="label">05 / play</div>
-    <h2>Try <em>secret sharing</em></h2>
+    <h2>Let's play around with <em>secret sharing</em></h2>
     <div class="toy">
       <div>
         <h3>Split a secret into three shares.</h3>

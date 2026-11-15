@@ -11,7 +11,8 @@ The personal website of **Abdelrahaman (Abdel) Aly**: applied cryptography and p
 | `_data/profile.yml` | Name, tagline, links, the numbers strip, the program-committee ticker, about and contact text |
 | `_data/highlights.yml` | The "Work, then and now" cards |
 | `_data/experience.yml` | The career timeline |
-| `_data/skills.yml` | The research-topic, industry and software chips |
+| `_data/skills.yml` | The research-topic chips |
+| `_data/stack.yml` | "The stack I've worked across": layers from private ML down to the keys, with linked tools |
 | `_data/resources.yml` | "Tools I find useful" (section 07): a small terminal with one tab per step (learn → build → publish) |
 | `_data/publications.yml` | Selected publications, each with a DOI link |
 | `_data/about.yml` | Education, community service, languages and side projects |

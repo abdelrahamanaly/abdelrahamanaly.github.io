@@ -151,6 +151,31 @@ a.card.side { display: block; text-decoration: none; color: inherit; }
 .pubs u { text-decoration: none; color: var(--ink); font-weight: 700; }
 .pubs .venue { font: 600 12px "JetBrains Mono", monospace; color: var(--teal); background: var(--mint-tint); padding: 1px 7px; border-radius: 5px; margin-left: 4px; white-space: nowrap; }
 .more { margin-top: 18px; }
+/* The stack: layers from private ML down to the keys, offset like a pile of cards. */
+.stack { margin-top: 44px; }
+.stack-h h3 { font: 600 13px "JetBrains Mono", monospace; color: var(--orange); text-transform: uppercase; margin-bottom: 6px; }
+.stack-h p { color: var(--grey); font-size: 16px; max-width: 62ch; margin-bottom: 18px; }
+.layers { list-style: none; display: grid; gap: 8px; }
+.layers li { display: grid; grid-template-columns: 44px minmax(220px, 1fr) 2fr; align-items: center; gap: 16px; padding: 14px 18px; margin-left: calc(var(--i) * 14px);
+  background: var(--card); border: 2px solid var(--ink); border-radius: 12px; box-shadow: 4px 4px 0 var(--mint); transition: transform .15s, box-shadow .15s; }
+.layers li:hover { transform: translate(-3px, -3px); box-shadow: 7px 7px 0 var(--orange); }
+.layers li:last-child { background: var(--navy); color: #fff; border-color: var(--navy); }
+.layers li:last-child .lname span { color: #9fb3c2; }
+.layers li:last-child .ltools span { background: var(--navy-2); color: #fff; border-color: #3d5566; }
+.lnum { font: 700 14px "JetBrains Mono", monospace; color: var(--orange); }
+.lname b { display: block; font-size: 18px; font-weight: 800; }
+.lname span { color: var(--grey); font-size: 14px; }
+.ltools { display: flex; flex-wrap: wrap; gap: 8px; justify-content: flex-end; }
+.ltools a, .ltools span { font: 600 13px "JetBrains Mono", monospace; padding: 6px 11px; border-radius: 8px; border: 1.5px solid var(--mint-line); background: var(--mint-tint); color: var(--ink); text-decoration: none; }
+.ltools a i { color: var(--teal); font-style: normal; }
+.ltools a:hover { background: var(--mint); border-color: var(--mint); color: var(--navy); }
+.stack-foot { margin-top: 18px; color: var(--grey); font-size: 15px; }
+.stack-foot a { color: var(--teal); font-weight: 700; }
+@media (max-width: 860px) {
+  .layers li { grid-template-columns: 34px 1fr; margin: 0; }
+  .ltools { grid-column: 1 / -1; justify-content: flex-start; }
+}
+
 .groupnote { color: var(--grey); font-size: 15px; margin: -4px 0 10px; }
 
 /* Tools: a small terminal. Every step is visible without JavaScript; site.js adds the tabs. */

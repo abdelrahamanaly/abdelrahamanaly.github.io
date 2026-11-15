@@ -1,4 +1,5 @@
-# Research topics and software, grouped. Shown as chips in section 04.
+# Research topics, grouped. Shown as chips in section 04.
+# The tools are in _data/stack.yml.
 # A group may have an optional "note:", a short line shown under its heading.
 
 - group: Research topics
@@ -6,10 +7,3 @@
 
 - group: Privacy-preserving ML
   items: [Private training, Federated learning, Secure aggregation, Differential privacy, Private LLM inference, Encrypted neural-network inference]
-
-- group: From industry
-  items: [Payments cryptography, HSMs and PKI, Key management and ceremonies, Crypto-agility, "Standards-compliant crypto: FIPS, PKCS, IETF", MPC for fraud detection]
-
-- group: Software, a sample
-  note: From open-source research frameworks to industry libraries and commercial systems.
-  items: [SCALE-MAMBA, MP-SPDZ, FANNG-MPC, CrypTen, OpenFHE, Microsoft SEAL, HEaaN, Flower, Bouncy Castle, Java security providers (JCA/JCE), Python cryptographic libraries, Commercial software for banks and financial data, and many more]
