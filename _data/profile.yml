@@ -45,9 +45,9 @@ about:
     Nigel Smart, I was one of the maintainers of the SCALE-MAMBA framework. In between I worked in
     industry: software for financial-data providers in Quito, software design for banks at Accenture,
     and cryptographic engineering at KBC. Today I am part of the PETs team at TII's Cryptography
-    Research Centre, where we research, design and develop applied privacy-enhancing technologies:
-    ways to use data without exposing it, from secure computation and homomorphic encryption to
-    private machine learning.
+    Research Centre, where we research, design and develop applied privacy-enhancing technologies.
+    My own work is mostly applied MPC, and to some extent FHE, much of it put to use in
+    privacy-preserving machine learning.
 
 contact:
   heading: "Say hello."
