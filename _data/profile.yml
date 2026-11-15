@@ -45,8 +45,8 @@ about:
     Nigel Smart, I was one of the maintainers of the SCALE-MAMBA framework. In between I worked in
     industry: software for financial-data providers in Quito, software design for banks at Accenture,
     and cryptographic engineering at KBC, where I worked on the Apple Pay integration and HSM and PKI
-    key management. Today I lead the MPC and FHE work at TII's Cryptography Research Centre,
-    building and designing LLM inference on encrypted data.
+    key management. Today I am one of the leads for MPC and FHE at TII's Cryptography Research
+    Centre, building and designing LLM inference on encrypted data.
 
 contact:
   heading: "Say hello."
