@@ -67,7 +67,7 @@ Then open http://localhost:4000. This needs Ruby and Bundler. The Gemfile pins t
 
 - The orange bar in the tagline hides a few words until you hover over it or tap it.
 - **encrypt this page**, or the `E` key, scrambles every word into hex and back.
-- Section 05 has a secret-sharing toy: it splits a number into three additive shares modulo the prime 1009 or the ring ℤ/2¹⁰, each uniformly random on its own.
+- Section 05 has a secret-sharing toy: it splits a number into three additive shares modulo the prime 2⁶¹ − 1 or the ring ℤ/2⁶⁴, each uniformly random on its own.
 
 ## Licence
 
