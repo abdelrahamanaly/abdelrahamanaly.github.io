@@ -30,5 +30,10 @@ side_projects:
   - title: A walk through the heart of Brussels
     url: brussels/
     where: Brussels · walking tour
-    button: "🧇 Brussels walk"
+    button: "Brussels walk"
     text: "A curated route from Brussels-Central to the Grand-Place, the European Quarter and Mont des Arts: history, Horta's Art Nouveau and Art Deco, and frites along the way."
+  - title: Meet Piglet
+    url: piglet/
+    where: Piglet · labradoodle
+    button: "🐾 Meet Piglet"
+    text: "The tricks a curly black labradoodle knows, how we taught them, and tips for life with a doodle."

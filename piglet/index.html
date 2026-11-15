@@ -1,0 +1,275 @@
+---
+# Front matter so Jekyll fills in the sections from _data/piglet.yml. No layout: the page has its own <head>.
+layout: null
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Piglet · tricks and tips from a labradoodle</title>
+<meta name="description" content="Piglet the labradoodle: the tricks he knows, how we taught them, and tips for life with a curly dog.">
+<meta property="og:title" content="Piglet · tricks and tips from a labradoodle">
+<meta property="og:image" content="{{ site.url }}/assets/piglet.jpg">
+<link rel="icon" href="../favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Albert+Sans:wght@400;600;800;900&family=JetBrains+Mono:wght@600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#233746; --mint:#7eddd3; --mint-line:#c9ece8; --orange:#ff5622;
+    --ink:#1f2a33; --grey:#5b6b78; --bg:#fbfaf7; --card:#ffffff;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){ --bg:#121c24; --card:#1b2934; --ink:#e6edf2; --grey:#9fb0bd; --mint-line:#2c4757; }
+  }
+  :root[data-theme="dark"]{ --bg:#121c24; --card:#1b2934; --ink:#e6edf2; --grey:#9fb0bd; --mint-line:#2c4757; }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;color:var(--ink);background:var(--bg);font:17px/1.65 "Albert Sans",system-ui,sans-serif;overflow-x:hidden}
+  a{color:inherit}
+  .wrap{width:min(1080px, calc(100% - 32px));margin-inline:auto}
+  .site-nav{position:sticky;top:0;z-index:10;background:color-mix(in srgb, var(--navy) 92%, transparent);backdrop-filter:blur(8px);color:#fff}
+  .site-nav .wrap{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:12px 0}
+  .logo{font:600 15px "JetBrains Mono",monospace;color:var(--mint);text-decoration:none}
+  .logo i{font-style:normal;color:var(--orange)}
+  .home{font:600 13px "JetBrains Mono",monospace;text-decoration:none;border:2px solid var(--mint);border-radius:999px;padding:6px 14px}
+  .home:hover{background:var(--mint);color:var(--navy)}
+  header{background:var(--navy);color:#fff;padding:56px 0 64px}
+  header .wrap{display:grid;grid-template-columns:1fr 1.1fr;gap:40px;align-items:center}
+  .eyebrow{display:inline-block;padding:7px 12px;border:1.5px solid var(--mint);border-radius:999px;color:var(--mint);font:600 12px "JetBrains Mono",monospace;text-transform:uppercase;letter-spacing:.3px}
+  h1{margin:16px 0 12px;font-size:clamp(2.6rem,7vw,4.6rem);line-height:.95;font-weight:900;letter-spacing:-2px}
+  h1 em{font-style:normal;color:var(--orange)}
+  .hero-copy{margin:0;color:#dbe6ea;max-width:46ch}
+  .photo{position:relative;margin:0}
+  .photo img{display:block;width:100%;height:auto;border-radius:16px;border:3px solid #fff;box-shadow:10px 10px 0 var(--orange);transform:rotate(1.2deg);transition:transform .3s}
+  .photo img:hover{transform:rotate(-1deg) scale(1.01)}
+  .photo figcaption{position:absolute;left:-12px;bottom:18px;background:var(--mint);color:var(--navy);font:600 12px "JetBrains Mono",monospace;padding:6px 12px;border-radius:999px;transform:rotate(-4deg)}
+  main{padding:48px 0 24px}
+  .section{background:var(--card);border:2px solid var(--ink);border-radius:14px;padding:28px 30px;box-shadow:8px 8px 0 var(--mint);margin:0 0 30px}
+  .section:nth-child(even){box-shadow:8px 8px 0 var(--orange)}
+  .kicker{color:var(--orange);font:600 12px "JetBrains Mono",monospace;text-transform:uppercase;letter-spacing:.3px}
+  .section h2{margin:4px 0 4px;font-size:clamp(1.6rem,4vw,2.2rem);font-weight:900;letter-spacing:-.5px}
+  .section .intro{margin:0 0 18px;color:var(--grey)}
+  .cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,240px),1fr));gap:16px}
+  .card{border:2px solid var(--mint-line);border-radius:12px;padding:16px 18px;transition:transform .15s,border-color .15s}
+  .card:hover{transform:translate(-2px,-2px) rotate(-.5deg);border-color:var(--orange)}
+  .card h3{margin:0 0 4px;font-size:1.1rem}
+  .card p{margin:0;color:var(--grey);font-size:.95rem}
+  .tag{display:inline-block;margin-bottom:6px;font:600 11px "JetBrains Mono",monospace;background:var(--navy);color:var(--mint);border-radius:999px;padding:3px 9px}
+  .soon{margin:0;padding:12px 16px;border:2px dashed var(--orange);border-radius:10px;color:var(--grey);font-style:italic}
+  .soon::before{content:"🐾 ";font-style:normal}
+  footer{padding:8px 0 48px;color:var(--grey);font-size:.95rem}
+  @media (max-width:860px){header .wrap{grid-template-columns:1fr}.photo{order:-1}.section{padding:22px 20px}}
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.photo img,.card{transition:none}}
+  .section h2 em{font-style:normal;color:var(--orange)}
+  .jump{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 28px}
+  .jump a{text-decoration:none;font:600 13px "JetBrains Mono",monospace;border:2px solid var(--ink);border-radius:999px;padding:6px 14px;background:var(--card);transition:transform .15s}
+  .jump a:hover{transform:translateY(-2px) rotate(-2deg);border-color:var(--orange)}
+  .chips{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 18px}
+  .chip{font:600 12px "JetBrains Mono",monospace;border:2px solid var(--mint-line);background:transparent;color:var(--ink);border-radius:999px;padding:6px 12px;cursor:pointer}
+  .chip.on{background:var(--navy);border-color:var(--navy);color:var(--mint)}
+  .acts{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,230px),1fr));gap:16px}
+  .act[hidden]{display:none}
+  .act-inner{all:unset;display:block;width:100%;height:210px;perspective:900px;cursor:pointer}
+  .act-inner:focus-visible{outline:3px solid var(--orange);outline-offset:4px;border-radius:12px}
+  .face{position:absolute;inset:0;display:flex;flex-direction:column;gap:6px;padding:18px;border-radius:12px;border:2px solid var(--ink);-webkit-backface-visibility:hidden;backface-visibility:hidden;transition:transform .5s;box-sizing:border-box}
+  .act-inner{position:relative}
+  .front{background:repeating-linear-gradient(135deg,var(--card) 0 14px,color-mix(in srgb,var(--orange) 7%,var(--card)) 14px 28px)}
+  .back{background:var(--navy);color:#fff;transform:rotateY(180deg)}
+  .act-inner[aria-pressed="true"] .front{transform:rotateY(-180deg)}
+  .act-inner[aria-pressed="true"] .back{transform:rotateY(0)}
+  .act-no{font:600 11px "JetBrains Mono",monospace;text-transform:uppercase;color:var(--orange);letter-spacing:.5px}
+  .act-title{font-weight:900;font-size:1.3rem;line-height:1.15}
+  .stars{color:var(--orange);font-size:1.1rem;letter-spacing:2px}
+  .props{font:600 11px "JetBrains Mono",monospace;color:var(--grey)}
+  .back .props{color:var(--mint)}
+  .how{font-size:.95rem;color:#dbe6ea;overflow:auto}
+  .hint{margin-top:auto;font:600 11px "JetBrains Mono",monospace;color:var(--grey)}
+  .treeview ul{list-style:none;margin:0;padding-left:26px;border-left:2px dashed var(--mint-line)}
+  .treeview>ul{padding-left:0;border:0}
+  .treeview li{position:relative;margin:10px 0}
+  .treeview ul ul li::before{content:"";position:absolute;left:-26px;top:16px;width:20px;border-top:2px dashed var(--mint-line)}
+  .node{display:inline-flex;align-items:center;gap:8px;border:2px solid var(--ink);border-radius:999px;padding:4px 14px;background:var(--card);font-weight:800}
+  .node small{color:var(--orange);font-size:.8rem;letter-spacing:1px}
+  .calc-row{display:flex;flex-wrap:wrap;align-items:center;gap:10px 12px;margin:0 0 18px}
+  .calc-row label{font:600 13px "JetBrains Mono",monospace}
+  #kg{width:96px;font:800 1.2rem "Albert Sans",sans-serif;padding:6px 10px;border:2px solid var(--ink);border-radius:10px;background:var(--card);color:var(--ink)}
+  #kg-range{flex:1;min-width:160px;accent-color:var(--orange)}
+  .readout{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+  .readout div{border:2px solid var(--mint-line);border-radius:12px;padding:12px 14px}
+  .readout .treat{border-color:var(--orange)}
+  .big{display:block;font-weight:900;font-size:clamp(1.6rem,4vw,2.3rem);line-height:1}
+  .treat .big{color:var(--orange)}
+  .lbl{font:600 11px "JetBrains Mono",monospace;color:var(--grey)}
+  .bowl{margin:16px 0 0;height:14px;border-radius:999px;background:var(--mint-line);overflow:hidden}
+  .bowl span{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--mint) 90%,var(--orange) 90%);transition:width .4s}
+  .fine{margin:10px 0 0;font-size:.85rem;color:var(--grey)}
+  @media (max-width:560px){.readout{grid-template-columns:1fr}}
+  @media (prefers-reduced-motion:reduce){.face,.bowl span{transition:none}}
+</style>
+</head>
+<body>
+<nav class="site-nav"><div class="wrap"><a class="logo" href="../">abdel<i>⊕</i>aly</a><a class="home" href="../">← back to the homepage</a></div></nav>
+<header>
+  <div class="wrap">
+    <div>
+      <div class="eyebrow">Labradoodle · Acrobatics + Kitchen</div>
+      <h1>Meet <em>Piglet.</em></h1>
+      <p class="hero-copy">
+        Curly, black and secretly an acrobat. Come for the circus of tricks he knows and how we taught them,
+        stay for the kitchen: what goes in the bowl of a happy doodle, and a calculator to check the treats.
+      </p>
+    </div>
+    <figure class="photo">
+      <img src="../assets/piglet.jpg" alt="Piglet, a black curly labradoodle with a tartan collar, paws on a blue cushion, tongue out" width="1400" height="999">
+      <figcaption>Piglet, head of treats</figcaption>
+    </figure>
+  </div>
+</header>
+
+<main class="wrap">
+  {%- assign pg = site.data.piglet %}
+  <nav class="jump" aria-label="On this page"><a href="#circus">🎪 Circus</a><a href="#tree">🌳 Trick tree</a><a href="#kitchen">🥣 Kitchen</a><a href="#calc">🧮 Treat calculator</a></nav>
+
+  {%- assign acts = pg.circus.acts %}
+  <section class="section" id="circus">
+    <div class="kicker">01 · Tonight only</div>
+    <h2>The Piglet <em>Circus</em></h2>
+    {%- if pg.circus.intro %}<p class="intro">{{ pg.circus.intro }}</p>{% endif %}
+    {%- if acts and acts.size > 0 %}
+    <div class="chips" role="group" aria-label="Filter by level">
+      <button class="chip on" data-level="all">All acts</button>
+      <button class="chip" data-level="1">★ Beginner</button>
+      <button class="chip" data-level="2">★★ Getting fancy</button>
+      <button class="chip" data-level="3">★★★ Show-off</button>
+    </div>
+    <ol class="acts">
+      {%- for a in acts %}
+      {%- assign lv = a.level | default: 1 %}
+      <li class="act" data-level="{{ lv }}">
+        <button class="act-inner" aria-pressed="false">
+          <span class="face front">
+            <span class="act-no">Act {{ forloop.index }}</span>
+            <span class="act-title">{{ a.title }}</span>
+            <span class="stars" aria-label="{{ lv }} of 3 stars">{% for i in (1..3) %}{% if i <= lv %}★{% else %}☆{% endif %}{% endfor %}</span>
+            {%- if a.props %}<span class="props">props: {{ a.props }}</span>{% endif %}
+            <span class="hint">tap to see how ↻</span>
+          </span>
+          <span class="face back">
+            <span class="act-title">How we taught it</span>
+            <span class="how">{{ a.how | default: "Piglet is keeping this one secret." }}</span>
+            {%- if a.builds_on %}<span class="props">builds on: {{ a.builds_on }}</span>{% endif %}
+          </span>
+        </button>
+      </li>
+      {%- endfor %}
+    </ol>
+    {%- else %}
+    <p class="soon">{{ pg.circus.soon }}</p>
+    {%- endif %}
+  </section>
+
+  <section class="section" id="tree">
+    <div class="kicker">02 · Small steps, stacked</div>
+    <h2>The trick <em>tree</em></h2>
+    {%- if pg.tree.intro %}<p class="intro">{{ pg.tree.intro }}</p>{% endif %}
+    <div id="treeview" class="treeview"></div>
+    <p class="soon" id="tree-soon">{{ pg.tree.soon }}</p>
+    <script type="application/json" id="acts-data">{{ acts | jsonify }}</script>
+  </section>
+
+  {%- assign tips = pg.kitchen.tips %}
+  <section class="section" id="kitchen">
+    <div class="kicker">03 · From the bowl</div>
+    <h2>Piglet's <em>kitchen</em></h2>
+    {%- if pg.kitchen.intro %}<p class="intro">{{ pg.kitchen.intro }}</p>{% endif %}
+    {%- if tips and tips.size > 0 %}
+    <div class="cards">
+      {%- for t in tips %}
+      <div class="card">
+        {%- if t.tag %}<span class="tag">{{ t.tag }}</span>{% endif %}
+        <h3>{{ t.title }}</h3>
+        <p>{{ t.tip }}</p>
+      </div>
+      {%- endfor %}
+    </div>
+    {%- else %}
+    <p class="soon">{{ pg.kitchen.soon }}</p>
+    {%- endif %}
+  </section>
+
+  <section class="section calc" id="calc">
+    <div class="kicker">04 · Play with it</div>
+    <h2>How many treats <em>today?</em></h2>
+    <p class="intro">Enter a dog's weight. The resting energy estimate vets use is 70 × weight<sup>0.75</sup> kcal a day; a typical adult needs about 1.6 times that, and treats should stay under 10% of the total.</p>
+    <div class="calc-row">
+      <label for="kg">Weight</label>
+      <input id="kg" type="number" min="1" max="100" step="0.5" inputmode="decimal" value="{{ pg.calculator.weight_kg }}" placeholder="e.g. 20">
+      <span class="unit">kg</span>
+      <input id="kg-range" type="range" min="1" max="60" step="0.5" value="{{ pg.calculator.weight_kg | default: 20 }}" aria-label="Weight slider">
+    </div>
+    <div class="readout" aria-live="polite">
+      <div><span class="big" id="rer">–</span><span class="lbl">kcal at rest</span></div>
+      <div><span class="big" id="day">–</span><span class="lbl">kcal a typical day</span></div>
+      <div class="treat"><span class="big" id="treats">–</span><span class="lbl">kcal of treats, max</span></div>
+    </div>
+    <div class="bowl" aria-hidden="true"><span id="bowl-fill"></span></div>
+    <p class="fine">A rough guide for healthy adult dogs. Puppies, seniors, very active or neutered dogs differ; your vet knows best.</p>
+  </section>
+</main>
+<footer class="wrap"><p>A side quest by <a href="../">Abdel Aly</a>, supervised by Piglet.</p></footer>
+<script>
+(function () {
+  // Circus: flip cards and filter by level.
+  document.querySelectorAll(".act-inner").forEach(function (b) {
+    b.addEventListener("click", function () { b.setAttribute("aria-pressed", b.getAttribute("aria-pressed") === "true" ? "false" : "true"); });
+  });
+  document.querySelectorAll(".chip").forEach(function (c) {
+    c.addEventListener("click", function () {
+      document.querySelectorAll(".chip").forEach(function (x) { x.classList.toggle("on", x === c); });
+      document.querySelectorAll(".act").forEach(function (a) { a.hidden = c.dataset.level !== "all" && a.dataset.level !== c.dataset.level; });
+    });
+  });
+
+  // Trick tree: drawn from each act's "builds_on".
+  var acts = [];
+  try { acts = JSON.parse(document.getElementById("acts-data").textContent) || []; } catch (e) {}
+  var titles = acts.map(function (a) { return a.title; });
+  var linked = acts.some(function (a) { return a.builds_on && titles.indexOf(a.builds_on) >= 0; });
+  if (linked) {
+    var kids = function (parent) { return acts.filter(function (a) { return a.builds_on === parent; }); };
+    var stars = function (n) { return "★★★".slice(0, n || 1); };
+    var build = function (list) {
+      var ul = document.createElement("ul");
+      list.forEach(function (a) {
+        var li = document.createElement("li"), n = document.createElement("span");
+        n.className = "node"; n.textContent = a.title + " ";
+        var s = document.createElement("small"); s.textContent = stars(a.level); n.appendChild(s);
+        li.appendChild(n);
+        var k = kids(a.title); if (k.length) li.appendChild(build(k));
+        ul.appendChild(li);
+      });
+      return ul;
+    };
+    var roots = acts.filter(function (a) { return !a.builds_on || titles.indexOf(a.builds_on) < 0; });
+    document.getElementById("treeview").appendChild(build(roots));
+    document.getElementById("tree-soon").hidden = true;
+  }
+
+  // Treat calculator: RER = 70 × kg^0.75; typical adult ≈ 1.6 × RER; treats ≤ 10%.
+  var kg = document.getElementById("kg"), range = document.getElementById("kg-range");
+  var out = function (id, v) { document.getElementById(id).textContent = v; };
+  var calc = function () {
+    var w = parseFloat(kg.value);
+    if (!(w > 0 && w <= 100)) { ["rer", "day", "treats"].forEach(function (id) { out(id, "–"); }); document.getElementById("bowl-fill").style.width = "0"; return; }
+    var rer = 70 * Math.pow(w, 0.75), day = rer * 1.6;
+    out("rer", Math.round(rer)); out("day", Math.round(day)); out("treats", Math.round(day * 0.1));
+    document.getElementById("bowl-fill").style.width = Math.min(100, day / 25) + "%";
+  };
+  kg.addEventListener("input", function () { if (kg.value) range.value = kg.value; calc(); });
+  range.addEventListener("input", function () { kg.value = range.value; calc(); });
+  calc();
+})();
+</script>
+</body>
+</html>
