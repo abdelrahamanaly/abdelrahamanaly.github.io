@@ -8,7 +8,7 @@ The personal website of **Abdelrahaman (Abdel) Aly**: applied cryptography and p
 
 | Path | What it is |
 |---|---|
-| `_data/profile.yml` | Name, tagline, links, the numbers strip, the program-committee ticker, about and contact text |
+| `_data/profile.yml` | Name, tagline, links (email, Scholar, GitHub, LinkedIn), the numbers strip, the program-committee ticker, about and contact text |
 | `_data/highlights.yml` | The "Work, then and now" cards |
 | `_data/experience.yml` | The career timeline |
 | `_data/skills.yml` | The research-topic chips |
@@ -21,7 +21,8 @@ The personal website of **Abdelrahaman (Abdel) Aly**: applied cryptography and p
 | `_includes/cipher.txt` | The hex texture behind the hero |
 | `assets/site.css`, `assets/site.js` | Styles and the interactive bits |
 | `brussels/` | The Brussels walking tour, a standalone page |
-| `_config.yml` | Jekyll settings, plus the search and LinkedIn settings: `google_site_verification`, `linkedin`, `og_image` |
+| `_data/food.yml` | The tour's food menu, "Brussels, by the mouthful": courses of places, each linked to Google Maps and the nearest stop |
+| `_config.yml` | Jekyll settings, plus the search and link-preview settings: `google_site_verification`, `og_image` |
 | `.github/workflows/check.yml` | Builds every pull request to catch mistakes before they go live |
 | `.github/pull_request_template.md` | The Description / Solution / Test outline every pull request starts from |
 
@@ -76,6 +77,16 @@ community:
       by: Who made it            # optional
       url: https://example.org/
       note: One sentence on why it is useful.   # optional
+```
+
+```yaml
+# _data/food.yml: add a place to the Brussels food menu
+- course: A drink with a view
+  places:
+    - name: Name of the place
+      maps: Name of the place, street, Brussels   # optional: the Google Maps search
+      stop: 15                                    # optional: nearest stop; leave out for "anytime"
+      note: One sentence on why to go.
 ```
 
 To add a step, copy a whole `- step:` block; it gets its own tab, in file order. The section disappears if the file is empty.
