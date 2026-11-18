@@ -62,3 +62,8 @@
       by: Jianying Zhou
       url: http://jianying.space/conference-ranking.html
       note: Security and cryptography venues ranked by a yearly conference impact factor.
+    - title: Papercrypt
+      kind: venue
+      by: Fernando Virdia, Lenka Mareková et al.
+      url: https://papercrypt.indcpa.com/submissions/
+      note: "Cryptography, the analogue way: handwrite your proof on A5, seal it in an envelope, and wait for peer review. The only venue whose side channel is the postman. Pseudonyms welcome."
