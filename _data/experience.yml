@@ -10,7 +10,7 @@
   org: KBC Group, Belgium's second-largest bank
   place: Brussels, Belgium
   dates: Apr 2019 – Jan 2021
-  summary: "Cryptographic engineering for the bank's systems: payments, key management and a privacy-preserving fraud-detection prototype."
+  summary: "Classical cryptography for the bank's systems: planning, assessment and design for crypto-agility and the post-quantum transition, payments (Apple Pay), and key management on HSMs and PKI."
 
 - title: Senior Researcher, Applied Cryptography (affiliated until 2022)
   org: imec-COSIC, KU Leuven
