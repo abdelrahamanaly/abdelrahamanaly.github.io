@@ -1,0 +1,45 @@
+# Piglet's page (/piglet/). Four parts, each filled in from this file.
+# Wrap text in quotes when it contains a colon (:). Indent with spaces, never tabs.
+# Until a part has entries, its "soon:" line is shown in a "still to come" box.
+
+# ── 1. The Piglet Circus: one card ("act") per trick ─────────────────────────
+#   title:      the trick
+#   level:      1, 2 or 3 stars (1 = beginner, 3 = show-off)
+#   props:      optional; what you need: "nothing", "a cushion", "a hoop"
+#   builds_on:  optional; the title of the trick it builds on. This draws the
+#               trick tree (part 2). Must match another act's title exactly.
+#   how:        how you taught it, shown when the card is flipped
+circus:
+  intro: Tonight only, live from the living room. Tap a card to see how we taught it.
+  soon: Still to come. Piglet is rehearsing.
+  acts:
+  # - title: Sit
+  #   level: 1
+  #   props: nothing
+  #   how: Hold a treat above his nose and move it back; his bottom goes down on its own.
+  # - title: Beg
+  #   level: 2
+  #   builds_on: Sit
+  #   how: From a sit, lift the treat slowly until he sits up on his back legs.
+
+# ── 2. The trick tree is drawn automatically from "builds_on:" above. ────────
+tree:
+  intro: Big acrobatics are small tricks stacked up. To teach one, start from the one below it.
+  soon: The tree grows as tricks with "builds_on:" are added to the circus.
+
+# ── 3. Piglet's kitchen: one card per nutrition tip ──────────────────────────
+#   title:  the tip in a few words
+#   tag:    optional; a short label: "treats", "coat", "hydration", ...
+#   tip:    one or two sentences
+kitchen:
+  intro: What goes in the bowl, and what never should. Every dog is different, so check with your vet.
+  soon: Still to come. The chef is shopping.
+  tips:
+  # - title: Treats are part of the meal
+  #   tag: treats
+  #   tip: Count training treats in the day's food, and use small pieces.
+
+# ── 4. The treat calculator ──────────────────────────────────────────────────
+#   weight_kg:  Piglet's weight, used as the starting value (leave empty to start blank)
+calculator:
+  weight_kg: 18

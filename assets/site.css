@@ -50,6 +50,10 @@ nav .links a:hover { opacity: 1; color: var(--mint); }
 .btn.solid:hover { color: #fff; box-shadow: 4px 4px 0 var(--mint); }
 .btn.tour { position: relative; background: var(--mint); border-color: var(--mint); color: var(--navy); transform: rotate(-3deg); }
 .btn.tour::after { content: "side quest"; position: absolute; top: -11px; right: -16px; font: 700 10px "JetBrains Mono", monospace; background: var(--orange); color: #fff; padding: 2px 7px; border-radius: 99px; transform: rotate(9deg); }
+/* A Brussels waffle is rectangular, not round like the 🧇 emoji: drawn here as a little golden grid. */
+.btn.tour::before { content: ""; display: inline-block; width: 18px; height: 13px; margin-right: 8px; vertical-align: -1px; border-radius: 2px;
+  background: linear-gradient(90deg, transparent 3px, #b8792a 3px 5px, transparent 5px 8px, #b8792a 8px 10px, transparent 10px 13px, #b8792a 13px 15px, transparent 15px) , linear-gradient(transparent 3px, #b8792a 3px 5px, transparent 5px 8px, #b8792a 8px 10px, transparent 10px), #e8b04f;
+  box-shadow: inset 0 0 0 1.5px #b8792a; }
 .btn.tour:hover { background: var(--mint); color: var(--navy); box-shadow: 4px 4px 0 var(--orange); animation: wiggle .5s ease-in-out; }
 @keyframes wiggle { 0%, 100% { transform: rotate(-3deg); } 25% { transform: rotate(4deg); } 50% { transform: rotate(-6deg); } 75% { transform: rotate(2deg); } }
 .stripe { height: 10px; background: linear-gradient(90deg, var(--orange) 0 62%, var(--mint) 62% 100%); }

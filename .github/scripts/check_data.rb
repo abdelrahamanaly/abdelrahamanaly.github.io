@@ -48,6 +48,7 @@ SCHEMA = {
   "stack.yml"        => { list: %w[layer what tools], nested: { "tools" => %w[name] } },
   "skills.yml"       => { list: %w[group items] },
   "food.yml"         => { list: %w[course], nested: { "places" => %w[name note] } },
+  "piglet.yml"       => { keys: %w[circus kitchen] },
   "profile.yml"      => { keys: %w[name title links about contact] },
   "about.yml"        => { keys: %w[education community languages] },
 }
@@ -111,6 +112,28 @@ Dir["_data/*.yml"].sort.each do |path|
     if doc.val.is_a?(Hash) then need(path, doc, rule[:keys], "This file")
     else problem(path, doc.line, "this file should be a set of \"key: value\" lines") end
   end
+  # Piglet's page: acts need a title and a level of 1-3, builds_on must name
+  # another act, and kitchen tips need a title and a tip.
+  if name == "piglet.yml" && doc.val.is_a?(Hash)
+    acts = doc.val["circus"]&.val.is_a?(Hash) ? (doc.val["circus"].val["acts"]&.val || []) : []
+    acts = [] unless acts.is_a?(Array)
+    titles = acts.map { |a| a.val.is_a?(Hash) && a.val["title"] ? a.val["title"].val : nil }.compact
+    acts.each do |a|
+      next problem(path, a.line, "each act should be a block of \"key: value\" lines") unless a.val.is_a?(Hash)
+      need(path, a, %w[title], "This act")
+      lv = a.val["level"]
+      problem(path, lv.line, "level should be 1, 2 or 3 (got #{lv.val})") if lv && !lv.val.nil? && ![1, 2, 3].include?(lv.val)
+      b = a.val["builds_on"]
+      if b && !b.val.nil? && !titles.include?(b.val)
+        problem(path, b.line, "builds_on: \"#{b.val}\" is not the title of any act; it must match exactly")
+      end
+    end
+    tips = doc.val["kitchen"]&.val.is_a?(Hash) ? (doc.val["kitchen"].val["tips"]&.val || []) : []
+    (tips.is_a?(Array) ? tips : []).each do |t|
+      t.val.is_a?(Hash) ? need(path, t, %w[title tip], "This tip") : problem(path, t.line, "each tip should be a block of \"key: value\" lines")
+    end
+  end
+
   next unless rule[:list]
   unless doc.val.is_a?(Array)
     problem(path, doc.line, "this file should be a list, each entry starting with \"- \"") unless blank?(doc)
