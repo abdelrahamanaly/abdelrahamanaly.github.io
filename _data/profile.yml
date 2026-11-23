@@ -51,12 +51,12 @@ about:
       planning, assessment and design of the bank's classical cryptography, its crypto-agility
       and its post-quantum transition.
     - >-
-      Today I am part of TII's PETs team, where we research, design and develop applied
-      privacy-enhancing technologies. My own work is mostly applied MPC, with some FHE,
-      for privacy-preserving machine learning.
+      I am part of TII's PETs team, where we research, design and develop applied
+      privacy-enhancing technologies. Today, I work on R&D for privacy-preserving machine
+      learning and other cryptographic nuggets.
 
 contact:
   heading: "Say hello."
-  text: "Always glad to hear from fellow researchers and students: questions about a paper, MPC or FHE, or an idea worth trying."
+  text: "Always glad to hear from anyone building, researching or studying cryptography, in academia or in tech: a question about MPC or FHE, a paper, or an idea worth trying."
 
 footer: "this page is not encrypted. mostly. press"
