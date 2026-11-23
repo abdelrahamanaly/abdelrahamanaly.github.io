@@ -42,8 +42,8 @@ about:
   # One entry per paragraph.
   paragraphs:
     - >-
-      I make secure computation practical: protocols that let parties compute on data
-      none of them can see, and the software that runs them.
+      I work on cryptography that lets people compute on data they can't see, and on the
+      software that makes it usable.
     - >-
       PhD at UCLouvain, on MPC for auctions, graphs and electricity markets. Postdoc at
       COSIC, KU Leuven, with Bart Preneel and Nigel Smart, as one of the maintainers of
