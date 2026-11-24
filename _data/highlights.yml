@@ -14,4 +14,4 @@
 
 - title: Cryptography for Banking
   where: KBC · 2019–21
-  text: "Cryptographic engineering for production banking systems: the Apple Pay integration, key and certificate lifecycle on HSMs and PKI, and an MPC prototype that looked for fraud in transactions without exposing them."
+  text: "Classical cryptography for production banking systems, and getting it ready for what comes next: planning, assessment and design for crypto-agility and the post-quantum transition, alongside the Apple Pay integration and key and certificate lifecycle on HSMs and PKI."
